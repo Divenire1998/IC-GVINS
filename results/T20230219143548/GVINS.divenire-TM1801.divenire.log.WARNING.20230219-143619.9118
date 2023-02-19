@@ -1,0 +1,9 @@
+Log file created at: 2023/02/19 14:36:19
+Running on machine: divenire-TM1801
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W20230219 14:36:19.348886  9137 misc.cc:223] Do INS mechanization with a long time 1.00643 s
+W20230219 14:36:20.628307  9139 ic_gvins.cc:1735] Reintegration 4 preintegration
+W20230219 14:36:21.032974  9139 ic_gvins.cc:1735] Reintegration 6 preintegration
+W20230219 14:36:21.244901  9139 ic_gvins.cc:1735] Reintegration 7 preintegration
+W20230219 14:36:21.463079  9139 ic_gvins.cc:1735] Reintegration 9 preintegration

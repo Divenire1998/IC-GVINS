@@ -1,0 +1,5 @@
+Log file created at: 2023/02/05 16:57:26
+Running on machine: divenire-TM1801
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20230205 16:57:26.797091 1126172 ic_gvins.cc:527] Tracking thread is started

@@ -1,0 +1,6 @@
+Log file created at: 2023/02/05 21:22:28
+Running on machine: divenire-TM1801
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W20230205 21:22:28.912030 1315096 ic_gvins.cc:620] GVINS has finished processing
+W20230205 21:22:28.912551 1315096 ic_gvins.cc:621] Estimated extrinsics: (0.494522, 0.497782, 0.505585, 0.502042), (1.712, -0.247, 0.116), 0.0000

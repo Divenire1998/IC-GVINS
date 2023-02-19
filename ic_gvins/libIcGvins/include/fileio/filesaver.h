@@ -20,49 +20,39 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef FUSION_ROS_H
-#define FUSION_ROS_H
+#ifndef FILESAVER_H
+#define FILESAVER_H
 
-#include "common/types.h"
-#include "ic_gvins.h"
-
-#include <ros/ros.h>
-#include <sensor_msgs/Image.h>
-#include <sensor_msgs/Imu.h>
-#include <sensor_msgs/NavSatFix.h>
-#include <sensor_msgs/image_encodings.h>
-
+#include <fstream>
 #include <memory>
+#include <string>
+#include <vector>
 
-class FusionROS {
+#include "thirdparty/abseil-cpp/absl/strings/string_view.h"
+
+#include "fileio/filebase.h"
+
+class FileSaver : public FileBase {
 
 public:
-    FusionROS() = default;
+    typedef std::shared_ptr<FileSaver> Ptr;
 
-    void run();
+    FileSaver() = default;
+    FileSaver(const string &filename, int columns, int filetype = TEXT);
 
-    void setFinished();
+    static FileSaver::Ptr create(const string &filename, int columns, int filetype = TEXT) {
+        return std::make_shared<FileSaver>(filename, columns, filetype);
+    }
+
+    ~FileSaver();
+
+    bool open(const string &filename, int columns, int filetype = TEXT);
+
+    void dump(const vector<double> &data);
+    void dumpn(const vector<vector<double>> &data);
 
 private:
-    void imuCallback(const sensor_msgs::ImuConstPtr &imumsg);
-
-    void gnssCallback(const sensor_msgs::NavSatFixConstPtr &gnssmsg);
-
-    void imageCallback(const sensor_msgs::ImageConstPtr &imagemsg);
-
-private:
-    std::shared_ptr<GVINS> gvins_;
-
-    IMU imu_{.time = 0}, imu_pre_{.time = 0};
-    Frame::Ptr frame_;
-    GNSS gnss_;
-
-    bool isusegnssoutage_{false};
-    double gnssoutagetime_{0};
-    double gnssthreshold_{20.0};
-
-    std::queue<IMU> imu_buffer_;
-    std::queue<Frame::Ptr> frame_buffer_;
+    void dump_(const vector<double> &data);
 };
 
-#endif // FUSION_ROS_H
+#endif // FILESAVER_H

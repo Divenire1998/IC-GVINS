@@ -1,0 +1,11 @@
+Log file created at: 2023/02/05 21:23:07
+Running on machine: divenire-TM1801
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W20230205 21:23:07.835453 1315448 misc.cc:223] Do INS mechanization with a long time 1.00643 s
+W20230205 21:23:09.111443 1315450 ic_gvins.cc:1735] Reintegration 4 preintegration
+W20230205 21:23:09.554150 1315450 ic_gvins.cc:1735] Reintegration 6 preintegration
+W20230205 21:23:09.809607 1315450 ic_gvins.cc:1735] Reintegration 7 preintegration
+W20230205 21:23:10.039300 1315450 ic_gvins.cc:1735] Reintegration 9 preintegration
+W20230205 21:23:15.969898 1315434 ic_gvins.cc:620] GVINS has finished processing
+W20230205 21:23:15.969987 1315434 ic_gvins.cc:621] Estimated extrinsics: (0.502846, 0.491287, 0.501652, 0.504112), (1.616, -0.314, 0.140), 0.0020

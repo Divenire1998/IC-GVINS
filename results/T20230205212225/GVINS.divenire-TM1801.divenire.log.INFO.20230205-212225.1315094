@@ -1,0 +1,10 @@
+Log file created at: 2023/02/05 21:22:25
+Running on machine: divenire-TM1801
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20230205 21:22:25.921967 1315114 ic_gvins.cc:280] Fusion thread is started
+I20230205 21:22:25.922058 1315115 ic_gvins.cc:527] Tracking thread is started
+I20230205 21:22:25.922142 1315116 ic_gvins.cc:439] Optimization thread is started
+I20230205 21:22:25.926092 1315094 fusion_ros.cc:130] Waiting ROS message...
+W20230205 21:22:28.912030 1315096 ic_gvins.cc:620] GVINS has finished processing
+W20230205 21:22:28.912551 1315096 ic_gvins.cc:621] Estimated extrinsics: (0.494522, 0.497782, 0.505585, 0.502042), (1.712, -0.247, 0.116), 0.0000

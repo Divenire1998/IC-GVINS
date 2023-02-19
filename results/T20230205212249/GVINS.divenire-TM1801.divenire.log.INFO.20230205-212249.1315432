@@ -1,0 +1,1015 @@
+Log file created at: 2023/02/05 21:22:49
+Running on machine: divenire-TM1801
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20230205 21:22:49.977651 1315449 ic_gvins.cc:527] Tracking thread is started
+I20230205 21:22:49.977835 1315450 ic_gvins.cc:439] Optimization thread is started
+I20230205 21:22:49.978566 1315448 ic_gvins.cc:280] Fusion thread is started
+I20230205 21:22:49.983709 1315432 fusion_ros.cc:130] Waiting ROS message...
+I20230205 21:23:03.178997 1315432 fusion_ros.cc:271] Raw data time in image recv image,imu,gnss 364450.473806, 364450.467677, 0.000000
+I20230205 21:23:03.829007 1315432 ic_gvins.cc:240] gnss origin is initialized as 0.652702
+02.21844
+0046.514
+I20230205 21:23:03.829138 1315432 ic_gvins.cc:241] Local gravity is initialized as 9.799259
+I20230205 21:23:04.835510 1315448 ic_gvins.cc:669] Zero velocity get gyroscope bias -317.373 0520.458 00416.44, roll 1.44166, pitch -1.87965
+I20230205 21:23:05.173051 1315432 fusion_ros.cc:271] Raw data time in image recv image,imu,gnss 364452.473908, 364452.467571, 364452.130166
+I20230205 21:23:05.835337 1315448 ic_gvins.cc:669] Zero velocity get gyroscope bias -290.051 0510.789 0402.182, roll 1.43377, pitch -1.87232
+I20230205 21:23:07.173369 1315432 fusion_ros.cc:271] Raw data time in image recv image,imu,gnss 364454.474133, 364454.467559, 364454.131045
+I20230205 21:23:07.835302 1315448 ic_gvins.cc:692] Initialized heading from GNSS as 2.9388 deg
+I20230205 21:23:07.835414 1315448 misc.cc:220] Redo INS mechanization at 364454.131045 to 364455.137475 is 1.00643 s
+W20230205 21:23:07.835453 1315448 misc.cc:223] Do INS mechanization with a long time 1.00643 s
+I20230205 21:23:07.835958 1315448 ic_gvins.cc:731] Initialization at 364455.131584
+I20230205 21:23:07.835987 1315448 ic_gvins.cc:937] Add new GNSS time node 364455.131584
+I20230205 21:23:07.845343 1315448 misc.cc:220] Redo INS mechanization at 364455.131584 to 364455.147468 is 0.0158834 s
+I20230205 21:23:08.834977 1315448 ic_gvins.cc:937] Add new GNSS time node 364456.130294
+I20230205 21:23:08.836283 1315450 ic_gvins.cc:1893] Total 3 pose states from 364454.131045 to 364456.130294
+I20230205 21:23:08.845131 1315450 ic_gvins.cc:765] Ceres Solver Report: Iterations: 12, Initial cost: 2.112391e+01, Final cost: 2.298482e+00, Termination: CONVERGENCE
+I20230205 21:23:08.845160 1315450 ic_gvins.cc:461] GINS initialization is finished
+I20230205 21:23:08.845171 1315450 ic_gvins.cc:514] Optimization costs 8.93519 ms with 0 and 0 with marginalization costs 0
+I20230205 21:23:08.854969 1315448 misc.cc:220] Redo INS mechanization at 364456.130294 to 364456.157470 is 0.0271757 s
+I20230205 21:23:08.887002 1315449 tracking.cc:687] Add 182 new features to 0
+I20230205 21:23:08.887024 1315449 ic_gvins.cc:589] Tracking cost 11.2397 ms
+I20230205 21:23:08.894940 1315448 ic_gvins.cc:787] Insert keyframe 0 at 364456.174012 with 0 new mappoints
+I20230205 21:23:08.895022 1315448 ic_gvins.cc:792] Add new keyframe time node at 364456.174012
+I20230205 21:23:08.987692 1315449 tracking.cc:571] Track 144 reference points
+I20230205 21:23:09.083204 1315449 tracking.cc:571] Track 131 reference points
+I20230205 21:23:09.083241 1315449 tracking.cc:180] Initialization tracking with parallax 15.1054
+I20230205 21:23:09.083693 1315449 tracking.cc:795] Triangulate 57 3D points with 71 left, 0 reset, 0 outtime and 3 outliers
+I20230205 21:23:09.090518 1315449 tracking.cc:687] Add 55 new features to 128
+I20230205 21:23:09.090643 1315449 ic_gvins.cc:589] Tracking cost 14.6423 ms
+I20230205 21:23:09.095085 1315448 ic_gvins.cc:787] Insert keyframe 1 at 364456.374036 with 57 new mappoints
+I20230205 21:23:09.095525 1315448 ic_gvins.cc:792] Add new keyframe time node at 364456.374036
+I20230205 21:23:09.095597 1315450 ic_gvins.cc:1893] Total 5 pose states from 364454.131045 to 364456.374036
+I20230205 21:23:09.096109 1315450 ic_gvins.cc:1217] Add 4 preintegration, 3 GNSS, 57 reprojection
+I20230205 21:23:09.099812 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 2.342313e+01, Final cost: 4.883676e+00, Termination: NO_CONVERGENCE
+I20230205 21:23:09.099875 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:09.106774 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 14, Initial cost: 5.041102e+00, Final cost: 4.275189e+00, Termination: CONVERGENCE
+W20230205 21:23:09.111443 1315450 ic_gvins.cc:1735] Reintegration 4 preintegration
+I20230205 21:23:09.111637 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 0 bad observed features 0, 0, 0
+I20230205 21:23:09.111896 1315450 ic_gvins.cc:514] Optimization costs 16.3156 ms with 3.72085 and 6.93599 with marginalization costs 0.017067
+I20230205 21:23:09.114965 1315448 misc.cc:220] Redo INS mechanization at 364456.374036 to 364456.417433 is 0.0433967 s
+I20230205 21:23:09.175220 1315432 fusion_ros.cc:271] Raw data time in image recv image,imu,gnss 364456.474137, 364456.467475, 364456.130294
+I20230205 21:23:09.191859 1315449 tracking.cc:452] Track 50 map points
+I20230205 21:23:09.204218 1315449 tracking.cc:571] Track 94 reference points
+I20230205 21:23:09.212287 1315449 tracking.cc:687] Add 39 new features to 144
+I20230205 21:23:09.289283 1315449 tracking.cc:452] Track 45 map points
+I20230205 21:23:09.299242 1315449 tracking.cc:571] Track 101 reference points
+I20230205 21:23:09.299293 1315449 tracking.cc:279] Keyframe at 364456.574106, mappoints 45, interval 0.20007, parallax 29.822
+I20230205 21:23:09.299913 1315449 tracking.cc:795] Triangulate 37 3D points with 64 left, 14 reset, 0 outtime and 0 outliers
+I20230205 21:23:09.310609 1315449 tracking.cc:687] Add 34 new features to 146
+I20230205 21:23:09.310927 1315449 ic_gvins.cc:589] Tracking cost 35.0073 ms
+I20230205 21:23:09.315001 1315448 ic_gvins.cc:787] Insert keyframe 2 at 364456.574106 with 37 new mappoints
+I20230205 21:23:09.315443 1315448 ic_gvins.cc:792] Add new keyframe time node at 364456.574106
+I20230205 21:23:09.315469 1315450 ic_gvins.cc:1893] Total 6 pose states from 364454.131045 to 364456.574106
+I20230205 21:23:09.316593 1315450 ic_gvins.cc:1217] Add 5 preintegration, 3 GNSS, 139 reprojection
+I20230205 21:23:09.320767 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.441429e+01, Final cost: 7.810113e+00, Termination: NO_CONVERGENCE
+I20230205 21:23:09.320848 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:09.328155 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 7.821045e+00, Final cost: 7.816400e+00, Termination: CONVERGENCE
+I20230205 21:23:09.328302 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 0 bad observed features 0, 0, 0
+I20230205 21:23:09.328501 1315450 ic_gvins.cc:514] Optimization costs 13.0422 ms with 4.1841 and 7.30544 with marginalization costs 0.018035
+I20230205 21:23:09.335291 1315448 misc.cc:220] Redo INS mechanization at 364456.574106 to 364456.637453 is 0.0633469 s
+I20230205 21:23:09.391912 1315449 tracking.cc:452] Track 74 map points
+I20230205 21:23:09.401898 1315449 tracking.cc:571] Track 71 reference points
+I20230205 21:23:09.409210 1315449 tracking.cc:687] Add 37 new features to 145
+I20230205 21:23:09.488251 1315449 tracking.cc:452] Track 68 map points
+I20230205 21:23:09.498153 1315449 tracking.cc:571] Track 73 reference points
+I20230205 21:23:09.498206 1315449 tracking.cc:279] Keyframe at 364456.774084, mappoints 68, interval 0.199978, parallax 25.5491
+I20230205 21:23:09.498633 1315449 tracking.cc:795] Triangulate 22 3D points with 51 left, 15 reset, 0 outtime and 0 outliers
+I20230205 21:23:09.513854 1315449 tracking.cc:687] Add 41 new features to 141
+I20230205 21:23:09.514595 1315449 ic_gvins.cc:589] Tracking cost 39.2798 ms
+I20230205 21:23:09.515575 1315448 ic_gvins.cc:787] Insert keyframe 3 at 364456.774084 with 22 new mappoints
+I20230205 21:23:09.517470 1315448 ic_gvins.cc:792] Add new keyframe time node at 364456.774084
+I20230205 21:23:09.517602 1315450 ic_gvins.cc:1893] Total 7 pose states from 364454.131045 to 364456.774084
+I20230205 21:23:09.521821 1315450 ic_gvins.cc:1217] Add 6 preintegration, 3 GNSS, 229 reprojection
+I20230205 21:23:09.534276 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 2.200761e+01, Final cost: 1.631805e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:09.534512 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:09.548815 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 1.377586e+01, Final cost: 1.366651e+01, Termination: CONVERGENCE
+W20230205 21:23:09.554150 1315450 ic_gvins.cc:1735] Reintegration 6 preintegration
+I20230205 21:23:09.554670 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 1 bad observed features 0, 0, 0
+I20230205 21:23:09.555408 1315450 ic_gvins.cc:514] Optimization costs 37.8314 ms with 12.4663 and 14.3231 with marginalization costs 0.089241
+I20230205 21:23:09.565021 1315448 misc.cc:220] Redo INS mechanization at 364456.774084 to 364456.867433 is 0.0933487 s
+I20230205 21:23:09.585199 1315449 tracking.cc:452] Track 82 map points
+I20230205 21:23:09.589128 1315449 tracking.cc:571] Track 59 reference points
+I20230205 21:23:09.596690 1315449 tracking.cc:687] Add 39 new features to 141
+I20230205 21:23:09.688074 1315449 tracking.cc:452] Track 74 map points
+I20230205 21:23:09.696972 1315449 tracking.cc:571] Track 66 reference points
+I20230205 21:23:09.697019 1315449 tracking.cc:279] Keyframe at 364456.974214, mappoints 74, interval 0.200129, parallax 23.4996
+I20230205 21:23:09.697432 1315449 tracking.cc:795] Triangulate 24 3D points with 42 left, 12 reset, 0 outtime and 0 outliers
+I20230205 21:23:09.712188 1315449 tracking.cc:687] Add 39 new features to 140
+I20230205 21:23:09.712551 1315449 ic_gvins.cc:589] Tracking cost 36.623 ms
+I20230205 21:23:09.715291 1315448 ic_gvins.cc:787] Insert keyframe 4 at 364456.974214 with 24 new mappoints
+I20230205 21:23:09.716401 1315448 ic_gvins.cc:792] Add new keyframe time node at 364456.974214
+I20230205 21:23:09.716480 1315450 ic_gvins.cc:1893] Total 8 pose states from 364454.131045 to 364456.974214
+I20230205 21:23:09.722400 1315450 ic_gvins.cc:1217] Add 7 preintegration, 3 GNSS, 326 reprojection
+I20230205 21:23:09.740060 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 3.682224e+01, Final cost: 2.515859e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:09.740597 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:09.795570 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 14, Initial cost: 2.515859e+01, Final cost: 2.508111e+01, Termination: CONVERGENCE
+I20230205 21:23:09.795697 1315449 tracking.cc:452] Track 93 map points
+I20230205 21:23:09.806813 1315449 tracking.cc:571] Track 51 reference points
+W20230205 21:23:09.809607 1315450 ic_gvins.cc:1735] Reintegration 7 preintegration
+I20230205 21:23:09.810277 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 0 bad observed features 0, 0, 0
+I20230205 21:23:09.814131 1315450 ic_gvins.cc:514] Optimization costs 97.6887 ms with 17.6736 and 54.9634 with marginalization costs 0.125775
+I20230205 21:23:09.815038 1315448 misc.cc:220] Redo INS mechanization at 364456.974214 to 364457.117388 is 0.143174 s
+I20230205 21:23:09.815636 1315449 tracking.cc:687] Add 35 new features to 144
+I20230205 21:23:09.887908 1315449 tracking.cc:452] Track 82 map points
+I20230205 21:23:09.897465 1315449 tracking.cc:571] Track 63 reference points
+I20230205 21:23:09.897517 1315449 tracking.cc:279] Keyframe at 364457.174118, mappoints 82, interval 0.199904, parallax 22.5085
+I20230205 21:23:09.897967 1315449 tracking.cc:795] Triangulate 27 3D points with 36 left, 13 reset, 0 outtime and 0 outliers
+I20230205 21:23:09.913781 1315449 tracking.cc:687] Add 35 new features to 145
+I20230205 21:23:09.914302 1315449 ic_gvins.cc:589] Tracking cost 38.7627 ms
+I20230205 21:23:09.915634 1315448 ic_gvins.cc:787] Insert keyframe 5 at 364457.174118 with 27 new mappoints
+I20230205 21:23:09.916774 1315448 ic_gvins.cc:792] Add new keyframe time node at 364457.174118
+I20230205 21:23:09.916829 1315448 ic_gvins.cc:937] Add new GNSS time node 364457.130491
+I20230205 21:23:09.918012 1315450 ic_gvins.cc:1893] Total 10 pose states from 364454.131045 to 364457.174118
+I20230205 21:23:09.925753 1315450 ic_gvins.cc:1217] Add 9 preintegration, 4 GNSS, 435 reprojection
+I20230205 21:23:09.947419 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 5.570550e+01, Final cost: 4.601558e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:09.947489 1315450 ic_gvins.cc:1307] Detect 1 GNSS outliers at 364457.174118
+I20230205 21:23:09.948115 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:09.992728 1315449 tracking.cc:452] Track 95 map points
+I20230205 21:23:10.005494 1315449 tracking.cc:571] Track 45 reference points
+I20230205 21:23:10.019402 1315449 tracking.cc:687] Add 43 new features to 140
+I20230205 21:23:10.024329 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 14, Initial cost: 4.711415e+01, Final cost: 4.353640e+01, Termination: CONVERGENCE
+W20230205 21:23:10.039300 1315450 ic_gvins.cc:1735] Reintegration 9 preintegration
+I20230205 21:23:10.040333 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 0 bad observed features 0, 0, 1
+I20230205 21:23:10.042212 1315450 ic_gvins.cc:514] Optimization costs 124.239 ms with 21.6664 and 76.2103 with marginalization costs 0.147497
+I20230205 21:23:10.045205 1315448 misc.cc:220] Redo INS mechanization at 364457.174118 to 364457.347384 is 0.173266 s
+I20230205 21:23:10.089493 1315449 tracking.cc:452] Track 86 map points
+I20230205 21:23:10.098304 1315449 tracking.cc:571] Track 51 reference points
+I20230205 21:23:10.098354 1315449 tracking.cc:279] Keyframe at 364457.374026, mappoints 86, interval 0.199908, parallax 20.5204
+I20230205 21:23:10.098726 1315449 tracking.cc:795] Triangulate 19 3D points with 32 left, 14 reset, 0 outtime and 0 outliers
+I20230205 21:23:10.111811 1315449 tracking.cc:687] Add 46 new features to 137
+I20230205 21:23:10.112151 1315449 ic_gvins.cc:589] Tracking cost 36.9518 ms
+I20230205 21:23:10.115368 1315448 ic_gvins.cc:787] Insert keyframe 6 at 364457.374026 with 19 new mappoints
+I20230205 21:23:10.116603 1315448 ic_gvins.cc:792] Add new keyframe time node at 364457.374026
+I20230205 21:23:10.116832 1315450 ic_gvins.cc:1893] Total 11 pose states from 364454.131045 to 364457.374026
+I20230205 21:23:10.125445 1315450 ic_gvins.cc:1217] Add 10 preintegration, 4 GNSS, 537 reprojection
+I20230205 21:23:10.150013 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 7.354807e+01, Final cost: 6.120441e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:10.150779 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:10.192202 1315449 tracking.cc:452] Track 98 map points
+I20230205 21:23:10.207237 1315449 tracking.cc:571] Track 45 reference points
+I20230205 21:23:10.212499 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 11, Initial cost: 5.762014e+01, Final cost: 5.729196e+01, Termination: CONVERGENCE
+I20230205 21:23:10.213697 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 1 bad observed features 0, 0, 0
+I20230205 21:23:10.219264 1315450 ic_gvins.cc:514] Optimization costs 102.485 ms with 24.59 and 61.7336 with marginalization costs 0.351805
+I20230205 21:23:10.222396 1315449 tracking.cc:687] Add 40 new features to 143
+I20230205 21:23:10.225232 1315448 misc.cc:220] Redo INS mechanization at 364457.374026 to 364457.527375 is 0.153349 s
+I20230205 21:23:10.288848 1315449 tracking.cc:452] Track 86 map points
+I20230205 21:23:10.300197 1315449 tracking.cc:571] Track 57 reference points
+I20230205 21:23:10.300249 1315449 tracking.cc:279] Keyframe at 364457.573940, mappoints 86, interval 0.199914, parallax 20.2881
+I20230205 21:23:10.300621 1315449 tracking.cc:795] Triangulate 20 3D points with 37 left, 18 reset, 0 outtime and 0 outliers
+I20230205 21:23:10.314589 1315449 tracking.cc:687] Add 40 new features to 143
+I20230205 21:23:10.314998 1315449 ic_gvins.cc:589] Tracking cost 39.1382 ms
+I20230205 21:23:10.315222 1315448 ic_gvins.cc:787] Insert keyframe 7 at 364457.573940 with 20 new mappoints
+I20230205 21:23:10.316879 1315448 ic_gvins.cc:792] Add new keyframe time node at 364457.573940
+I20230205 21:23:10.317006 1315450 ic_gvins.cc:1893] Total 12 pose states from 364454.131045 to 364457.573940
+I20230205 21:23:10.327334 1315450 ic_gvins.cc:1217] Add 11 preintegration, 4 GNSS, 642 reprojection
+I20230205 21:23:10.357895 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.109700e+02, Final cost: 9.816163e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:10.358924 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:10.393605 1315449 tracking.cc:452] Track 93 map points
+I20230205 21:23:10.406736 1315449 tracking.cc:571] Track 42 reference points
+I20230205 21:23:10.421288 1315449 tracking.cc:687] Add 48 new features to 135
+I20230205 21:23:10.437656 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 12, Initial cost: 8.170688e+01, Final cost: 8.066316e+01, Termination: CONVERGENCE
+I20230205 21:23:10.438983 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 2 bad observed features 0, 0, 1
+I20230205 21:23:10.441865 1315450 ic_gvins.cc:514] Optimization costs 124.896 ms with 30.6377 and 78.7515 with marginalization costs 0.34243
+I20230205 21:23:10.445276 1315448 misc.cc:220] Redo INS mechanization at 364457.573940 to 364457.747442 is 0.173502 s
+I20230205 21:23:10.490461 1315449 tracking.cc:452] Track 85 map points
+I20230205 21:23:10.501921 1315449 tracking.cc:571] Track 48 reference points
+I20230205 21:23:10.501988 1315449 tracking.cc:279] Keyframe at 364457.776454, mappoints 85, interval 0.202514, parallax 20.0481
+I20230205 21:23:10.502290 1315449 tracking.cc:795] Triangulate 14 3D points with 34 left, 13 reset, 0 outtime and 0 outliers
+I20230205 21:23:10.517602 1315449 tracking.cc:687] Add 50 new features to 133
+I20230205 21:23:10.518080 1315449 ic_gvins.cc:589] Tracking cost 42.6371 ms
+I20230205 21:23:10.525288 1315448 ic_gvins.cc:787] Insert keyframe 8 at 364457.776454 with 14 new mappoints
+I20230205 21:23:10.526336 1315448 ic_gvins.cc:792] Add new keyframe time node at 364457.776454
+I20230205 21:23:10.526450 1315450 ic_gvins.cc:1893] Total 13 pose states from 364454.131045 to 364457.776454
+I20230205 21:23:10.536422 1315450 ic_gvins.cc:1217] Add 12 preintegration, 4 GNSS, 735 reprojection
+I20230205 21:23:10.572424 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.541543e+02, Final cost: 1.398043e+02, Termination: NO_CONVERGENCE
+I20230205 21:23:10.573400 1315450 ic_gvins.cc:1336] Remove 4 reprojection factors
+I20230205 21:23:10.593583 1315449 tracking.cc:452] Track 89 map points
+I20230205 21:23:10.609022 1315449 tracking.cc:571] Track 48 reference points
+I20230205 21:23:10.625238 1315449 tracking.cc:687] Add 48 new features to 137
+I20230205 21:23:10.669760 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 1.017845e+02, Final cost: 9.840104e+01, Termination: CONVERGENCE
+I20230205 21:23:10.671188 1315450 ic_gvins.cc:1164] Culled 3 mappoint with 2 bad observed features 0, 0, 3
+I20230205 21:23:10.674229 1315450 ic_gvins.cc:514] Optimization costs 147.814 ms with 36.0336 and 96.3842 with marginalization costs 0.373908
+I20230205 21:23:10.675122 1315448 misc.cc:220] Redo INS mechanization at 364457.776454 to 364457.977371 is 0.200917 s
+I20230205 21:23:10.692431 1315449 tracking.cc:452] Track 79 map points
+I20230205 21:23:10.701704 1315449 tracking.cc:571] Track 52 reference points
+I20230205 21:23:10.701747 1315449 tracking.cc:279] Keyframe at 364457.973962, mappoints 79, interval 0.197508, parallax 22.0208
+I20230205 21:23:10.701999 1315449 tracking.cc:795] Triangulate 18 3D points with 33 left, 13 reset, 0 outtime and 1 outliers
+I20230205 21:23:10.710297 1315449 tracking.cc:687] Add 55 new features to 130
+I20230205 21:23:10.710494 1315449 ic_gvins.cc:589] Tracking cost 35.2739 ms
+I20230205 21:23:10.714936 1315448 ic_gvins.cc:787] Insert keyframe 9 at 364457.973962 with 18 new mappoints
+I20230205 21:23:10.715549 1315448 ic_gvins.cc:792] Add new keyframe time node at 364457.973962
+I20230205 21:23:10.715622 1315450 ic_gvins.cc:1893] Total 14 pose states from 364454.131045 to 364457.973962
+I20230205 21:23:10.722398 1315450 ic_gvins.cc:1217] Add 13 preintegration, 4 GNSS, 815 reprojection
+I20230205 21:23:10.741124 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.596243e+02, Final cost: 1.322336e+02, Termination: NO_CONVERGENCE
+I20230205 21:23:10.741676 1315450 ic_gvins.cc:1336] Remove 7 reprojection factors
+I20230205 21:23:10.784476 1315449 tracking.cc:452] Track 83 map points
+I20230205 21:23:10.787533 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 1.099535e+02, Final cost: 1.079953e+02, Termination: CONVERGENCE
+I20230205 21:23:10.788558 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 5 bad observed features 0, 0, 1
+I20230205 21:23:10.789741 1315449 tracking.cc:571] Track 48 reference points
+I20230205 21:23:10.790463 1315450 ic_gvins.cc:514] Optimization costs 74.8567 ms with 18.7263 and 45.8749 with marginalization costs 0.187476
+I20230205 21:23:10.794975 1315448 misc.cc:220] Redo INS mechanization at 364457.973962 to 364458.097344 is 0.123382 s
+I20230205 21:23:10.797806 1315449 tracking.cc:687] Add 53 new features to 131
+I20230205 21:23:10.888861 1315449 tracking.cc:452] Track 73 map points
+I20230205 21:23:10.901068 1315449 tracking.cc:571] Track 54 reference points
+I20230205 21:23:10.901124 1315449 tracking.cc:279] Keyframe at 364458.174048, mappoints 73, interval 0.200086, parallax 23.3027
+I20230205 21:23:10.901496 1315449 tracking.cc:795] Triangulate 19 3D points with 34 left, 15 reset, 0 outtime and 1 outliers
+I20230205 21:23:10.916234 1315449 tracking.cc:687] Add 57 new features to 126
+I20230205 21:23:10.916539 1315449 ic_gvins.cc:589] Tracking cost 40.6653 ms
+I20230205 21:23:10.925215 1315448 ic_gvins.cc:787] Insert keyframe 10 at 364458.174048 with 19 new mappoints
+I20230205 21:23:10.926503 1315448 ic_gvins.cc:792] Add new keyframe time node at 364458.174048
+I20230205 21:23:10.926590 1315448 ic_gvins.cc:937] Add new GNSS time node 364458.131223
+I20230205 21:23:10.927671 1315450 ic_gvins.cc:1893] Total 16 pose states from 364454.131045 to 364458.174048
+I20230205 21:23:10.940171 1315450 ic_gvins.cc:1217] Add 15 preintegration, 5 GNSS, 898 reprojection
+I20230205 21:23:10.990649 1315449 tracking.cc:452] Track 84 map points
+I20230205 21:23:11.005944 1315449 tracking.cc:571] Track 43 reference points
+I20230205 21:23:11.007304 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.589496e+02, Final cost: 1.377406e+02, Termination: NO_CONVERGENCE
+I20230205 21:23:11.008636 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:11.020844 1315449 tracking.cc:687] Add 55 new features to 127
+I20230205 21:23:11.091500 1315449 tracking.cc:452] Track 75 map points
+I20230205 21:23:11.101609 1315449 tracking.cc:571] Track 51 reference points
+I20230205 21:23:11.101671 1315449 tracking.cc:279] Keyframe at 364458.374138, mappoints 75, interval 0.20009, parallax 22.7793
+I20230205 21:23:11.102037 1315449 tracking.cc:795] Triangulate 16 3D points with 35 left, 20 reset, 0 outtime and 0 outliers
+I20230205 21:23:11.116032 1315449 tracking.cc:687] Add 58 new features to 126
+I20230205 21:23:11.116369 1315449 ic_gvins.cc:589] Tracking cost 41.1481 ms
+I20230205 21:23:11.154709 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 14, Initial cost: 1.320420e+02, Final cost: 1.295003e+02, Termination: CONVERGENCE
+I20230205 21:23:11.156183 1315450 ic_gvins.cc:1164] Culled 2 mappoint with 2 bad observed features 0, 0, 2
+I20230205 21:23:11.158257 1315450 ic_gvins.cc:1470] Marginalize 4 states, last time 364456.374036
+I20230205 21:23:11.174943 1315432 fusion_ros.cc:271] Raw data time in image recv image,imu,gnss 364458.474147, 364458.467361, 364458.131223
+I20230205 21:23:11.190378 1315449 tracking.cc:452] Track 78 map points
+I20230205 21:23:11.198352 1315449 tracking.cc:571] Track 39 reference points
+I20230205 21:23:11.198383 1315449 tracking.cc:279] Keyframe at 364458.475939, mappoints 78, interval 0.1018, parallax 34.6871
+I20230205 21:23:11.198614 1315449 tracking.cc:795] Triangulate 2 3D points with 2 left, 0 reset, 0 outtime and 35 outliers
+I20230205 21:23:11.201014 1315450 ic_gvins.cc:514] Optimization costs 273.391 ms with 67.1477 and 146.087 with marginalization costs 42.3951
+I20230205 21:23:11.205086 1315448 misc.cc:220] Redo INS mechanization at 364458.174048 to 364458.507328 is 0.33328 s
+I20230205 21:23:11.205238 1315448 ic_gvins.cc:787] Insert keyframe 11 at 364458.374138 with 16 new mappoints
+I20230205 21:23:11.206048 1315448 ic_gvins.cc:792] Add new keyframe time node at 364458.374138
+I20230205 21:23:11.206171 1315450 ic_gvins.cc:1893] Total 13 pose states from 364456.374036 to 364458.374138
+I20230205 21:23:11.207191 1315449 tracking.cc:687] Add 97 new features to 82
+I20230205 21:23:11.207337 1315449 ic_gvins.cc:589] Tracking cost 29.0472 ms
+I20230205 21:23:11.209239 1315450 ic_gvins.cc:1217] Add 12 preintegration, 2 GNSS, 393 reprojection
+I20230205 21:23:11.220863 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 9.023536e+01, Final cost: 8.636760e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:11.221138 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:11.253940 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 16, Initial cost: 8.075428e+01, Final cost: 8.051207e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:11.254315 1315450 ic_gvins.cc:1164] Culled 3 mappoint with 1 bad observed features 0, 0, 3
+I20230205 21:23:11.254880 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364456.574106
+I20230205 21:23:11.257113 1315450 ic_gvins.cc:514] Optimization costs 50.9555 ms with 11.6391 and 32.8153 with marginalization costs 2.20009
+I20230205 21:23:11.264943 1315448 misc.cc:220] Redo INS mechanization at 364458.374138 to 364458.567341 is 0.193202 s
+I20230205 21:23:11.264984 1315448 ic_gvins.cc:787] Insert keyframe 12 at 364458.475939 with 2 new mappoints
+I20230205 21:23:11.265202 1315448 ic_gvins.cc:792] Add new keyframe time node at 364458.475939
+I20230205 21:23:11.265226 1315450 ic_gvins.cc:1893] Total 13 pose states from 364456.574106 to 364458.475939
+I20230205 21:23:11.267635 1315450 ic_gvins.cc:1217] Add 12 preintegration, 2 GNSS, 372 reprojection
+I20230205 21:23:11.280041 1315449 tracking.cc:452] Track 39 map points
+I20230205 21:23:11.284605 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 8.847962e+01, Final cost: 6.273288e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:11.284996 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:11.288200 1315449 tracking.cc:571] Track 47 reference points
+I20230205 21:23:11.288224 1315449 tracking.cc:279] Keyframe at 364458.575990, mappoints 39, interval 0.100051, parallax 23.0852
+I20230205 21:23:11.288436 1315449 tracking.cc:795] Triangulate 5 3D points with 3 left, 0 reset, 0 outtime and 39 outliers
+I20230205 21:23:11.295168 1315449 tracking.cc:687] Add 136 new features to 47
+I20230205 21:23:11.295313 1315449 ic_gvins.cc:589] Tracking cost 20.0192 ms
+I20230205 21:23:11.320236 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 16, Initial cost: 5.907930e+01, Final cost: 5.888992e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:11.320636 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 1 bad observed features 0, 0, 0
+I20230205 21:23:11.321056 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364456.774084
+I20230205 21:23:11.323190 1315450 ic_gvins.cc:514] Optimization costs 57.9791 ms with 17.0016 and 35.2635 with marginalization costs 2.07788
+I20230205 21:23:11.324900 1315448 misc.cc:220] Redo INS mechanization at 364458.475939 to 364458.627327 is 0.151388 s
+I20230205 21:23:11.324930 1315448 ic_gvins.cc:787] Insert keyframe 13 at 364458.575990 with 5 new mappoints
+I20230205 21:23:11.325114 1315448 ic_gvins.cc:792] Add new keyframe time node at 364458.575990
+I20230205 21:23:11.325129 1315450 ic_gvins.cc:1893] Total 13 pose states from 364456.774084 to 364458.575990
+I20230205 21:23:11.327064 1315450 ic_gvins.cc:1217] Add 12 preintegration, 2 GNSS, 373 reprojection
+I20230205 21:23:11.336180 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.433601e+02, Final cost: 6.544029e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:11.336364 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:11.355612 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 14, Initial cost: 6.170021e+01, Final cost: 6.158416e+01, Termination: CONVERGENCE
+I20230205 21:23:11.355818 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 1 bad observed features 0, 0, 0
+I20230205 21:23:11.356052 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364456.974214
+I20230205 21:23:11.357466 1315450 ic_gvins.cc:514] Optimization costs 32.3421 ms with 9.1266 and 19.2531 with marginalization costs 1.39196
+I20230205 21:23:11.364925 1315448 misc.cc:220] Redo INS mechanization at 364458.575990 to 364458.667379 is 0.0913891 s
+I20230205 21:23:11.380537 1315449 tracking.cc:452] Track 30 map points
+I20230205 21:23:11.383934 1315449 tracking.cc:571] Track 93 reference points
+I20230205 21:23:11.387557 1315449 tracking.cc:687] Add 61 new features to 123
+I20230205 21:23:11.488471 1315449 tracking.cc:452] Track 27 map points
+I20230205 21:23:11.501569 1315449 tracking.cc:571] Track 109 reference points
+I20230205 21:23:11.501626 1315449 tracking.cc:279] Keyframe at 364458.776199, mappoints 27, interval 0.200209, parallax 19.2506
+I20230205 21:23:11.502331 1315449 tracking.cc:795] Triangulate 44 3D points with 65 left, 24 reset, 0 outtime and 0 outliers
+I20230205 21:23:11.517724 1315449 tracking.cc:687] Add 47 new features to 136
+I20230205 21:23:11.518079 1315449 ic_gvins.cc:589] Tracking cost 42.7592 ms
+I20230205 21:23:11.525267 1315448 ic_gvins.cc:787] Insert keyframe 14 at 364458.776199 with 44 new mappoints
+I20230205 21:23:11.526484 1315448 ic_gvins.cc:792] Add new keyframe time node at 364458.776199
+I20230205 21:23:11.526584 1315450 ic_gvins.cc:1893] Total 13 pose states from 364456.974214 to 364458.776199
+I20230205 21:23:11.535903 1315450 ic_gvins.cc:1217] Add 12 preintegration, 2 GNSS, 380 reprojection
+I20230205 21:23:11.572868 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 9.467020e+01, Final cost: 6.810476e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:11.573340 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:11.588827 1315449 tracking.cc:452] Track 67 map points
+I20230205 21:23:11.603435 1315449 tracking.cc:571] Track 67 reference points
+I20230205 21:23:11.603492 1315449 tracking.cc:279] Keyframe at 364458.876142, mappoints 67, interval 0.0999424, parallax 15.5465
+I20230205 21:23:11.603837 1315449 tracking.cc:795] Triangulate 18 3D points with 49 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:11.615250 1315449 tracking.cc:687] Add 51 new features to 134
+I20230205 21:23:11.615546 1315449 ic_gvins.cc:589] Tracking cost 37.1716 ms
+I20230205 21:23:11.636564 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 11, Initial cost: 6.597988e+01, Final cost: 6.549772e+01, Termination: CONVERGENCE
+I20230205 21:23:11.637392 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 1 bad observed features 0, 0, 0
+I20230205 21:23:11.638378 1315450 ic_gvins.cc:1470] Marginalize 2 states, last time 364457.174118
+I20230205 21:23:11.645217 1315450 ic_gvins.cc:514] Optimization costs 118.682 ms with 36.9473 and 63.2592 with marginalization costs 6.64116
+I20230205 21:23:11.655117 1315448 misc.cc:220] Redo INS mechanization at 364458.776199 to 364458.957364 is 0.181165 s
+I20230205 21:23:11.655195 1315448 ic_gvins.cc:787] Insert keyframe 15 at 364458.876142 with 18 new mappoints
+I20230205 21:23:11.655579 1315448 ic_gvins.cc:792] Add new keyframe time node at 364458.876142
+I20230205 21:23:11.655663 1315450 ic_gvins.cc:1893] Total 12 pose states from 364457.174118 to 364458.876142
+I20230205 21:23:11.660145 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 409 reprojection
+I20230205 21:23:11.687665 1315449 tracking.cc:452] Track 71 map points
+I20230205 21:23:11.689242 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 8.002075e+01, Final cost: 7.657743e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:11.689975 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:11.699347 1315449 tracking.cc:571] Track 64 reference points
+I20230205 21:23:11.699390 1315449 tracking.cc:279] Keyframe at 364458.976243, mappoints 71, interval 0.100101, parallax 17.2595
+I20230205 21:23:11.699676 1315449 tracking.cc:795] Triangulate 10 3D points with 37 left, 0 reset, 0 outtime and 17 outliers
+I20230205 21:23:11.710197 1315449 tracking.cc:687] Add 66 new features to 118
+I20230205 21:23:11.710510 1315449 ic_gvins.cc:589] Tracking cost 35.1888 ms
+I20230205 21:23:11.760919 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 16, Initial cost: 7.095806e+01, Final cost: 7.026520e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:11.761598 1315450 ic_gvins.cc:1164] Culled 2 mappoint with 1 bad observed features 0, 0, 2
+I20230205 21:23:11.763164 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364457.374026
+I20230205 21:23:11.768465 1315450 ic_gvins.cc:514] Optimization costs 112.832 ms with 29.1285 and 70.9585 with marginalization costs 5.37352
+I20230205 21:23:11.776080 1315448 misc.cc:220] Redo INS mechanization at 364458.876142 to 364459.077326 is 0.201184 s
+I20230205 21:23:11.776161 1315448 ic_gvins.cc:787] Insert keyframe 16 at 364458.976243 with 10 new mappoints
+I20230205 21:23:11.776541 1315448 ic_gvins.cc:792] Add new keyframe time node at 364458.976243
+I20230205 21:23:11.776635 1315450 ic_gvins.cc:1893] Total 12 pose states from 364457.374026 to 364458.976243
+I20230205 21:23:11.782306 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 417 reprojection
+I20230205 21:23:11.786708 1315449 tracking.cc:452] Track 69 map points
+I20230205 21:23:11.796453 1315449 tracking.cc:571] Track 63 reference points
+I20230205 21:23:11.796509 1315449 tracking.cc:279] Keyframe at 364459.076431, mappoints 69, interval 0.100188, parallax 16.5766
+I20230205 21:23:11.796886 1315449 tracking.cc:795] Triangulate 17 3D points with 31 left, 0 reset, 0 outtime and 15 outliers
+I20230205 21:23:11.809265 1315449 tracking.cc:687] Add 68 new features to 117
+I20230205 21:23:11.809864 1315449 ic_gvins.cc:589] Tracking cost 33.8013 ms
+I20230205 21:23:11.817863 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 7.975625e+01, Final cost: 7.246973e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:11.818367 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:11.871731 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 6.790672e+01, Final cost: 6.704588e+01, Termination: CONVERGENCE
+I20230205 21:23:11.872395 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 1 bad observed features 0, 0, 1
+I20230205 21:23:11.873211 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364457.573940
+I20230205 21:23:11.879535 1315450 ic_gvins.cc:514] Optimization costs 102.932 ms with 35.5739 and 53.3906 with marginalization costs 6.08119
+I20230205 21:23:11.885303 1315448 misc.cc:220] Redo INS mechanization at 364458.976243 to 364459.187364 is 0.211121 s
+I20230205 21:23:11.885382 1315448 ic_gvins.cc:787] Insert keyframe 17 at 364459.076431 with 17 new mappoints
+I20230205 21:23:11.885778 1315448 ic_gvins.cc:792] Add new keyframe time node at 364459.076431
+I20230205 21:23:11.885849 1315450 ic_gvins.cc:1893] Total 12 pose states from 364457.573940 to 364459.076431
+I20230205 21:23:11.891465 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 429 reprojection
+I20230205 21:23:11.895141 1315449 tracking.cc:452] Track 75 map points
+I20230205 21:23:11.904175 1315449 tracking.cc:571] Track 59 reference points
+I20230205 21:23:11.904232 1315449 tracking.cc:279] Keyframe at 364459.176401, mappoints 75, interval 0.0999705, parallax 18.6151
+I20230205 21:23:11.904594 1315449 tracking.cc:795] Triangulate 4 3D points with 30 left, 0 reset, 0 outtime and 25 outliers
+I20230205 21:23:11.916128 1315449 tracking.cc:687] Add 75 new features to 109
+I20230205 21:23:11.916420 1315449 ic_gvins.cc:589] Tracking cost 41.3086 ms
+I20230205 21:23:11.926146 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.122371e+02, Final cost: 7.681309e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:11.926756 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:11.983569 1315449 tracking.cc:452] Track 69 map points
+I20230205 21:23:11.988634 1315449 tracking.cc:571] Track 66 reference points
+I20230205 21:23:11.989966 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 16, Initial cost: 6.870270e+01, Final cost: 6.745029e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:11.990393 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 2 bad observed features 0, 0, 0
+I20230205 21:23:11.993853 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364457.776454
+I20230205 21:23:11.994349 1315449 tracking.cc:687] Add 49 new features to 135
+I20230205 21:23:11.996412 1315450 ic_gvins.cc:514] Optimization costs 110.581 ms with 34.7134 and 63.2459 with marginalization costs 2.48194
+I20230205 21:23:12.004992 1315448 misc.cc:220] Redo INS mechanization at 364459.076431 to 364459.307320 is 0.23089 s
+I20230205 21:23:12.005046 1315448 ic_gvins.cc:787] Insert keyframe 18 at 364459.176401 with 4 new mappoints
+I20230205 21:23:12.005311 1315448 ic_gvins.cc:792] Add new keyframe time node at 364459.176401
+I20230205 21:23:12.005339 1315448 ic_gvins.cc:937] Add new GNSS time node 364459.132936
+I20230205 21:23:12.005600 1315450 ic_gvins.cc:1893] Total 13 pose states from 364457.776454 to 364459.176401
+I20230205 21:23:12.007705 1315450 ic_gvins.cc:1217] Add 12 preintegration, 2 GNSS, 445 reprojection
+I20230205 21:23:12.019414 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 7.883038e+01, Final cost: 7.476865e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:12.019449 1315450 ic_gvins.cc:1307] Detect 1 GNSS outliers at 364459.176401
+I20230205 21:23:12.019718 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:12.051347 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 15, Initial cost: 7.292436e+01, Final cost: 7.021982e+01, Termination: CONVERGENCE
+I20230205 21:23:12.051683 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 1 bad observed features 0, 0, 0
+I20230205 21:23:12.052067 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364457.973962
+I20230205 21:23:12.054033 1315450 ic_gvins.cc:514] Optimization costs 48.4435 ms with 11.7298 and 31.638 with marginalization costs 1.90676
+I20230205 21:23:12.054857 1315448 misc.cc:220] Redo INS mechanization at 364459.176401 to 364459.357304 is 0.180903 s
+I20230205 21:23:12.080184 1315449 tracking.cc:452] Track 54 map points
+I20230205 21:23:12.086966 1315449 tracking.cc:571] Track 67 reference points
+I20230205 21:23:12.087003 1315449 tracking.cc:279] Keyframe at 364459.376329, mappoints 54, interval 0.199928, parallax 26.6723
+I20230205 21:23:12.087210 1315449 tracking.cc:795] Triangulate 34 3D points with 33 left, 11 reset, 0 outtime and 0 outliers
+I20230205 21:23:12.092943 1315449 tracking.cc:687] Add 64 new features to 121
+I20230205 21:23:12.093116 1315449 ic_gvins.cc:589] Tracking cost 17.6685 ms
+I20230205 21:23:12.094839 1315448 ic_gvins.cc:787] Insert keyframe 19 at 364459.376329 with 34 new mappoints
+I20230205 21:23:12.095209 1315448 ic_gvins.cc:792] Add new keyframe time node at 364459.376329
+I20230205 21:23:12.095279 1315450 ic_gvins.cc:1893] Total 13 pose states from 364457.973962 to 364459.376329
+I20230205 21:23:12.097723 1315450 ic_gvins.cc:1217] Add 12 preintegration, 2 GNSS, 497 reprojection
+I20230205 21:23:12.110760 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.085064e+02, Final cost: 8.802373e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:12.111073 1315450 ic_gvins.cc:1336] Remove 3 reprojection factors
+I20230205 21:23:12.140853 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 7.792336e+01, Final cost: 7.788659e+01, Termination: CONVERGENCE
+I20230205 21:23:12.141220 1315450 ic_gvins.cc:1164] Culled 3 mappoint with 2 bad observed features 0, 0, 3
+I20230205 21:23:12.141602 1315450 ic_gvins.cc:1470] Marginalize 2 states, last time 364458.174048
+I20230205 21:23:12.144016 1315450 ic_gvins.cc:514] Optimization costs 48.7463 ms with 13.0504 and 29.7885 with marginalization costs 2.33028
+I20230205 21:23:12.144865 1315448 misc.cc:220] Redo INS mechanization at 364459.376329 to 364459.447303 is 0.0709738 s
+I20230205 21:23:12.180799 1315449 tracking.cc:452] Track 70 map points
+I20230205 21:23:12.186689 1315449 tracking.cc:571] Track 47 reference points
+I20230205 21:23:12.191805 1315449 tracking.cc:687] Add 62 new features to 117
+I20230205 21:23:12.297695 1315449 tracking.cc:452] Track 65 map points
+I20230205 21:23:12.310039 1315449 tracking.cc:571] Track 65 reference points
+I20230205 21:23:12.310094 1315449 tracking.cc:279] Keyframe at 364459.577653, mappoints 65, interval 0.201324, parallax 26.7146
+I20230205 21:23:12.310456 1315449 tracking.cc:795] Triangulate 17 3D points with 48 left, 24 reset, 0 outtime and 0 outliers
+I20230205 21:23:12.325014 1315449 tracking.cc:687] Add 55 new features to 130
+I20230205 21:23:12.325364 1315449 ic_gvins.cc:589] Tracking cost 40.1923 ms
+I20230205 21:23:12.335166 1315448 ic_gvins.cc:787] Insert keyframe 20 at 364459.577653 with 17 new mappoints
+I20230205 21:23:12.336256 1315448 ic_gvins.cc:792] Add new keyframe time node at 364459.577653
+I20230205 21:23:12.336359 1315450 ic_gvins.cc:1893] Total 12 pose states from 364458.174048 to 364459.577653
+I20230205 21:23:12.343269 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 496 reprojection
+I20230205 21:23:12.377050 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 9.084901e+01, Final cost: 7.071156e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:12.377604 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:12.386485 1315449 tracking.cc:452] Track 77 map points
+I20230205 21:23:12.390769 1315449 tracking.cc:571] Track 63 reference points
+I20230205 21:23:12.390795 1315449 tracking.cc:279] Keyframe at 364459.676136, mappoints 77, interval 0.0984836, parallax 15.0511
+I20230205 21:23:12.390991 1315449 tracking.cc:795] Triangulate 28 3D points with 35 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:12.397018 1315449 tracking.cc:687] Add 47 new features to 140
+I20230205 21:23:12.397202 1315449 ic_gvins.cc:589] Tracking cost 17.8062 ms
+I20230205 21:23:12.416142 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 6.559870e+01, Final cost: 6.554831e+01, Termination: CONVERGENCE
+I20230205 21:23:12.416522 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 1 bad observed features 0, 0, 0
+I20230205 21:23:12.417124 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364458.374138
+I20230205 21:23:12.418884 1315450 ic_gvins.cc:514] Optimization costs 82.5459 ms with 33.7977 and 38.5452 with marginalization costs 1.68368
+I20230205 21:23:12.425053 1315448 misc.cc:220] Redo INS mechanization at 364459.577653 to 364459.727376 is 0.149724 s
+I20230205 21:23:12.425087 1315448 ic_gvins.cc:787] Insert keyframe 21 at 364459.676136 with 28 new mappoints
+I20230205 21:23:12.425287 1315448 ic_gvins.cc:792] Add new keyframe time node at 364459.676136
+I20230205 21:23:12.425330 1315450 ic_gvins.cc:1893] Total 12 pose states from 364458.374138 to 364459.676136
+I20230205 21:23:12.428004 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 568 reprojection
+I20230205 21:23:12.440527 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 9.140126e+01, Final cost: 8.645009e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:12.440853 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:12.468390 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 12, Initial cost: 8.088636e+01, Final cost: 8.081311e+01, Termination: CONVERGENCE
+I20230205 21:23:12.468787 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 1 bad observed features 0, 0, 0
+I20230205 21:23:12.469205 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364458.475939
+I20230205 21:23:12.470803 1315450 ic_gvins.cc:514] Optimization costs 45.4828 ms with 12.5381 and 27.5485 with marginalization costs 1.48341
+I20230205 21:23:12.474786 1315448 misc.cc:220] Redo INS mechanization at 364459.676136 to 364459.777342 is 0.101206 s
+I20230205 21:23:12.480262 1315449 tracking.cc:452] Track 89 map points
+I20230205 21:23:12.486835 1315449 tracking.cc:571] Track 46 reference points
+I20230205 21:23:12.486861 1315449 tracking.cc:279] Keyframe at 364459.776033, mappoints 89, interval 0.0998967, parallax 15.6308
+I20230205 21:23:12.487005 1315449 tracking.cc:795] Triangulate 23 3D points with 23 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:12.492594 1315449 tracking.cc:687] Add 52 new features to 135
+I20230205 21:23:12.492754 1315449 ic_gvins.cc:589] Tracking cost 17.05 ms
+I20230205 21:23:12.494786 1315448 ic_gvins.cc:787] Insert keyframe 22 at 364459.776033 with 23 new mappoints
+I20230205 21:23:12.495000 1315448 ic_gvins.cc:792] Add new keyframe time node at 364459.776033
+I20230205 21:23:12.495059 1315450 ic_gvins.cc:1893] Total 12 pose states from 364458.475939 to 364459.776033
+I20230205 21:23:12.498140 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 659 reprojection
+I20230205 21:23:12.510665 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.235365e+02, Final cost: 1.083342e+02, Termination: NO_CONVERGENCE
+I20230205 21:23:12.510944 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:12.533233 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 1.001622e+02, Final cost: 1.000729e+02, Termination: CONVERGENCE
+I20230205 21:23:12.533532 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 1 bad observed features 0, 0, 1
+I20230205 21:23:12.533869 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364458.575990
+I20230205 21:23:12.535058 1315450 ic_gvins.cc:514] Optimization costs 40.0081 ms with 12.5321 and 22.3004 with marginalization costs 1.10465
+I20230205 21:23:12.544981 1315448 misc.cc:220] Redo INS mechanization at 364459.776033 to 364459.847362 is 0.0713288 s
+I20230205 21:23:12.580907 1315449 tracking.cc:452] Track 93 map points
+I20230205 21:23:12.583089 1315449 tracking.cc:571] Track 35 reference points
+I20230205 21:23:12.587250 1315449 tracking.cc:687] Add 58 new features to 128
+I20230205 21:23:12.679363 1315449 tracking.cc:452] Track 78 map points
+I20230205 21:23:12.682338 1315449 tracking.cc:571] Track 48 reference points
+I20230205 21:23:12.682366 1315449 tracking.cc:279] Keyframe at 364459.975861, mappoints 78, interval 0.199828, parallax 25.4972
+I20230205 21:23:12.682475 1315449 tracking.cc:795] Triangulate 15 3D points with 33 left, 17 reset, 0 outtime and 0 outliers
+I20230205 21:23:12.689085 1315449 tracking.cc:687] Add 61 new features to 126
+I20230205 21:23:12.689278 1315449 ic_gvins.cc:589] Tracking cost 13.7852 ms
+I20230205 21:23:12.694787 1315448 ic_gvins.cc:787] Insert keyframe 23 at 364459.975861 with 15 new mappoints
+I20230205 21:23:12.695103 1315448 ic_gvins.cc:792] Add new keyframe time node at 364459.975861
+I20230205 21:23:12.695160 1315450 ic_gvins.cc:1893] Total 12 pose states from 364458.575990 to 364459.975861
+I20230205 21:23:12.698067 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 718 reprojection
+I20230205 21:23:12.711782 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.435132e+02, Final cost: 1.276557e+02, Termination: NO_CONVERGENCE
+I20230205 21:23:12.712131 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:12.739758 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 14, Initial cost: 1.173656e+02, Final cost: 1.168851e+02, Termination: CONVERGENCE
+I20230205 21:23:12.740093 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 2 bad observed features 0, 0, 0
+I20230205 21:23:12.740509 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364458.776199
+I20230205 21:23:12.744472 1315450 ic_gvins.cc:514] Optimization costs 49.3206 ms with 13.7235 and 27.6385 with marginalization costs 3.94173
+I20230205 21:23:12.744793 1315448 misc.cc:220] Redo INS mechanization at 364459.975861 to 364460.047290 is 0.0714286 s
+I20230205 21:23:12.792218 1315449 tracking.cc:452] Track 56 map points
+I20230205 21:23:12.801203 1315449 tracking.cc:571] Track 45 reference points
+I20230205 21:23:12.801240 1315449 tracking.cc:279] Keyframe at 364460.075828, mappoints 56, interval 0.0999669, parallax 19.0709
+I20230205 21:23:12.801468 1315449 tracking.cc:795] Triangulate 24 3D points with 10 left, 0 reset, 11 outtime and 0 outliers
+I20230205 21:23:12.810257 1315449 tracking.cc:687] Add 96 new features to 90
+I20230205 21:23:12.810441 1315449 ic_gvins.cc:589] Tracking cost 31.7714 ms
+I20230205 21:23:12.814885 1315448 ic_gvins.cc:787] Insert keyframe 24 at 364460.075828 with 24 new mappoints
+I20230205 21:23:12.815101 1315448 ic_gvins.cc:792] Add new keyframe time node at 364460.075828
+I20230205 21:23:12.815163 1315450 ic_gvins.cc:1893] Total 12 pose states from 364458.776199 to 364460.075828
+I20230205 21:23:12.817706 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 415 reprojection
+I20230205 21:23:12.828810 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.154189e+02, Final cost: 8.526572e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:12.829023 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:12.844411 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 10, Initial cost: 8.526572e+01, Final cost: 8.524563e+01, Termination: CONVERGENCE
+I20230205 21:23:12.844689 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 0 bad observed features 0, 0, 0
+I20230205 21:23:12.844985 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364458.876142
+I20230205 21:23:12.846827 1315450 ic_gvins.cc:514] Optimization costs 31.675 ms with 11.1091 and 15.3975 with marginalization costs 1.8111
+I20230205 21:23:12.854830 1315448 misc.cc:220] Redo INS mechanization at 364460.075828 to 364460.157281 is 0.0814532 s
+I20230205 21:23:12.878403 1315449 tracking.cc:452] Track 58 map points
+I20230205 21:23:12.880489 1315449 tracking.cc:571] Track 66 reference points
+I20230205 21:23:12.880506 1315449 tracking.cc:279] Keyframe at 364460.176252, mappoints 58, interval 0.100424, parallax 16.4021
+I20230205 21:23:12.880615 1315449 tracking.cc:795] Triangulate 25 3D points with 40 left, 0 reset, 1 outtime and 0 outliers
+I20230205 21:23:12.885831 1315449 tracking.cc:687] Add 62 new features to 123
+I20230205 21:23:12.885995 1315449 ic_gvins.cc:589] Tracking cost 10.6472 ms
+I20230205 21:23:12.894729 1315448 ic_gvins.cc:787] Insert keyframe 25 at 364460.176252 with 25 new mappoints
+I20230205 21:23:12.894870 1315448 ic_gvins.cc:792] Add new keyframe time node at 364460.176252
+I20230205 21:23:12.894878 1315448 ic_gvins.cc:937] Add new GNSS time node 364460.129585
+I20230205 21:23:12.895041 1315450 ic_gvins.cc:1893] Total 13 pose states from 364458.876142 to 364460.176252
+I20230205 21:23:12.896545 1315450 ic_gvins.cc:1217] Add 12 preintegration, 2 GNSS, 423 reprojection
+I20230205 21:23:12.903997 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.210660e+02, Final cost: 1.003673e+02, Termination: NO_CONVERGENCE
+I20230205 21:23:12.904021 1315450 ic_gvins.cc:1307] Detect 1 GNSS outliers at 364460.176252
+I20230205 21:23:12.904173 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:12.924407 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 15, Initial cost: 1.018475e+02, Final cost: 9.894379e+01, Termination: CONVERGENCE
+I20230205 21:23:12.924808 1315450 ic_gvins.cc:1164] Culled 2 mappoint with 0 bad observed features 0, 0, 2
+I20230205 21:23:12.925271 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364458.976243
+I20230205 21:23:12.926836 1315450 ic_gvins.cc:514] Optimization costs 31.8063 ms with 7.46305 and 20.2506 with marginalization costs 1.51396
+I20230205 21:23:12.935021 1315448 misc.cc:220] Redo INS mechanization at 364460.176252 to 364460.237318 is 0.0610661 s
+I20230205 21:23:12.993877 1315449 tracking.cc:452] Track 66 map points
+I20230205 21:23:13.008533 1315449 tracking.cc:571] Track 60 reference points
+I20230205 21:23:13.008615 1315449 tracking.cc:279] Keyframe at 364460.276065, mappoints 66, interval 0.0998127, parallax 19.3383
+I20230205 21:23:13.009135 1315449 tracking.cc:795] Triangulate 17 3D points with 43 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:13.020619 1315449 tracking.cc:687] Add 62 new features to 126
+I20230205 21:23:13.020849 1315449 ic_gvins.cc:589] Tracking cost 42.19 ms
+I20230205 21:23:13.024884 1315448 ic_gvins.cc:787] Insert keyframe 26 at 364460.276065 with 17 new mappoints
+I20230205 21:23:13.025300 1315448 ic_gvins.cc:792] Add new keyframe time node at 364460.276065
+I20230205 21:23:13.025396 1315450 ic_gvins.cc:1893] Total 13 pose states from 364458.976243 to 364460.276065
+I20230205 21:23:13.029700 1315450 ic_gvins.cc:1217] Add 12 preintegration, 2 GNSS, 498 reprojection
+I20230205 21:23:13.049630 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.295563e+02, Final cost: 1.103957e+02, Termination: NO_CONVERGENCE
+I20230205 21:23:13.050102 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:13.086177 1315449 tracking.cc:452] Track 66 map points
+I20230205 21:23:13.093335 1315449 tracking.cc:571] Track 62 reference points
+I20230205 21:23:13.093377 1315449 tracking.cc:279] Keyframe at 364460.376153, mappoints 66, interval 0.100089, parallax 19.4187
+I20230205 21:23:13.093641 1315449 tracking.cc:795] Triangulate 23 3D points with 39 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:13.103206 1315449 tracking.cc:687] Add 59 new features to 128
+I20230205 21:23:13.103446 1315449 ic_gvins.cc:589] Tracking cost 27.6266 ms
+I20230205 21:23:13.108469 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 16, Initial cost: 1.082184e+02, Final cost: 1.080547e+02, Termination: NO_CONVERGENCE
+I20230205 21:23:13.109019 1315450 ic_gvins.cc:1164] Culled 2 mappoint with 0 bad observed features 0, 0, 2
+I20230205 21:23:13.109753 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364459.076431
+I20230205 21:23:13.112421 1315450 ic_gvins.cc:514] Optimization costs 87.0421 ms with 19.9455 and 58.3637 with marginalization costs 2.55088
+I20230205 21:23:13.114929 1315448 misc.cc:220] Redo INS mechanization at 364460.276065 to 364460.417280 is 0.141216 s
+I20230205 21:23:13.114974 1315448 ic_gvins.cc:787] Insert keyframe 27 at 364460.376153 with 23 new mappoints
+I20230205 21:23:13.115259 1315448 ic_gvins.cc:792] Add new keyframe time node at 364460.376153
+I20230205 21:23:13.115284 1315450 ic_gvins.cc:1893] Total 13 pose states from 364459.076431 to 364460.376153
+I20230205 21:23:13.119910 1315450 ic_gvins.cc:1217] Add 12 preintegration, 2 GNSS, 543 reprojection
+I20230205 21:23:13.141535 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.128469e+02, Final cost: 1.092402e+02, Termination: NO_CONVERGENCE
+I20230205 21:23:13.142020 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:13.148046 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 1, Initial cost: 1.092402e+02, Final cost: 1.092402e+02, Termination: CONVERGENCE
+I20230205 21:23:13.148615 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 0 bad observed features 0, 0, 1
+I20230205 21:23:13.149322 1315450 ic_gvins.cc:1470] Marginalize 2 states, last time 364459.176401
+I20230205 21:23:13.152595 1315450 ic_gvins.cc:514] Optimization costs 37.3264 ms with 21.6369 and 6.03173 with marginalization costs 3.10369
+I20230205 21:23:13.154847 1315448 misc.cc:220] Redo INS mechanization at 364460.376153 to 364460.457274 is 0.0811203 s
+I20230205 21:23:13.172348 1315432 fusion_ros.cc:271] Raw data time in image recv image,imu,gnss 364460.474089, 364460.467320, 364460.129585
+I20230205 21:23:13.187357 1315449 tracking.cc:452] Track 62 map points
+I20230205 21:23:13.193125 1315449 tracking.cc:571] Track 54 reference points
+I20230205 21:23:13.193167 1315449 tracking.cc:279] Keyframe at 364460.476268, mappoints 62, interval 0.100115, parallax 16.6735
+I20230205 21:23:13.193434 1315449 tracking.cc:795] Triangulate 20 3D points with 34 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:13.202279 1315449 tracking.cc:687] Add 69 new features to 116
+I20230205 21:23:13.202576 1315449 ic_gvins.cc:589] Tracking cost 25.7541 ms
+I20230205 21:23:13.204895 1315448 ic_gvins.cc:787] Insert keyframe 28 at 364460.476268 with 20 new mappoints
+I20230205 21:23:13.205224 1315448 ic_gvins.cc:792] Add new keyframe time node at 364460.476268
+I20230205 21:23:13.205265 1315450 ic_gvins.cc:1893] Total 12 pose states from 364459.176401 to 364460.476268
+I20230205 21:23:13.211019 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 587 reprojection
+I20230205 21:23:13.231139 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.258820e+02, Final cost: 1.144363e+02, Termination: NO_CONVERGENCE
+I20230205 21:23:13.231640 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:13.275182 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 14, Initial cost: 1.119490e+02, Final cost: 1.118767e+02, Termination: CONVERGENCE
+I20230205 21:23:13.275663 1315450 ic_gvins.cc:1164] Culled 2 mappoint with 0 bad observed features 0, 0, 2
+I20230205 21:23:13.276904 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364459.376329
+I20230205 21:23:13.279801 1315449 tracking.cc:452] Track 68 map points
+I20230205 21:23:13.280922 1315450 ic_gvins.cc:514] Optimization costs 75.677 ms with 20.0821 and 43.5492 with marginalization costs 3.90436
+I20230205 21:23:13.285439 1315448 misc.cc:220] Redo INS mechanization at 364460.476268 to 364460.587259 is 0.110991 s
+I20230205 21:23:13.286778 1315449 tracking.cc:571] Track 57 reference points
+I20230205 21:23:13.286813 1315449 tracking.cc:279] Keyframe at 364460.576340, mappoints 68, interval 0.100071, parallax 16.828
+I20230205 21:23:13.286993 1315449 tracking.cc:795] Triangulate 21 3D points with 36 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:13.293036 1315449 tracking.cc:687] Add 60 new features to 125
+I20230205 21:23:13.293205 1315449 ic_gvins.cc:589] Tracking cost 17.8409 ms
+I20230205 21:23:13.294881 1315448 ic_gvins.cc:787] Insert keyframe 29 at 364460.576340 with 21 new mappoints
+I20230205 21:23:13.295094 1315448 ic_gvins.cc:792] Add new keyframe time node at 364460.576340
+I20230205 21:23:13.295166 1315450 ic_gvins.cc:1893] Total 12 pose states from 364459.376329 to 364460.576340
+I20230205 21:23:13.298147 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 560 reprojection
+I20230205 21:23:13.311887 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.155257e+02, Final cost: 9.873403e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:13.312219 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:13.334311 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 9, Initial cost: 9.873403e+01, Final cost: 9.869403e+01, Termination: CONVERGENCE
+I20230205 21:23:13.334862 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 0 bad observed features 0, 0, 1
+I20230205 21:23:13.335358 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364459.577653
+I20230205 21:23:13.337654 1315450 ic_gvins.cc:514] Optimization costs 42.4969 ms with 13.7576 and 22.1088 with marginalization costs 2.24634
+I20230205 21:23:13.344991 1315448 misc.cc:220] Redo INS mechanization at 364460.576340 to 364460.647266 is 0.0709267 s
+I20230205 21:23:13.380208 1315449 tracking.cc:452] Track 72 map points
+I20230205 21:23:13.383375 1315449 tracking.cc:571] Track 53 reference points
+I20230205 21:23:13.383404 1315449 tracking.cc:279] Keyframe at 364460.676167, mappoints 72, interval 0.0998272, parallax 16.7735
+I20230205 21:23:13.383528 1315449 tracking.cc:795] Triangulate 20 3D points with 33 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:13.389261 1315449 tracking.cc:687] Add 63 new features to 125
+I20230205 21:23:13.389403 1315449 ic_gvins.cc:589] Tracking cost 12.9024 ms
+I20230205 21:23:13.394883 1315448 ic_gvins.cc:787] Insert keyframe 30 at 364460.676167 with 20 new mappoints
+I20230205 21:23:13.395072 1315448 ic_gvins.cc:792] Add new keyframe time node at 364460.676167
+I20230205 21:23:13.395094 1315450 ic_gvins.cc:1893] Total 12 pose states from 364459.577653 to 364460.676167
+I20230205 21:23:13.397768 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 582 reprojection
+I20230205 21:23:13.409826 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.242814e+02, Final cost: 1.034184e+02, Termination: NO_CONVERGENCE
+I20230205 21:23:13.410118 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:13.433024 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 9.942890e+01, Final cost: 9.907096e+01, Termination: CONVERGENCE
+I20230205 21:23:13.433352 1315450 ic_gvins.cc:1164] Culled 2 mappoint with 1 bad observed features 0, 0, 2
+I20230205 21:23:13.433717 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364459.676136
+I20230205 21:23:13.435814 1315450 ic_gvins.cc:514] Optimization costs 40.7305 ms with 12.0719 and 22.9396 with marginalization costs 2.06761
+I20230205 21:23:13.444913 1315448 misc.cc:220] Redo INS mechanization at 364460.676167 to 364460.747284 is 0.0711174 s
+I20230205 21:23:13.489251 1315449 tracking.cc:452] Track 73 map points
+I20230205 21:23:13.502821 1315449 tracking.cc:571] Track 57 reference points
+I20230205 21:23:13.502876 1315449 tracking.cc:279] Keyframe at 364460.776452, mappoints 73, interval 0.100286, parallax 16.563
+I20230205 21:23:13.503253 1315449 tracking.cc:795] Triangulate 22 3D points with 33 left, 0 reset, 2 outtime and 0 outliers
+I20230205 21:23:13.518400 1315449 tracking.cc:687] Add 59 new features to 128
+I20230205 21:23:13.518818 1315449 ic_gvins.cc:589] Tracking cost 43.0197 ms
+I20230205 21:23:13.525132 1315448 ic_gvins.cc:787] Insert keyframe 31 at 364460.776452 with 22 new mappoints
+I20230205 21:23:13.526108 1315448 ic_gvins.cc:792] Add new keyframe time node at 364460.776452
+I20230205 21:23:13.526221 1315450 ic_gvins.cc:1893] Total 12 pose states from 364459.676136 to 364460.776452
+I20230205 21:23:13.534162 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 529 reprojection
+I20230205 21:23:13.570243 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 9.449143e+01, Final cost: 7.833681e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:13.571126 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:13.592084 1315449 tracking.cc:452] Track 81 map points
+I20230205 21:23:13.604120 1315449 tracking.cc:571] Track 54 reference points
+I20230205 21:23:13.604192 1315449 tracking.cc:279] Keyframe at 364460.875942, mappoints 81, interval 0.0994899, parallax 17.469
+I20230205 21:23:13.604697 1315449 tracking.cc:795] Triangulate 24 3D points with 30 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:13.620590 1315449 tracking.cc:687] Add 47 new features to 135
+I20230205 21:23:13.620945 1315449 ic_gvins.cc:589] Tracking cost 42.1932 ms
+I20230205 21:23:13.641397 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 9, Initial cost: 7.833681e+01, Final cost: 7.831837e+01, Termination: CONVERGENCE
+I20230205 21:23:13.642414 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 0 bad observed features 0, 0, 0
+I20230205 21:23:13.643513 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364459.776033
+I20230205 21:23:13.649937 1315450 ic_gvins.cc:514] Optimization costs 123.754 ms with 36.1042 and 70.2552 with marginalization costs 6.09965
+I20230205 21:23:13.655056 1315448 misc.cc:220] Redo INS mechanization at 364460.776452 to 364460.957251 is 0.180798 s
+I20230205 21:23:13.655144 1315448 ic_gvins.cc:787] Insert keyframe 32 at 364460.875942 with 24 new mappoints
+I20230205 21:23:13.655712 1315448 ic_gvins.cc:792] Add new keyframe time node at 364460.875942
+I20230205 21:23:13.655825 1315450 ic_gvins.cc:1893] Total 12 pose states from 364459.776033 to 364460.875942
+I20230205 21:23:13.664355 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 600 reprojection
+I20230205 21:23:13.691434 1315449 tracking.cc:452] Track 84 map points
+I20230205 21:23:13.704922 1315449 tracking.cc:571] Track 40 reference points
+I20230205 21:23:13.704975 1315449 tracking.cc:279] Keyframe at 364460.976176, mappoints 84, interval 0.100234, parallax 16.6236
+I20230205 21:23:13.705303 1315449 tracking.cc:795] Triangulate 20 3D points with 20 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:13.707512 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 8.607385e+01, Final cost: 8.189624e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:13.708417 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:13.719753 1315449 tracking.cc:687] Add 63 new features to 124
+I20230205 21:23:13.720088 1315449 ic_gvins.cc:589] Tracking cost 44.7134 ms
+I20230205 21:23:13.788630 1315449 tracking.cc:452] Track 91 map points
+I20230205 21:23:13.795341 1315449 tracking.cc:571] Track 39 reference points
+I20230205 21:23:13.795377 1315449 tracking.cc:279] Keyframe at 364461.076212, mappoints 91, interval 0.100036, parallax 16.9477
+I20230205 21:23:13.795598 1315449 tracking.cc:795] Triangulate 19 3D points with 20 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:13.802830 1315449 tracking.cc:687] Add 56 new features to 130
+I20230205 21:23:13.803086 1315449 ic_gvins.cc:589] Tracking cost 24.3322 ms
+I20230205 21:23:13.808233 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 15, Initial cost: 8.189624e+01, Final cost: 8.187628e+01, Termination: CONVERGENCE
+I20230205 21:23:13.808779 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 0 bad observed features 0, 0, 1
+I20230205 21:23:13.809310 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364459.975861
+I20230205 21:23:13.811558 1315450 ic_gvins.cc:514] Optimization costs 155.751 ms with 43.1818 and 99.7994 with marginalization costs 2.13677
+I20230205 21:23:13.814852 1315448 misc.cc:220] Redo INS mechanization at 364460.875942 to 364461.117309 is 0.241367 s
+I20230205 21:23:13.814893 1315448 ic_gvins.cc:787] Insert keyframe 33 at 364460.976176 with 20 new mappoints
+I20230205 21:23:13.815080 1315448 ic_gvins.cc:792] Add new keyframe time node at 364460.976176
+I20230205 21:23:13.815088 1315448 ic_gvins.cc:787] Insert keyframe 34 at 364461.076212 with 19 new mappoints
+I20230205 21:23:13.815256 1315448 ic_gvins.cc:792] Add new keyframe time node at 364461.076212
+I20230205 21:23:13.815276 1315450 ic_gvins.cc:1893] Total 13 pose states from 364459.975861 to 364461.076212
+I20230205 21:23:13.818769 1315450 ic_gvins.cc:1217] Add 12 preintegration, 1 GNSS, 755 reprojection
+I20230205 21:23:13.834734 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.269837e+02, Final cost: 1.090335e+02, Termination: NO_CONVERGENCE
+I20230205 21:23:13.835158 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:13.839834 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 1, Initial cost: 1.090335e+02, Final cost: 1.090335e+02, Termination: CONVERGENCE
+I20230205 21:23:13.840319 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 0 bad observed features 0, 0, 1
+I20230205 21:23:13.840879 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364460.075828
+I20230205 21:23:13.843768 1315450 ic_gvins.cc:1470] Marginalize 2 states, last time 364460.176252
+I20230205 21:23:13.848448 1315450 ic_gvins.cc:514] Optimization costs 33.1893 ms with 15.9847 and 4.6778 with marginalization costs 7.48478
+I20230205 21:23:13.854846 1315448 misc.cc:220] Redo INS mechanization at 364461.076212 to 364461.157247 is 0.0810344 s
+I20230205 21:23:13.880260 1315449 tracking.cc:452] Track 64 map points
+I20230205 21:23:13.883659 1315449 tracking.cc:571] Track 29 reference points
+I20230205 21:23:13.883692 1315449 tracking.cc:279] Keyframe at 364461.176019, mappoints 64, interval 0.0998067, parallax 18.098
+I20230205 21:23:13.883776 1315449 tracking.cc:795] Triangulate 7 3D points with 12 left, 0 reset, 10 outtime and 0 outliers
+I20230205 21:23:13.890776 1315449 tracking.cc:687] Add 107 new features to 83
+I20230205 21:23:13.890923 1315449 ic_gvins.cc:589] Tracking cost 15.3402 ms
+I20230205 21:23:13.894850 1315448 ic_gvins.cc:787] Insert keyframe 35 at 364461.176019 with 7 new mappoints
+I20230205 21:23:13.895059 1315448 ic_gvins.cc:792] Add new keyframe time node at 364461.176019
+I20230205 21:23:13.895076 1315448 ic_gvins.cc:937] Add new GNSS time node 364461.131858
+I20230205 21:23:13.895301 1315450 ic_gvins.cc:1893] Total 12 pose states from 364460.176252 to 364461.176019
+I20230205 21:23:13.897799 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 519 reprojection
+I20230205 21:23:13.909462 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 9.105285e+01, Final cost: 8.153231e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:13.909881 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:13.939738 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 14, Initial cost: 7.755529e+01, Final cost: 7.592090e+01, Termination: CONVERGENCE
+I20230205 21:23:13.940099 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 1 bad observed features 0, 0, 1
+I20230205 21:23:13.940508 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364460.276065
+I20230205 21:23:13.942821 1315450 ic_gvins.cc:514] Optimization costs 47.5324 ms with 11.6841 and 29.8226 with marginalization costs 2.22846
+I20230205 21:23:13.944851 1315448 misc.cc:220] Redo INS mechanization at 364461.176019 to 364461.247283 is 0.0712636 s
+I20230205 21:23:13.991494 1315449 tracking.cc:452] Track 52 map points
+I20230205 21:23:14.002012 1315449 tracking.cc:571] Track 69 reference points
+I20230205 21:23:14.002060 1315449 tracking.cc:279] Keyframe at 364461.275825, mappoints 52, interval 0.0998058, parallax 15.9041
+I20230205 21:23:14.002476 1315449 tracking.cc:795] Triangulate 22 3D points with 46 left, 0 reset, 1 outtime and 0 outliers
+I20230205 21:23:14.020179 1315449 tracking.cc:687] Add 70 new features to 120
+I20230205 21:23:14.020521 1315449 ic_gvins.cc:589] Tracking cost 40.7549 ms
+I20230205 21:23:14.025127 1315448 ic_gvins.cc:787] Insert keyframe 36 at 364461.275825 with 22 new mappoints
+I20230205 21:23:14.025736 1315448 ic_gvins.cc:792] Add new keyframe time node at 364461.275825
+I20230205 21:23:14.025833 1315450 ic_gvins.cc:1893] Total 12 pose states from 364460.276065 to 364461.275825
+I20230205 21:23:14.033594 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 511 reprojection
+I20230205 21:23:14.071956 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.051539e+02, Final cost: 8.179613e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:14.072844 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:14.083613 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 1, Initial cost: 8.179613e+01, Final cost: 8.179613e+01, Termination: CONVERGENCE
+I20230205 21:23:14.084738 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 0 bad observed features 0, 0, 1
+I20230205 21:23:14.085542 1315449 tracking.cc:452] Track 56 map points
+I20230205 21:23:14.086067 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364460.376153
+I20230205 21:23:14.091897 1315450 ic_gvins.cc:514] Optimization costs 66.0941 ms with 38.3884 and 10.7952 with marginalization costs 5.82144
+I20230205 21:23:14.094347 1315449 tracking.cc:571] Track 71 reference points
+I20230205 21:23:14.094372 1315449 tracking.cc:279] Keyframe at 364461.376006, mappoints 56, interval 0.100181, parallax 20.15
+I20230205 21:23:14.094625 1315449 tracking.cc:795] Triangulate 25 3D points with 44 left, 0 reset, 2 outtime and 0 outliers
+I20230205 21:23:14.094836 1315448 misc.cc:220] Redo INS mechanization at 364461.275825 to 364461.397238 is 0.121414 s
+I20230205 21:23:14.102561 1315449 tracking.cc:687] Add 64 new features to 125
+I20230205 21:23:14.102823 1315449 ic_gvins.cc:589] Tracking cost 27.4488 ms
+I20230205 21:23:14.104804 1315448 ic_gvins.cc:787] Insert keyframe 37 at 364461.376006 with 25 new mappoints
+I20230205 21:23:14.105125 1315448 ic_gvins.cc:792] Add new keyframe time node at 364461.376006
+I20230205 21:23:14.105194 1315450 ic_gvins.cc:1893] Total 12 pose states from 364460.376153 to 364461.376006
+I20230205 21:23:14.109131 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 507 reprojection
+I20230205 21:23:14.127611 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.033036e+02, Final cost: 8.626195e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:14.128065 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:14.169350 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 7.765426e+01, Final cost: 7.641753e+01, Termination: CONVERGENCE
+I20230205 21:23:14.169800 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 1 bad observed features 0, 0, 0
+I20230205 21:23:14.170284 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364460.476268
+I20230205 21:23:14.172732 1315450 ic_gvins.cc:514] Optimization costs 67.556 ms with 18.4984 and 41.2949 with marginalization costs 2.38281
+I20230205 21:23:14.177987 1315448 misc.cc:220] Redo INS mechanization at 364461.376006 to 364461.477238 is 0.101233 s
+I20230205 21:23:14.182847 1315449 tracking.cc:452] Track 60 map points
+I20230205 21:23:14.186708 1315449 tracking.cc:571] Track 56 reference points
+I20230205 21:23:14.186731 1315449 tracking.cc:279] Keyframe at 364461.475903, mappoints 60, interval 0.0998967, parallax 20.132
+I20230205 21:23:14.186880 1315449 tracking.cc:795] Triangulate 23 3D points with 33 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:14.192153 1315449 tracking.cc:687] Add 74 new features to 116
+I20230205 21:23:14.192304 1315449 ic_gvins.cc:589] Tracking cost 13.7177 ms
+I20230205 21:23:14.194844 1315448 ic_gvins.cc:787] Insert keyframe 38 at 364461.475903 with 23 new mappoints
+I20230205 21:23:14.195055 1315448 ic_gvins.cc:792] Add new keyframe time node at 364461.475903
+I20230205 21:23:14.195122 1315450 ic_gvins.cc:1893] Total 12 pose states from 364460.476268 to 364461.475903
+I20230205 21:23:14.197890 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 528 reprojection
+I20230205 21:23:14.211728 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.221986e+02, Final cost: 9.710718e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:14.212036 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:14.239215 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 12, Initial cost: 8.433797e+01, Final cost: 8.430158e+01, Termination: CONVERGENCE
+I20230205 21:23:14.239626 1315450 ic_gvins.cc:1164] Culled 2 mappoint with 2 bad observed features 0, 1, 1
+I20230205 21:23:14.240059 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364460.576340
+I20230205 21:23:14.242422 1315450 ic_gvins.cc:514] Optimization costs 47.3148 ms with 13.8577 and 27.1943 with marginalization costs 2.28415
+I20230205 21:23:14.244765 1315448 misc.cc:220] Redo INS mechanization at 364461.475903 to 364461.547235 is 0.0713325 s
+I20230205 21:23:14.289789 1315449 tracking.cc:452] Track 68 map points
+I20230205 21:23:14.302186 1315449 tracking.cc:571] Track 57 reference points
+I20230205 21:23:14.302237 1315449 tracking.cc:279] Keyframe at 364461.575873, mappoints 68, interval 0.0999701, parallax 18.6016
+I20230205 21:23:14.302659 1315449 tracking.cc:795] Triangulate 22 3D points with 35 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:14.318313 1315449 tracking.cc:687] Add 66 new features to 125
+I20230205 21:23:14.318694 1315449 ic_gvins.cc:589] Tracking cost 43.4173 ms
+I20230205 21:23:14.325218 1315448 ic_gvins.cc:787] Insert keyframe 39 at 364461.575873 with 22 new mappoints
+I20230205 21:23:14.326357 1315448 ic_gvins.cc:792] Add new keyframe time node at 364461.575873
+I20230205 21:23:14.326443 1315450 ic_gvins.cc:1893] Total 12 pose states from 364460.576340 to 364461.575873
+I20230205 21:23:14.337397 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 530 reprojection
+I20230205 21:23:14.373488 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.029310e+02, Final cost: 8.317068e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:14.374477 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:14.381649 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 1, Initial cost: 8.317068e+01, Final cost: 8.317068e+01, Termination: CONVERGENCE
+I20230205 21:23:14.382371 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 0 bad observed features 0, 0, 1
+I20230205 21:23:14.384186 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364460.676167
+I20230205 21:23:14.386193 1315449 tracking.cc:452] Track 78 map points
+I20230205 21:23:14.388833 1315450 ic_gvins.cc:514] Optimization costs 62.4177 ms with 36.0968 and 7.16338 with marginalization costs 4.59303
+I20230205 21:23:14.390679 1315449 tracking.cc:571] Track 50 reference points
+I20230205 21:23:14.390707 1315449 tracking.cc:279] Keyframe at 364461.675902, mappoints 78, interval 0.100029, parallax 19.8689
+I20230205 21:23:14.390933 1315449 tracking.cc:795] Triangulate 25 3D points with 25 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:14.394896 1315448 misc.cc:220] Redo INS mechanization at 364461.575873 to 364461.697269 is 0.121396 s
+I20230205 21:23:14.397616 1315449 tracking.cc:687] Add 60 new features to 128
+I20230205 21:23:14.397786 1315449 ic_gvins.cc:589] Tracking cost 18.5173 ms
+I20230205 21:23:14.404927 1315448 ic_gvins.cc:787] Insert keyframe 40 at 364461.675902 with 25 new mappoints
+I20230205 21:23:14.405190 1315448 ic_gvins.cc:792] Add new keyframe time node at 364461.675902
+I20230205 21:23:14.405257 1315450 ic_gvins.cc:1893] Total 12 pose states from 364460.676167 to 364461.675902
+I20230205 21:23:14.409387 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 536 reprojection
+I20230205 21:23:14.425256 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.036326e+02, Final cost: 7.899625e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:14.425668 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:14.454725 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 7.899625e+01, Final cost: 7.896955e+01, Termination: CONVERGENCE
+I20230205 21:23:14.455078 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 0 bad observed features 0, 0, 0
+I20230205 21:23:14.455453 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364460.776452
+I20230205 21:23:14.457798 1315450 ic_gvins.cc:514] Optimization costs 52.5525 ms with 15.8721 and 29.0544 with marginalization costs 2.28184
+I20230205 21:23:14.464820 1315448 misc.cc:220] Redo INS mechanization at 364461.675902 to 364461.767222 is 0.0913208 s
+I20230205 21:23:14.479110 1315449 tracking.cc:452] Track 72 map points
+I20230205 21:23:14.482702 1315449 tracking.cc:571] Track 41 reference points
+I20230205 21:23:14.482736 1315449 tracking.cc:279] Keyframe at 364461.775905, mappoints 72, interval 0.100003, parallax 16.141
+I20230205 21:23:14.482856 1315449 tracking.cc:795] Triangulate 19 3D points with 22 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:14.489392 1315449 tracking.cc:687] Add 75 new features to 113
+I20230205 21:23:14.489542 1315449 ic_gvins.cc:589] Tracking cost 14.1945 ms
+I20230205 21:23:14.494843 1315448 ic_gvins.cc:787] Insert keyframe 41 at 364461.775905 with 19 new mappoints
+I20230205 21:23:14.495040 1315448 ic_gvins.cc:792] Add new keyframe time node at 364461.775905
+I20230205 21:23:14.495110 1315450 ic_gvins.cc:1893] Total 12 pose states from 364460.776452 to 364461.775905
+I20230205 21:23:14.497491 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 524 reprojection
+I20230205 21:23:14.507923 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 8.936045e+01, Final cost: 7.708041e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:14.508184 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:14.511276 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 1, Initial cost: 7.708041e+01, Final cost: 7.708041e+01, Termination: CONVERGENCE
+I20230205 21:23:14.511616 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 0 bad observed features 0, 0, 0
+I20230205 21:23:14.512001 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364460.875942
+I20230205 21:23:14.514235 1315450 ic_gvins.cc:514] Optimization costs 19.1334 ms with 10.4477 and 3.0971 with marginalization costs 2.16604
+I20230205 21:23:14.514760 1315448 misc.cc:220] Redo INS mechanization at 364461.775905 to 364461.817211 is 0.0413064 s
+I20230205 21:23:14.590626 1315449 tracking.cc:452] Track 76 map points
+I20230205 21:23:14.602085 1315449 tracking.cc:571] Track 56 reference points
+I20230205 21:23:14.602138 1315449 tracking.cc:279] Keyframe at 364461.875928, mappoints 76, interval 0.100023, parallax 20.3592
+I20230205 21:23:14.602682 1315449 tracking.cc:795] Triangulate 31 3D points with 25 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:14.618074 1315449 tracking.cc:687] Add 56 new features to 132
+I20230205 21:23:14.618490 1315449 ic_gvins.cc:589] Tracking cost 39.131 ms
+I20230205 21:23:14.625042 1315448 ic_gvins.cc:787] Insert keyframe 42 at 364461.875928 with 31 new mappoints
+I20230205 21:23:14.625694 1315448 ic_gvins.cc:792] Add new keyframe time node at 364461.875928
+I20230205 21:23:14.625783 1315450 ic_gvins.cc:1893] Total 12 pose states from 364460.875942 to 364461.875928
+I20230205 21:23:14.635574 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 552 reprojection
+I20230205 21:23:14.674846 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.200799e+02, Final cost: 8.189978e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:14.675781 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:14.687683 1315449 tracking.cc:452] Track 82 map points
+I20230205 21:23:14.687937 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 1, Initial cost: 8.189978e+01, Final cost: 8.189978e+01, Termination: CONVERGENCE
+I20230205 21:23:14.688863 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 0 bad observed features 0, 0, 1
+I20230205 21:23:14.690260 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364460.976176
+I20230205 21:23:14.694041 1315450 ic_gvins.cc:514] Optimization costs 68.2927 ms with 39.2882 and 12.1575 with marginalization costs 3.52757
+I20230205 21:23:14.694940 1315448 misc.cc:220] Redo INS mechanization at 364461.875928 to 364461.997251 is 0.121323 s
+I20230205 21:23:14.695436 1315449 tracking.cc:571] Track 45 reference points
+I20230205 21:23:14.695454 1315449 tracking.cc:279] Keyframe at 364461.976152, mappoints 82, interval 0.100224, parallax 18.2704
+I20230205 21:23:14.695592 1315449 tracking.cc:795] Triangulate 19 3D points with 26 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:14.702553 1315449 tracking.cc:687] Add 63 new features to 127
+I20230205 21:23:14.702744 1315449 ic_gvins.cc:589] Tracking cost 26.997 ms
+I20230205 21:23:14.704720 1315448 ic_gvins.cc:787] Insert keyframe 43 at 364461.976152 with 19 new mappoints
+I20230205 21:23:14.704963 1315448 ic_gvins.cc:792] Add new keyframe time node at 364461.976152
+I20230205 21:23:14.705036 1315450 ic_gvins.cc:1893] Total 12 pose states from 364460.976176 to 364461.976152
+I20230205 21:23:14.708753 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 593 reprojection
+I20230205 21:23:14.725703 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 9.871602e+01, Final cost: 8.152177e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:14.726281 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:14.731530 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 1, Initial cost: 8.152177e+01, Final cost: 8.152177e+01, Termination: CONVERGENCE
+I20230205 21:23:14.732043 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 0 bad observed features 0, 0, 0
+I20230205 21:23:14.732895 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364461.076212
+I20230205 21:23:14.735608 1315450 ic_gvins.cc:514] Optimization costs 30.5868 ms with 16.9741 and 5.25452 with marginalization costs 2.66671
+I20230205 21:23:14.744868 1315448 misc.cc:220] Redo INS mechanization at 364461.976152 to 364462.047228 is 0.071076 s
+I20230205 21:23:14.781884 1315449 tracking.cc:452] Track 87 map points
+I20230205 21:23:14.786123 1315449 tracking.cc:571] Track 39 reference points
+I20230205 21:23:14.786149 1315449 tracking.cc:279] Keyframe at 364462.076323, mappoints 87, interval 0.100172, parallax 20.2572
+I20230205 21:23:14.786274 1315449 tracking.cc:795] Triangulate 14 3D points with 25 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:14.792486 1315449 tracking.cc:687] Add 61 new features to 126
+I20230205 21:23:14.792660 1315449 ic_gvins.cc:589] Tracking cost 16.7545 ms
+I20230205 21:23:14.794924 1315448 ic_gvins.cc:787] Insert keyframe 44 at 364462.076323 with 14 new mappoints
+I20230205 21:23:14.795253 1315448 ic_gvins.cc:792] Add new keyframe time node at 364462.076323
+I20230205 21:23:14.795338 1315450 ic_gvins.cc:1893] Total 12 pose states from 364461.076212 to 364462.076323
+I20230205 21:23:14.799183 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 637 reprojection
+I20230205 21:23:14.816895 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.027109e+02, Final cost: 8.878732e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:14.817338 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:14.854046 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 16, Initial cost: 8.668740e+01, Final cost: 8.664032e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:14.854364 1315450 ic_gvins.cc:1164] Culled 3 mappoint with 0 bad observed features 0, 0, 3
+I20230205 21:23:14.854874 1315450 ic_gvins.cc:1470] Marginalize 2 states, last time 364461.176019
+I20230205 21:23:14.856266 1315450 ic_gvins.cc:514] Optimization costs 60.9369 ms with 17.6872 and 36.7134 with marginalization costs 1.3439
+I20230205 21:23:14.864840 1315448 misc.cc:220] Redo INS mechanization at 364462.076323 to 364462.167205 is 0.0908818 s
+I20230205 21:23:14.878971 1315449 tracking.cc:452] Track 76 map points
+I20230205 21:23:14.881053 1315449 tracking.cc:571] Track 50 reference points
+I20230205 21:23:14.881070 1315449 tracking.cc:279] Keyframe at 364462.176206, mappoints 76, interval 0.0998827, parallax 19.0771
+I20230205 21:23:14.881171 1315449 tracking.cc:795] Triangulate 24 3D points with 26 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:14.885605 1315449 tracking.cc:687] Add 63 new features to 126
+I20230205 21:23:14.885828 1315449 ic_gvins.cc:589] Tracking cost 10.1123 ms
+I20230205 21:23:14.894809 1315448 ic_gvins.cc:787] Insert keyframe 45 at 364462.176206 with 24 new mappoints
+I20230205 21:23:14.894949 1315448 ic_gvins.cc:792] Add new keyframe time node at 364462.176206
+I20230205 21:23:14.894958 1315448 ic_gvins.cc:937] Add new GNSS time node 364462.130587
+I20230205 21:23:14.895121 1315450 ic_gvins.cc:1893] Total 12 pose states from 364461.176019 to 364462.176206
+I20230205 21:23:14.897204 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 674 reprojection
+I20230205 21:23:14.906322 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.071026e+02, Final cost: 8.111897e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:14.906342 1315450 ic_gvins.cc:1307] Detect 1 GNSS outliers at 364462.176206
+I20230205 21:23:14.906580 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:14.929414 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 14, Initial cost: 7.991949e+01, Final cost: 7.917673e+01, Termination: CONVERGENCE
+I20230205 21:23:14.929723 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 0 bad observed features 0, 0, 0
+I20230205 21:23:14.930184 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364461.275825
+I20230205 21:23:14.932705 1315450 ic_gvins.cc:514] Optimization costs 37.5915 ms with 9.12923 and 22.8418 with marginalization costs 2.50026
+I20230205 21:23:14.934800 1315448 misc.cc:220] Redo INS mechanization at 364462.176206 to 364462.237269 is 0.0610632 s
+I20230205 21:23:14.989511 1315449 tracking.cc:452] Track 67 map points
+I20230205 21:23:14.995024 1315449 tracking.cc:571] Track 45 reference points
+I20230205 21:23:14.995055 1315449 tracking.cc:279] Keyframe at 364462.276179, mappoints 67, interval 0.0999726, parallax 23.5439
+I20230205 21:23:14.995255 1315449 tracking.cc:795] Triangulate 20 3D points with 15 left, 0 reset, 10 outtime and 0 outliers
+I20230205 21:23:15.003883 1315449 tracking.cc:687] Add 89 new features to 102
+I20230205 21:23:15.004124 1315449 ic_gvins.cc:589] Tracking cost 27.036 ms
+I20230205 21:23:15.004887 1315448 ic_gvins.cc:787] Insert keyframe 46 at 364462.276179 with 20 new mappoints
+I20230205 21:23:15.005211 1315448 ic_gvins.cc:792] Add new keyframe time node at 364462.276179
+I20230205 21:23:15.005286 1315450 ic_gvins.cc:1893] Total 12 pose states from 364461.275825 to 364462.276179
+I20230205 21:23:15.010931 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 544 reprojection
+I20230205 21:23:15.024845 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 9.067329e+01, Final cost: 7.254480e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:15.025190 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:15.028693 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 1, Initial cost: 7.335376e+01, Final cost: 7.335376e+01, Termination: CONVERGENCE
+I20230205 21:23:15.029036 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 0 bad observed features 0, 0, 1
+I20230205 21:23:15.029451 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364461.376006
+I20230205 21:23:15.031762 1315450 ic_gvins.cc:514] Optimization costs 26.4935 ms with 13.9391 and 3.50397 with marginalization costs 2.19715
+I20230205 21:23:15.034790 1315448 misc.cc:220] Redo INS mechanization at 364462.276179 to 364462.337205 is 0.0610264 s
+I20230205 21:23:15.079226 1315449 tracking.cc:452] Track 54 map points
+I20230205 21:23:15.082072 1315449 tracking.cc:571] Track 53 reference points
+I20230205 21:23:15.082093 1315449 tracking.cc:279] Keyframe at 364462.376099, mappoints 54, interval 0.0999207, parallax 16.4383
+I20230205 21:23:15.082197 1315449 tracking.cc:795] Triangulate 15 3D points with 37 left, 0 reset, 1 outtime and 0 outliers
+I20230205 21:23:15.087325 1315449 tracking.cc:687] Add 82 new features to 106
+I20230205 21:23:15.087641 1315449 ic_gvins.cc:589] Tracking cost 11.9532 ms
+I20230205 21:23:15.094813 1315448 ic_gvins.cc:787] Insert keyframe 47 at 364462.376099 with 15 new mappoints
+I20230205 21:23:15.094992 1315448 ic_gvins.cc:792] Add new keyframe time node at 364462.376099
+I20230205 21:23:15.095058 1315450 ic_gvins.cc:1893] Total 12 pose states from 364461.376006 to 364462.376099
+I20230205 21:23:15.097389 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 514 reprojection
+I20230205 21:23:15.107831 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 7.984979e+01, Final cost: 6.648231e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:15.108081 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:15.129938 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 6.503841e+01, Final cost: 6.496748e+01, Termination: CONVERGENCE
+I20230205 21:23:15.130223 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 0 bad observed features 0, 0, 0
+I20230205 21:23:15.130596 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364461.475903
+I20230205 21:23:15.132200 1315450 ic_gvins.cc:514] Optimization costs 37.1521 ms with 10.453 and 21.8677 with marginalization costs 1.5321
+I20230205 21:23:15.134932 1315448 misc.cc:220] Redo INS mechanization at 364462.376099 to 364462.437188 is 0.0610891 s
+I20230205 21:23:15.173142 1315432 fusion_ros.cc:271] Raw data time in image recv image,imu,gnss 364462.474186, 364462.467195, 364462.130587
+I20230205 21:23:15.188580 1315449 tracking.cc:452] Track 52 map points
+I20230205 21:23:15.196595 1315449 tracking.cc:571] Track 62 reference points
+I20230205 21:23:15.196640 1315449 tracking.cc:279] Keyframe at 364462.476181, mappoints 52, interval 0.100082, parallax 18.79
+I20230205 21:23:15.196977 1315449 tracking.cc:795] Triangulate 28 3D points with 33 left, 0 reset, 1 outtime and 0 outliers
+I20230205 21:23:15.206830 1315449 tracking.cc:687] Add 74 new features to 113
+I20230205 21:23:15.207068 1315449 ic_gvins.cc:589] Tracking cost 27.2192 ms
+I20230205 21:23:15.214948 1315448 ic_gvins.cc:787] Insert keyframe 48 at 364462.476181 with 28 new mappoints
+I20230205 21:23:15.215370 1315448 ic_gvins.cc:792] Add new keyframe time node at 364462.476181
+I20230205 21:23:15.215425 1315450 ic_gvins.cc:1893] Total 12 pose states from 364461.475903 to 364462.476181
+I20230205 21:23:15.221936 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 527 reprojection
+I20230205 21:23:15.243292 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 8.948319e+01, Final cost: 6.702275e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:15.243667 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:15.265115 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 10, Initial cost: 6.558078e+01, Final cost: 6.551905e+01, Termination: CONVERGENCE
+I20230205 21:23:15.265473 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 0 bad observed features 0, 0, 0
+I20230205 21:23:15.265923 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364461.575873
+I20230205 21:23:15.267850 1315450 ic_gvins.cc:514] Optimization costs 52.4423 ms with 21.3516 and 21.4777 with marginalization costs 1.88997
+I20230205 21:23:15.274684 1315448 misc.cc:220] Redo INS mechanization at 364462.476181 to 364462.577197 is 0.101016 s
+I20230205 21:23:15.278257 1315449 tracking.cc:452] Track 60 map points
+I20230205 21:23:15.280453 1315449 tracking.cc:571] Track 61 reference points
+I20230205 21:23:15.280470 1315449 tracking.cc:279] Keyframe at 364462.576069, mappoints 60, interval 0.099888, parallax 18.4081
+I20230205 21:23:15.280591 1315449 tracking.cc:795] Triangulate 27 3D points with 34 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:15.285583 1315449 tracking.cc:687] Add 71 new features to 121
+I20230205 21:23:15.285743 1315449 ic_gvins.cc:589] Tracking cost 10.5554 ms
+I20230205 21:23:15.294761 1315448 ic_gvins.cc:787] Insert keyframe 49 at 364462.576069 with 27 new mappoints
+I20230205 21:23:15.294904 1315448 ic_gvins.cc:792] Add new keyframe time node at 364462.576069
+I20230205 21:23:15.294956 1315450 ic_gvins.cc:1893] Total 12 pose states from 364461.575873 to 364462.576069
+I20230205 21:23:15.296895 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 528 reprojection
+I20230205 21:23:15.305714 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 9.245266e+01, Final cost: 6.977212e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:15.305907 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:15.324419 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 14, Initial cost: 6.834773e+01, Final cost: 6.826422e+01, Termination: CONVERGENCE
+I20230205 21:23:15.324731 1315450 ic_gvins.cc:1164] Culled 0 mappoint with 0 bad observed features 0, 0, 0
+I20230205 21:23:15.325280 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364461.675902
+I20230205 21:23:15.326718 1315450 ic_gvins.cc:514] Optimization costs 31.7767 ms with 8.83075 and 18.5263 with marginalization costs 1.41202
+I20230205 21:23:15.334741 1315448 misc.cc:220] Redo INS mechanization at 364462.576069 to 364462.637206 is 0.0611367 s
+I20230205 21:23:15.382283 1315449 tracking.cc:452] Track 65 map points
+I20230205 21:23:15.387089 1315449 tracking.cc:571] Track 51 reference points
+I20230205 21:23:15.387113 1315449 tracking.cc:279] Keyframe at 364462.676059, mappoints 65, interval 0.0999905, parallax 17.5834
+I20230205 21:23:15.387286 1315449 tracking.cc:795] Triangulate 25 3D points with 26 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:15.392815 1315449 tracking.cc:687] Add 74 new features to 116
+I20230205 21:23:15.393015 1315449 ic_gvins.cc:589] Tracking cost 15.4866 ms
+I20230205 21:23:15.394878 1315448 ic_gvins.cc:787] Insert keyframe 50 at 364462.676059 with 25 new mappoints
+I20230205 21:23:15.395119 1315448 ic_gvins.cc:792] Add new keyframe time node at 364462.676059
+I20230205 21:23:15.395174 1315450 ic_gvins.cc:1893] Total 12 pose states from 364461.675902 to 364462.676059
+I20230205 21:23:15.398948 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 562 reprojection
+I20230205 21:23:15.412773 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 9.170675e+01, Final cost: 7.423090e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:15.413058 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:15.434128 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 13, Initial cost: 7.277990e+01, Final cost: 7.272656e+01, Termination: CONVERGENCE
+I20230205 21:23:15.434465 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 0 bad observed features 0, 0, 1
+I20230205 21:23:15.434979 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364461.775905
+I20230205 21:23:15.436560 1315450 ic_gvins.cc:514] Optimization costs 41.3954 ms with 13.8342 and 21.0832 with marginalization costs 1.63163
+I20230205 21:23:15.444983 1315448 misc.cc:220] Redo INS mechanization at 364462.676059 to 364462.747182 is 0.0711228 s
+I20230205 21:23:15.490486 1315449 tracking.cc:452] Track 72 map points
+I20230205 21:23:15.503870 1315449 tracking.cc:571] Track 45 reference points
+I20230205 21:23:15.503926 1315449 tracking.cc:279] Keyframe at 364462.776065, mappoints 72, interval 0.100006, parallax 16.0961
+I20230205 21:23:15.504292 1315449 tracking.cc:795] Triangulate 19 3D points with 25 left, 0 reset, 0 outtime and 1 outliers
+I20230205 21:23:15.518819 1315449 tracking.cc:687] Add 74 new features to 116
+I20230205 21:23:15.519186 1315449 ic_gvins.cc:589] Tracking cost 43.7858 ms
+I20230205 21:23:15.525158 1315448 ic_gvins.cc:787] Insert keyframe 51 at 364462.776065 with 19 new mappoints
+I20230205 21:23:15.525756 1315448 ic_gvins.cc:792] Add new keyframe time node at 364462.776065
+I20230205 21:23:15.525818 1315450 ic_gvins.cc:1893] Total 12 pose states from 364461.775905 to 364462.776065
+I20230205 21:23:15.537376 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 585 reprojection
+I20230205 21:23:15.564266 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 4.908328e+02, Final cost: 7.357013e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:15.564782 1315450 ic_gvins.cc:1336] Remove 1 reprojection factors
+I20230205 21:23:15.585500 1315449 tracking.cc:452] Track 77 map points
+I20230205 21:23:15.592263 1315449 tracking.cc:571] Track 40 reference points
+I20230205 21:23:15.592305 1315449 tracking.cc:279] Keyframe at 364462.876095, mappoints 77, interval 0.100029, parallax 17.0001
+I20230205 21:23:15.592519 1315449 tracking.cc:795] Triangulate 18 3D points with 22 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:15.601226 1315449 tracking.cc:687] Add 72 new features to 117
+I20230205 21:23:15.601469 1315449 ic_gvins.cc:589] Tracking cost 23.1431 ms
+I20230205 21:23:15.610508 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 9, Initial cost: 7.217403e+01, Final cost: 7.212142e+01, Termination: CONVERGENCE
+I20230205 21:23:15.611395 1315450 ic_gvins.cc:1164] Culled 3 mappoint with 1 bad observed features 1, 1, 1
+I20230205 21:23:15.612517 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364461.875928
+I20230205 21:23:15.617295 1315450 ic_gvins.cc:514] Optimization costs 91.501 ms with 26.8798 and 45.7782 with marginalization costs 4.88023
+I20230205 21:23:15.624843 1315448 misc.cc:220] Redo INS mechanization at 364462.776065 to 364462.927186 is 0.151121 s
+I20230205 21:23:15.624887 1315448 ic_gvins.cc:787] Insert keyframe 52 at 364462.876095 with 18 new mappoints
+I20230205 21:23:15.625169 1315448 ic_gvins.cc:792] Add new keyframe time node at 364462.876095
+I20230205 21:23:15.625244 1315450 ic_gvins.cc:1893] Total 12 pose states from 364461.875928 to 364462.876095
+I20230205 21:23:15.629974 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 563 reprojection
+I20230205 21:23:15.650903 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 8.670979e+01, Final cost: 7.757923e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:15.651705 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:15.683676 1315449 tracking.cc:452] Track 75 map points
+I20230205 21:23:15.692087 1315449 tracking.cc:571] Track 41 reference points
+I20230205 21:23:15.692132 1315449 tracking.cc:279] Keyframe at 364462.975907, mappoints 75, interval 0.0998121, parallax 16.4375
+I20230205 21:23:15.692329 1315449 tracking.cc:795] Triangulate 21 3D points with 20 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:15.702325 1315449 tracking.cc:687] Add 72 new features to 116
+I20230205 21:23:15.702569 1315449 ic_gvins.cc:589] Tracking cost 26.9518 ms
+I20230205 21:23:15.709765 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 14, Initial cost: 7.332032e+01, Final cost: 7.309173e+01, Termination: CONVERGENCE
+I20230205 21:23:15.710376 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 1 bad observed features 0, 0, 1
+I20230205 21:23:15.711372 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364461.976152
+I20230205 21:23:15.715421 1315450 ic_gvins.cc:514] Optimization costs 90.1959 ms with 20.9684 and 58.0593 with marginalization costs 4.17293
+I20230205 21:23:15.724821 1315448 misc.cc:220] Redo INS mechanization at 364462.876095 to 364463.027224 is 0.15113 s
+I20230205 21:23:15.724872 1315448 ic_gvins.cc:787] Insert keyframe 53 at 364462.975907 with 21 new mappoints
+I20230205 21:23:15.725176 1315448 ic_gvins.cc:792] Add new keyframe time node at 364462.975907
+I20230205 21:23:15.725252 1315450 ic_gvins.cc:1893] Total 12 pose states from 364461.976152 to 364462.975907
+I20230205 21:23:15.730888 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 554 reprojection
+I20230205 21:23:15.751085 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 9.392194e+01, Final cost: 8.549703e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:15.751566 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:15.785161 1315449 tracking.cc:452] Track 75 map points
+I20230205 21:23:15.786453 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 9, Initial cost: 7.330301e+01, Final cost: 7.267369e+01, Termination: CONVERGENCE
+I20230205 21:23:15.787202 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 2 bad observed features 0, 0, 1
+I20230205 21:23:15.787883 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364462.076323
+I20230205 21:23:15.789562 1315449 tracking.cc:571] Track 33 reference points
+I20230205 21:23:15.789579 1315449 tracking.cc:279] Keyframe at 364463.075927, mappoints 75, interval 0.10002, parallax 17.6686
+I20230205 21:23:15.789685 1315449 tracking.cc:795] Triangulate 16 3D points with 17 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:15.790576 1315450 ic_gvins.cc:514] Optimization costs 65.3395 ms with 20.1964 and 34.9023 with marginalization costs 2.60422
+I20230205 21:23:15.794754 1315448 misc.cc:220] Redo INS mechanization at 364462.975907 to 364463.097187 is 0.121281 s
+I20230205 21:23:15.795172 1315449 tracking.cc:687] Add 81 new features to 108
+I20230205 21:23:15.795305 1315449 ic_gvins.cc:589] Tracking cost 16.1226 ms
+I20230205 21:23:15.804773 1315448 ic_gvins.cc:787] Insert keyframe 54 at 364463.075927 with 16 new mappoints
+I20230205 21:23:15.804993 1315448 ic_gvins.cc:792] Add new keyframe time node at 364463.075927
+I20230205 21:23:15.805022 1315450 ic_gvins.cc:1893] Total 12 pose states from 364462.076323 to 364463.075927
+I20230205 21:23:15.808624 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 583 reprojection
+I20230205 21:23:15.821931 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 9.735076e+01, Final cost: 7.495911e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:15.822264 1315450 ic_gvins.cc:1336] Remove 0 reprojection factors
+I20230205 21:23:15.844462 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 10, Initial cost: 7.574657e+01, Final cost: 7.573852e+01, Termination: CONVERGENCE
+I20230205 21:23:15.844933 1315450 ic_gvins.cc:1164] Culled 1 mappoint with 0 bad observed features 0, 0, 1
+I20230205 21:23:15.845330 1315450 ic_gvins.cc:1470] Marginalize 2 states, last time 364462.176206
+I20230205 21:23:15.847949 1315450 ic_gvins.cc:514] Optimization costs 42.9681 ms with 13.3073 and 22.2075 with marginalization costs 2.31677
+I20230205 21:23:15.854849 1315448 misc.cc:220] Redo INS mechanization at 364463.075927 to 364463.157204 is 0.0812774 s
+I20230205 21:23:15.890215 1315449 tracking.cc:452] Track 73 map points
+I20230205 21:23:15.894142 1315449 tracking.cc:571] Track 40 reference points
+I20230205 21:23:15.894165 1315449 tracking.cc:279] Keyframe at 364463.178179, mappoints 73, interval 0.102252, parallax 15.717
+I20230205 21:23:15.894261 1315449 tracking.cc:795] Triangulate 17 3D points with 23 left, 0 reset, 0 outtime and 0 outliers
+I20230205 21:23:15.898699 1315449 tracking.cc:687] Add 74 new features to 113
+I20230205 21:23:15.898880 1315449 ic_gvins.cc:589] Tracking cost 12.9805 ms
+I20230205 21:23:15.904781 1315448 ic_gvins.cc:787] Insert keyframe 55 at 364463.178179 with 17 new mappoints
+I20230205 21:23:15.904955 1315448 ic_gvins.cc:792] Add new keyframe time node at 364463.178179
+I20230205 21:23:15.904991 1315448 ic_gvins.cc:937] Add new GNSS time node 364463.130883
+I20230205 21:23:15.905189 1315450 ic_gvins.cc:1893] Total 12 pose states from 364462.176206 to 364463.178179
+I20230205 21:23:15.907410 1315450 ic_gvins.cc:1217] Add 11 preintegration, 1 GNSS, 603 reprojection
+I20230205 21:23:15.916797 1315450 ic_gvins.cc:1226] Ceres Solver Report: Iterations: 6, Initial cost: 1.147979e+02, Final cost: 8.689818e+01, Termination: NO_CONVERGENCE
+I20230205 21:23:15.916819 1315450 ic_gvins.cc:1307] Detect 1 GNSS outliers at 364463.178179
+I20230205 21:23:15.917064 1315450 ic_gvins.cc:1336] Remove 2 reprojection factors
+I20230205 21:23:15.942644 1315450 ic_gvins.cc:1260] Ceres Solver Report: Iterations: 14, Initial cost: 7.701011e+01, Final cost: 7.577033e+01, Termination: CONVERGENCE
+I20230205 21:23:15.942942 1315450 ic_gvins.cc:1164] Culled 2 mappoint with 2 bad observed features 0, 1, 1
+I20230205 21:23:15.943243 1315450 ic_gvins.cc:1470] Marginalize 1 states, last time 364462.276179
+I20230205 21:23:15.944903 1315450 ic_gvins.cc:514] Optimization costs 39.7221 ms with 9.39905 and 25.5899 with marginalization costs 1.60177
+I20230205 21:23:15.954628 1315448 misc.cc:220] Redo INS mechanization at 364463.178179 to 364463.257157 is 0.078978 s
+W20230205 21:23:15.969898 1315434 ic_gvins.cc:620] GVINS has finished processing
+W20230205 21:23:15.969987 1315434 ic_gvins.cc:621] Estimated extrinsics: (0.502846, 0.491287, 0.501652, 0.504112), (1.616, -0.314, 0.140), 0.0020
