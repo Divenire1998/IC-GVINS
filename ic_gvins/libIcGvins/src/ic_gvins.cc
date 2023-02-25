@@ -21,8 +21,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "libIcGvins/include/ic_gvins.h"
-#include "libIcGvins/include/misc/misc.h"
+#include "ic_gvins.h"
+#include "misc/misc.h"
 
 #include "common/angle.h"
 #include "common/earth.h"

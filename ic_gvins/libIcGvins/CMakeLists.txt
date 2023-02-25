@@ -39,7 +39,6 @@ target_link_libraries(libIcGvinsCore
         TBB::tbb)
 
 # abseil
-
 target_link_libraries(libIcGvinsCore
         absl::strings
         absl::str_format

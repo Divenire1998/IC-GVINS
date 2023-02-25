@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
+# C++ 17 support
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -13,7 +14,7 @@ endif ()
 # 编译选项
 add_compile_options(-fPIC)
 
-
+# ROS支持
 find_package(catkin REQUIRED COMPONENTS
         message_generation
         roscpp
@@ -27,8 +28,8 @@ include_directories(
 # Gvins lib
 add_subdirectory(libIcGvins)
 
-# ROS interface
-add_subdirectory(ROS)
+# ROS 接口调用
+add_subdirectory(example)
 
 # abseil-cpp lib
 set(ABSL_PROPAGATE_CXX_STD true)

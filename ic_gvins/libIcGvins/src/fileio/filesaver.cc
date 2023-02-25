@@ -62,10 +62,11 @@ void FileSaver::dump_(const vector<double> &data) {
     if (filetype_ == TEXT) {
         string line;
 
-        constexpr absl::string_view format = "%-15.9lf ";
+        constexpr absl::string_view format = "%-.9lf";
 
         line = absl::StrFormat(format, data[0]);
         for (size_t k = 1; k < data.size(); k++) {
+            line += " ";
             absl::StrAppendFormat(&line, format, data[k]);
         }
 
