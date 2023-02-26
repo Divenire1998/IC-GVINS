@@ -8,7 +8,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-log = np.loadtxt('path/tracking.txt')
+log = np.loadtxt('/home/divenire/0_myWorkSpace/Divenire_ws/workingProgram/icgvins_ws/src/IC-GVINS/results/T20230226231647/tracking.txt')
 
 plt.figure('interval')
 plt.plot(log[:, 0], log[:, 1])

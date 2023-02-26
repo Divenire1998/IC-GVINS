@@ -18,6 +18,7 @@ add_compile_options(-fPIC)
 find_package(catkin REQUIRED COMPONENTS
         message_generation
         roscpp
+        cv_bridge
         std_msgs)
 catkin_package(
         LIBRARIES

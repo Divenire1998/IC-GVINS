@@ -12,17 +12,18 @@
 
 #include <atomic>
 #include <csignal>
+#include <cv_bridge/cv_bridge.h>
+#include <fstream>
 #include <memory>
-
 std::atomic<bool> isfinished{false};
 
 void sigintHandler(int sig);
-void checkStateThread(std::shared_ptr<FusionROS> fusion);
+void checkStateThread(std::shared_ptr<FusionRaw> fusion);
 
 /**
  *  安全关闭gvins
  */
-void FusionROS::setFinished() {
+void FusionRaw::setFinished() {
     if (gvins_ && gvins_->isRunning()) {
         gvins_->setFinished();
     }
@@ -31,15 +32,9 @@ void FusionROS::setFinished() {
 /**
  *  修改话题，设置必要的参数，
  */
-void FusionROS::run() {
+void FusionRaw::run() {
     ros::NodeHandle nh;
     ros::NodeHandle pnh("~");
-
-    // message topic
-    string imu_topic, gnss_topic, image_topic, livox_topic;
-    pnh.param<string>("imu_topic", imu_topic, "/imu0");
-    pnh.param<string>("gnss_topic", gnss_topic, "/gnss0");
-    pnh.param<string>("image_topic", image_topic, "/cam0");
 
     // GVINS parameter
     string configfile;
@@ -55,9 +50,19 @@ void FusionROS::run() {
         return;
     }
 
+    // GNSS outage configurations
+    // 根据这个来决定是否添加gnss信息到buffer中
+    isusegnssoutage_ = config["isusegnssoutage"].as<bool>();
+    gnssoutagetime_  = config["gnssoutagetime"].as<double>();
+    gnssthreshold_   = config["gnssthreshold"].as<double>();
+
+    imu_freq_   = config["imudatarate"].as<double>();
+    image_freq_ = config["imagedatarate"].as<double>();
+    gnss_freq_  = config["gnssdatarate"].as<double>();
+
+    // 设置结果保存相关选项
     auto outputpath        = config["outputpath"].as<string>();
     auto is_make_outputdir = config["is_make_outputdir"].as<bool>();
-
     // Create the output directory
     if (!boost::filesystem::is_directory(outputpath)) {
         boost::filesystem::create_directory(outputpath);
@@ -66,7 +71,6 @@ void FusionROS::run() {
         std::cout << "Failed to open outputpath" << std::endl;
         return;
     }
-
     // creat result dir use absl for daily
     // 使用absl和boost创建日志保存路径
     if (is_make_outputdir) {
@@ -75,13 +79,6 @@ void FusionROS::run() {
                               cs.minute(), cs.second());
         boost::filesystem::create_directory(outputpath);
     }
-
-    // GNSS outage configurations
-    // 根据这个来决定是否添加gnss信息到buffer中
-    isusegnssoutage_ = config["isusegnssoutage"].as<bool>();
-    gnssoutagetime_  = config["gnssoutagetime"].as<double>();
-    gnssthreshold_   = config["gnssthreshold"].as<double>();
-
     // set Glog output path
     // 设置glog的日志输出路径
     FLAGS_log_dir = outputpath;
@@ -92,32 +89,102 @@ void FusionROS::run() {
     Drawer::Ptr drawer = std::make_shared<DrawerRviz>(nh);
     gvins_             = std::make_shared<GVINS>(configfile, outputpath, drawer);
 
-    // check is initialized
-    if (!gvins_->isRunning()) {
-        LOGE << "Fusion ROS terminate";
-        return;
+    pubRawLeftImage = nh.advertise<sensor_msgs::Image>("image_raw", 1000);
+    pubRawImu       = nh.advertise<sensor_msgs::Imu>("imu_raw", 1000);
+    pubRawVrsGps    = nh.advertise<sensor_msgs::NavSatFix>("gps_raw", 100, true);
+
+    // 准备传感器数据
+    strPathToSequence     = config["sequencepath"].as<string>();
+    string PathImage      = strPathToSequence + "/image/stereo_left";
+    string PathImageStamp = strPathToSequence + "/sensor_data/stereo_stamp.csv";
+    string PathImu        = strPathToSequence + "/sensor_data/xsens_imu.csv";
+    string PathGps        = strPathToSequence + "/sensor_data/gps.csv";
+    string PathVrsGPs     = strPathToSequence + "/sensor_data/vrs_gps.csv";
+
+    imufile.open(PathImu);
+    vrsGpsFile.open(PathVrsGPs);
+
+    // 读取图像时间戳
+    FILE *fp = fopen(PathImageStamp.c_str(), "r");
+    int64_t stamp;
+    while (fscanf(fp, "%ld\n", &stamp) == 1) {
+        vTimestamps.push_back(stamp);
     }
+    fclose(fp);
 
-    // subscribe message
-    ros::Subscriber imu_sub   = nh.subscribe<sensor_msgs::Imu>(imu_topic, 200, &FusionROS::imuCallback, this);
-    ros::Subscriber gnss_sub  = nh.subscribe<sensor_msgs::NavSatFix>(gnss_topic, 1, &FusionROS::gnssCallback, this);
-    ros::Subscriber image_sub = nh.subscribe<sensor_msgs::Image>(image_topic, 20, &FusionROS::imageCallback, this);
+    double imagePeriod = 1 / image_freq_;
 
-    LOGI << "Waiting ROS message...";
+    // 对图像进行遍历
+    for (size_t i = 0; i < vTimestamps.size(); ++i) {
 
-    // enter message loopback
-    ros::spin();
+        // check is initialized
+        if (!gvins_->isRunning()) {
+            LOGE << "Fusion ROS terminate";
+            return;
+        }
+
+        // 输入图像数据
+        inputImage(i);
+
+        // 输入IMU数据
+        while (imu_.time < imageTimeGps_ + imagePeriod) {
+            inputIMU();
+        }
+
+        // 输入GNSS数据
+        while (gnss_.time + 1 < imageTimeGps_) {
+            inputGnss();
+        }
+
+        usleep(50000);
+    }
 }
 
 /**
- * 把IMU的Unix时间戳转换为GPS周内秒,最终保存到gvins::imu_buffer_内
- * @param imumsg ROS的IMU数据
+ * 从文件中加在一行IMU数据到imumsg
+ * @param imumsg
  */
-void FusionROS::imuCallback(const sensor_msgs::ImuConstPtr &imumsg) {
+void FusionRaw::loadImuData(sensor_msgs::Imu &imumsg) {
+    string lineStr_imu;
+
+    std::getline(imufile, lineStr_imu);
+
+    if (imufile.eof()) {
+        LOGE << "IMU DATA IS END OF IMU FILE!! " << std::endl;
+        return;
+    }
+
+    std::stringstream ss(lineStr_imu);
+    vector<string> lineArray;
+    string str;
+    // 按照逗号分隔
+    while (getline(ss, str, ','))
+        lineArray.push_back(str);
+
+    // 修改符合右前上
+    uint64_t time_now            = stoll(lineArray[0]);
+    imumsg.header.stamp          = ros::Time().fromNSec(time_now);
+    imumsg.angular_velocity.x    = stod(lineArray[8]);
+    imumsg.angular_velocity.y    = -1 * stod(lineArray[9]);
+    imumsg.angular_velocity.z    = -1 * stod(lineArray[10]);
+    imumsg.linear_acceleration.x = stod(lineArray[11]);
+    imumsg.linear_acceleration.y = -1 * stod(lineArray[12]);
+    imumsg.linear_acceleration.z = -1 * stod(lineArray[13]);
+}
+
+/**
+ * 读取文件中的IMU数据，输入到ic_gvins中
+ */
+void FusionRaw::inputIMU() {
     imu_pre_ = imu_;
 
+    sensor_msgs::Imu imumsg;
+    // readIMU
+    loadImuData(imumsg);
+    pubRawImu.publish(imumsg);
+
     // Time convertion
-    double unixsecond = imumsg->header.stamp.toSec();
+    double unixsecond = imumsg.header.stamp.toSec();
     double weeksec;
     int week;
     GpsTime::unix2gps(unixsecond, week, weeksec);
@@ -127,12 +194,12 @@ void FusionROS::imuCallback(const sensor_msgs::ImuConstPtr &imumsg) {
     imu_.dt = imu_.time - imu_pre_.time;
 
     // IMU measurements, Front-Right-Down & x-y-z
-    imu_.dtheta[0] = imumsg->angular_velocity.x * imu_.dt;
-    imu_.dtheta[1] = imumsg->angular_velocity.y * imu_.dt;
-    imu_.dtheta[2] = imumsg->angular_velocity.z * imu_.dt;
-    imu_.dvel[0]   = imumsg->linear_acceleration.x * imu_.dt;
-    imu_.dvel[1]   = imumsg->linear_acceleration.y * imu_.dt;
-    imu_.dvel[2]   = imumsg->linear_acceleration.z * imu_.dt;
+    imu_.dtheta[0] = imumsg.angular_velocity.x * imu_.dt;
+    imu_.dtheta[1] = imumsg.angular_velocity.y * imu_.dt;
+    imu_.dtheta[2] = imumsg.angular_velocity.z * imu_.dt;
+    imu_.dvel[0]   = imumsg.linear_acceleration.x * imu_.dt;
+    imu_.dvel[1]   = imumsg.linear_acceleration.y * imu_.dt;
+    imu_.dvel[2]   = imumsg.linear_acceleration.z * imu_.dt;
 
     // 第一帧IMU，直接跳过。
     // not ready
@@ -158,26 +225,76 @@ void FusionROS::imuCallback(const sensor_msgs::ImuConstPtr &imumsg) {
     }
 }
 
+void FusionRaw::LoadGnssData(sensor_msgs::NavSatFix &gnssmsg) {
+    string FileGetline;
+
+    if (!vrsGpsFile.eof())
+        std::getline(vrsGpsFile, FileGetline);
+    else {
+        std::cout << "END OF WHEELS FILE " << std::endl;
+        return;
+    }
+
+    std::stringstream gps_ss(FileGetline);
+    vector<string> line_data_vec;
+    string value_str;
+    while (getline(gps_ss, value_str, ',')) {
+        line_data_vec.push_back(value_str);
+    }
+
+    // 时间戳
+    uint64_t time        = std::stoll(line_data_vec[0]);
+    gnssmsg.header.stamp = ros::Time().fromNSec(time);
+
+    // 经纬高
+    gnssmsg.latitude  = std::stod(line_data_vec[1]);
+    gnssmsg.longitude = std::stod(line_data_vec[2]);
+    gnssmsg.altitude  = std::stod(line_data_vec[5]);
+
+    int fix_state = stod(line_data_vec[6]); // 状态：1正常，2DGPS，4固定这个精度最高，5浮动
+
+    // 导航状态
+    sensor_msgs::NavSatStatus navsatstate;
+    navsatstate.status  = sensor_msgs::NavSatStatus::STATUS_FIX;
+    navsatstate.service = sensor_msgs::NavSatStatus::SERVICE_GPS + sensor_msgs::NavSatStatus::SERVICE_GLONASS;
+    gnssmsg.status      = navsatstate;
+
+    // 协方差
+    gnssmsg.position_covariance_type = sensor_msgs::NavSatFix ::COVARIANCE_TYPE_DIAGONAL_KNOWN;
+
+    // ENU系
+    double lat_std                 = std::stod(line_data_vec[9]);
+    double lon_std                 = std::stod(line_data_vec[10]);
+    double altitude_std            = std::stod(line_data_vec[11]);
+    gnssmsg.position_covariance[0] = lon_std * lon_std;
+    gnssmsg.position_covariance[4] = lat_std * lat_std;
+    gnssmsg.position_covariance[8] = altitude_std * altitude_std;
+}
+
 /**
  * 保存有效的gnss信息到gvins::gnss_
  * @param gnssmsg
  */
-void FusionROS::gnssCallback(const sensor_msgs::NavSatFixConstPtr &gnssmsg) {
+void FusionRaw::inputGnss() {
+
+    sensor_msgs::NavSatFix gnssmsg;
+    LoadGnssData(gnssmsg);
+    pubRawVrsGps.publish(gnssmsg);
 
     // Time convertion
-    double unixsecond = gnssmsg->header.stamp.toSec();
+    double unixsecond = gnssmsg.header.stamp.toSec();
     double weeksec;
     int week;
     GpsTime::unix2gps(unixsecond, week, weeksec);
 
     // 经纬高rad NED协方差
     gnss_.time   = weeksec;
-    gnss_.blh[0] = gnssmsg->latitude * D2R;
-    gnss_.blh[1] = gnssmsg->longitude * D2R;
-    gnss_.blh[2] = gnssmsg->altitude;
-    gnss_.std[0] = sqrt(gnssmsg->position_covariance[4]); // N
-    gnss_.std[1] = sqrt(gnssmsg->position_covariance[0]); // E
-    gnss_.std[2] = sqrt(gnssmsg->position_covariance[8]); // D
+    gnss_.blh[0] = gnssmsg.latitude * D2R;
+    gnss_.blh[1] = gnssmsg.longitude * D2R;
+    gnss_.blh[2] = gnssmsg.altitude;
+    gnss_.std[0] = sqrt(gnssmsg.position_covariance[4]); // N
+    gnss_.std[1] = sqrt(gnssmsg.position_covariance[0]); // E
+    gnss_.std[2] = sqrt(gnssmsg.position_covariance[8]); // D
 
     // 默认无有效航向
     gnss_.isyawvalid = false;
@@ -208,26 +325,69 @@ void FusionROS::gnssCallback(const sensor_msgs::NavSatFixConstPtr &gnssmsg) {
 }
 
 /**
+ * 从数据集中读取图像时间戳，保存在vstrImageFilenames0
+ * @param strPathToSequence
+ * @param vstrImageFilenames0
+ * @param vstrImageFilenames1
+ * @param vTimestamps
+ */
+void FusionRaw::loadImage(sensor_msgs::Image &imagemsg, size_t index) {
+    // 时间戳和图像名称
+    std::string st         = std::to_string(vTimestamps[index]);
+    std::string frame_file = strPathToSequence + "/image/stereo_left/" + st + ".png";
+
+    cv::Mat img = cv::imread(frame_file, cv::IMREAD_ANYDEPTH);
+    cv_bridge::CvImage img_msg;
+    sensor_msgs::Image imageMsg;
+    img_msg.header.stamp.fromNSec(vTimestamps[index]);
+    img_msg.encoding = sensor_msgs::image_encodings::BAYER_BGGR8;
+    img_msg.image    = img;
+    img_msg.toImageMsg(imageMsg);
+
+    Mat raw(static_cast<int>(imageMsg.height), static_cast<int>(imageMsg.width), CV_8UC1,
+            (void *) imageMsg.data.data());
+    Mat gray;
+    cv::cvtColor(raw, gray, cv::COLOR_BayerBG2GRAY);
+
+    // 彩色转为灰度
+    imagemsg.header   = img_msg.header;
+    imagemsg.height   = gray.rows;
+    imagemsg.width    = gray.cols;
+    imagemsg.encoding = sensor_msgs::image_encodings::MONO8;
+    imagemsg.step     = imagemsg.width;
+    size_t size       = imagemsg.height * imagemsg.width;
+    imagemsg.data.resize(size);
+    memcpy(imagemsg.data.data(), gray.data, size);
+}
+
+/**
  * ROS图像格式数据转换
  * @param imagemsg
  */
-void FusionROS::imageCallback(const sensor_msgs::ImageConstPtr &imagemsg) {
+void FusionRaw::inputImage(size_t index) {
+
     Mat image;
+    sensor_msgs::Image imagemsg;
+    loadImage(imagemsg, index);
+
+    pubRawLeftImage.publish(imagemsg);
 
     // Copy image data 读取原始图像数据
-    if (imagemsg->encoding == sensor_msgs::image_encodings::MONO8) {
-        image = Mat(static_cast<int>(imagemsg->height), static_cast<int>(imagemsg->width), CV_8UC1);
-        memcpy(image.data, imagemsg->data.data(), imagemsg->height * imagemsg->width);
-    } else if (imagemsg->encoding == sensor_msgs::image_encodings::BGR8) {
-        image = Mat(static_cast<int>(imagemsg->height), static_cast<int>(imagemsg->width), CV_8UC3);
-        memcpy(image.data, imagemsg->data.data(), imagemsg->height * imagemsg->width * 3);
+    if (imagemsg.encoding == sensor_msgs::image_encodings::MONO8) {
+        image = Mat(static_cast<int>(imagemsg.height), static_cast<int>(imagemsg.width), CV_8UC1);
+        memcpy(image.data, imagemsg.data.data(), imagemsg.height * imagemsg.width);
+    } else if (imagemsg.encoding == sensor_msgs::image_encodings::BGR8) {
+        image = Mat(static_cast<int>(imagemsg.height), static_cast<int>(imagemsg.width), CV_8UC3);
+        memcpy(image.data, imagemsg.data.data(), imagemsg.height * imagemsg.width * 3);
     }
 
     // Time convertion 时间戳转换
-    double unixsecond = imagemsg->header.stamp.toSec();
+    double unixsecond = imagemsg.header.stamp.toSec();
     double weeksec;
     int week;
     GpsTime::unix2gps(unixsecond, week, weeksec);
+
+    imageTimeGps_ = weeksec;
 
     // 创建图像帧
     frame_ = Frame::createFrame(weeksec, image);
@@ -261,7 +421,7 @@ void sigintHandler(int sig) {
  * 安全退出GVINS，保存相关信息
  * @param fusion
  */
-void checkStateThread(std::shared_ptr<FusionROS> fusion) {
+void checkStateThread(std::shared_ptr<FusionRaw> fusion) {
     std::cout << "Check thread is started..." << std::endl;
 
     auto fusion_ptr = std::move(fusion);
@@ -285,20 +445,18 @@ void checkStateThread(std::shared_ptr<FusionROS> fusion) {
 int main(int argc, char *argv[]) {
 
     // Glog initialization
-    //    初始化glog
     Logging::initialization(argv, true, true);
 
-    // ROS node
+    // ROS节点初始化
+    // Register signal handler self define signal handler repalce ctrl+c
     ros::init(argc, argv, "gvins_node", ros::init_options::NoSigintHandler);
-
-    // Register signal handler
-    // self define signal handler repalce ctrl+c
     std::signal(SIGINT, sigintHandler);
 
-    // 创建对象
-    auto fusion = std::make_shared<FusionROS>();
+    // 创建Fusion Raw对象
+    auto fusion = std::make_shared<FusionRaw>();
 
     // Check thread for shutdown program
+    // 安全关闭程序
     std::thread check_thread(checkStateThread, fusion);
 
     // Enter message loop

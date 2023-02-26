@@ -180,6 +180,8 @@ GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr dra
     optimization_thread_ = std::thread(&GVINS::runOptimization, this);
 
     gvinsstate_ = GVINS_INITIALIZING;
+
+    LOGI << "GVINS LIB INIT DONE";
 }
 
 /**
@@ -453,6 +455,8 @@ void GVINS::runOptimization() {
                 // GNSS/INS optimization
                 bool isinitialized = gvinsInitializationOptimization();
 
+                LOGE << "here we are";
+
                 if (preintegrationlist_.size() >= static_cast<size_t>(initlength_)) {
                     // 完成GINS初始化, 进入视觉初始化阶段
                     // Enter the initialization of the visual system
@@ -633,6 +637,9 @@ bool GVINS::gvinsInitialization() {
         return false;
     }
 
+    LOGI << "DEBUG"
+         << "two gnss";
+
     // 缓存数据用于零速检测
     // Buffer for zero-velocity detection
     vector<IMU> imu_buff;
@@ -643,8 +650,13 @@ bool GVINS::gvinsInitialization() {
         }
     }
     if (imu_buff.size() < 20) {
+        LOGE << imu_buff.size() << "DEBUG"
+             << "NO ENOUGH IMU";
         return false;
     }
+
+    LOGI << "DEBUG"
+         << "imu buffer enough";
 
     // 零速检测估计陀螺零偏和横滚俯仰角
     // Obtain the gyroscope biases and roll and pitch angles
@@ -674,6 +686,7 @@ bool GVINS::gvinsInitialization() {
     // 非零速状态
     // Initialization conditions
     if (!is_zero_velocity) {
+        // 双天线偏航角
         if (last_gnss_.isyawvalid) {
             initatt[2] = last_gnss_.yaw;
             LOGI << "Initialized heading from dual-antenna GNSS as " << initatt[2] * R2D << " deg";
@@ -692,6 +705,7 @@ bool GVINS::gvinsInitialization() {
             LOGI << "Initialized heading from GNSS as " << initatt[2] * R2D << " deg";
         }
     } else {
+        LOGI << "DEBUG FALSE";
         return false;
     }
 
