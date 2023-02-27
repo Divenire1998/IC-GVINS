@@ -50,15 +50,21 @@ void FusionRaw::run() {
         return;
     }
 
+    // 判断是否使用轮速
+
+    isuseodo_ = config["odometer"]["isuseodo"].as<bool>();
+
     // GNSS outage configurations
     // 根据这个来决定是否添加gnss信息到buffer中
     isusegnssoutage_ = config["isusegnssoutage"].as<bool>();
     gnssoutagetime_  = config["gnssoutagetime"].as<double>();
     gnssthreshold_   = config["gnssthreshold"].as<double>();
 
+    // 各个传感器的频率
     imu_freq_   = config["imudatarate"].as<double>();
     image_freq_ = config["imagedatarate"].as<double>();
     gnss_freq_  = config["gnssdatarate"].as<double>();
+    wheel_freq_ = config["wheeldatarate"].as<double>();
 
     // 设置结果保存相关选项
     auto outputpath        = config["outputpath"].as<string>();
@@ -94,15 +100,19 @@ void FusionRaw::run() {
     pubRawVrsGps    = nh.advertise<sensor_msgs::NavSatFix>("gps_raw", 100, true);
 
     // 准备传感器数据
-    strPathToSequence     = config["sequencepath"].as<string>();
-    string PathImage      = strPathToSequence + "/image/stereo_left";
-    string PathImageStamp = strPathToSequence + "/sensor_data/stereo_stamp.csv";
-    string PathImu        = strPathToSequence + "/sensor_data/xsens_imu.csv";
-    string PathGps        = strPathToSequence + "/sensor_data/gps.csv";
-    string PathVrsGPs     = strPathToSequence + "/sensor_data/vrs_gps.csv";
+    strPathToSequence            = config["sequencepath"].as<string>();
+    string PathImage             = strPathToSequence + "/image/stereo_left";
+    string PathImageStamp        = strPathToSequence + "/sensor_data/stereo_stamp.csv";
+    string PathImu               = strPathToSequence + "/sensor_data/xsens_imu.csv";
+    string PathGps               = strPathToSequence + "/sensor_data/gps.csv";
+    string PathVrsGPs            = strPathToSequence + "/sensor_data/vrs_gps.csv";
+    string PathWheelEncoder      = strPathToSequence + "/sensor_data/encoder.csv";
+    string PathWHeelEncoderCalib = strPathToSequence + "/calibration/EncoderParameter.txt";
 
     imufile.open(PathImu);
     vrsGpsFile.open(PathVrsGPs);
+    wheelEncoderFile.open(PathWheelEncoder);
+    wheelEncoderCalibFile.open(PathWHeelEncoderCalib);
 
     // 读取图像时间戳
     FILE *fp = fopen(PathImageStamp.c_str(), "r");
@@ -112,8 +122,35 @@ void FusionRaw::run() {
     }
     fclose(fp);
 
-    double imagePeriod = 1 / image_freq_;
+    // 读取轮速的标定参数
+    if (1) {
+        std::string str;
+        // Step 1 读取标定参数文件
+        if (encoder_resolution_ == 0) {
+            while (std::getline(wheelEncoderCalibFile, str)) {
+                std::stringstream ss(str);
+                std::string token;
+                std::vector<std::string> strs;
+                while (std::getline(ss, token, ' ')) {
+                    strs.push_back(token);
+                }
+                if (!strs[1].compare("resolution:")) {
+                    encoder_resolution_ = std::stoi(strs[2]);
+                }
+                if (!strs[1].compare("left")) {
+                    encoder_left_diameter_ = std::stod(strs[4]);
+                }
+                if (!strs[1].compare("right")) {
+                    encoder_right_diameter_ = std::stod(strs[4]);
+                }
+                if (!strs[1].compare("wheel")) {
+                    encoder_wheel_base_ = std::stod(strs[3]);
+                }
+            }
+        }
+    }
 
+    double imagePeriod = 1 / image_freq_;
     // 对图像进行遍历
     for (size_t i = 0; i < vTimestamps.size(); ++i) {
 
@@ -162,14 +199,47 @@ void FusionRaw::loadImuData(sensor_msgs::Imu &imumsg) {
         lineArray.push_back(str);
 
     // 修改符合右前上
-    uint64_t time_now            = stoll(lineArray[0]);
-    imumsg.header.stamp          = ros::Time().fromNSec(time_now);
+    uint64_t imu_time            = stoll(lineArray[0]);
+    imumsg.header.stamp          = ros::Time().fromNSec(imu_time);
     imumsg.angular_velocity.x    = stod(lineArray[8]);
     imumsg.angular_velocity.y    = -1 * stod(lineArray[9]);
     imumsg.angular_velocity.z    = -1 * stod(lineArray[10]);
     imumsg.linear_acceleration.x = stod(lineArray[11]);
     imumsg.linear_acceleration.y = -1 * stod(lineArray[12]);
     imumsg.linear_acceleration.z = -1 * stod(lineArray[13]);
+}
+
+Wheel FusionRaw::loadWheelData() {
+
+    // Step 1 读取轮速数据
+    string lineStr_wheel;
+    if (wheelEncoderFile.eof()) {
+        LOGE << "END OF WHEELS FILE " << std::endl;
+        return {0, 0, 0};
+    }
+
+    std::getline(wheelEncoderFile, lineStr_wheel);
+    std::stringstream ssLine(lineStr_wheel);
+    vector<string> lineArray;
+    string str;
+    // 按照逗号分隔
+    while (getline(ssLine, str, ','))
+        lineArray.push_back(str);
+
+    uint64_t wheel_time, left_count, right_count;
+    wheel_time  = stoll(lineArray[0]);
+    left_count  = stoll(lineArray[1]);
+    right_count = stoll(lineArray[2]);
+
+    // LOGE << wheel_time << left_count << right_count;
+    // Time convertion
+    double unixsecond = 1e-9 * static_cast<double>(wheel_time);
+
+    double weektime;
+    int week;
+    GpsTime::unix2gps(unixsecond, week, weektime);
+    //    LOGE << std::fixed << unixsecond << "   " << weektime << "  " << 9.98;
+    return {weektime, left_count, right_count};
 }
 
 /**
@@ -201,10 +271,33 @@ void FusionRaw::inputIMU() {
     imu_.dvel[1]   = imumsg.linear_acceleration.y * imu_.dt;
     imu_.dvel[2]   = imumsg.linear_acceleration.z * imu_.dt;
 
+    //    if (isuseodo_)
+    if (1) {
+        wheel_pre_ = wheel_;
+        wheel_     = loadWheelData();
+        if (abs(wheel_.time - imu_.time) > 0.02)
+            LOGF << "IMU 和 轮速 丢数据了";
+    }
+
     // 第一帧IMU，直接跳过。
     // not ready
     if (imu_pre_.time == 0) {
         return;
+    }
+
+    if (1)
+    //    if (isuseodo_)
+    {
+        // IMU和轮速进行插值
+        double vel_left =
+            (wheel_.left_count - wheel_pre_.left_count) * encoder_left_diameter_ * M_PI / encoder_resolution_;
+        double vel_right =
+            (wheel_.right_count - wheel_pre_.right_count) * encoder_right_diameter_ * M_PI / encoder_resolution_;
+        imu_.odovel = (vel_left + vel_right) * 0.5 * 100;
+        //        LOGE << std::fixed << vel_left << " " << imu_.odovel;
+        //        LOGE << std::fixed << wheel_.left_count << " " << wheel_pre_.left_count << " " <<
+        //        encoder_left_diameter_ << " "
+        //             << imu_.odovel;
     }
 
     // 保存IMU数据到buffer中
@@ -404,8 +497,9 @@ void FusionRaw::inputImage(size_t index) {
     }
 
     // 输出对应
-    LOG_EVERY_N(INFO, 20) << "Raw data time in image recv image,imu,gnss " << Logging::doubleData(frame_->stamp())
-                          << ", " << Logging::doubleData(imu_.time) << ", " << Logging::doubleData(gnss_.time);
+    LOG_EVERY_N(INFO, 20) << "Raw data time in image recv image,imu,gnss,wheel " << Logging::doubleData(frame_->stamp())
+                          << ", " << Logging::doubleData(imu_.time) << ", " << Logging::doubleData(gnss_.time) << ", "
+                          << Logging::doubleData(wheel_.time);
 }
 
 /**

@@ -62,4 +62,10 @@ typedef struct Pose {
     Vector3d t;
 } Pose;
 
+typedef struct Wheel {
+    double time;
+    uint64_t left_count;
+    uint64_t right_count;
+} Wheel;
+
 #endif // TYPES_H

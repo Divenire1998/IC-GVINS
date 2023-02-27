@@ -97,8 +97,16 @@ GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr dra
 
     // 安装参数
     // Installation parameters
+    // 天线的杆臂
     vecdata   = config["antlever"].as<std::vector<double>>();
     antlever_ = Vector3d(vecdata.data());
+
+    // 轮速的安装角和杆臂
+    vecdata    = config["odolever"].as<std::vector<double>>();
+    odolever_  = Vector3d(vecdata.data());
+    vecdata    = config["bodyangle"].as<std::vector<double>>();
+    bodyangle_ = Vector3d(vecdata.data());
+    bodyangle_ *= D2R;
 
     // IMU噪声相关参数
     // IMU parameters
@@ -111,10 +119,17 @@ GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr dra
     integration_parameters_->gravity      = NORMAL_GRAVITY;
 
     // IMU 配置文件
-    integration_config_.iswithearth = config["iswithearth"].as<bool>();
-    integration_config_.isuseodo    = false;
+    integration_config_.iswithearth = config["iswithearth"].as<bool>(); // 是否考虑地球自转
     integration_config_.iswithscale = false;
     integration_config_.gravity     = {0, 0, integration_parameters_->gravity};
+
+    // 轮速相关参数
+    integration_config_.isuseodo     = config["odometer"]["isuseodo"].as<bool>();
+    vecdata                          = config["odometer"]["std"].as<std::vector<double>>();
+    integration_parameters_->odo_std = Vector3d(vecdata.data());
+    integration_parameters_->odo_srw = config["odometer"]["srw"].as<double>() * 1e-6;
+    integration_parameters_->lodo    = odolever_;
+    integration_parameters_->abv     = bodyangle_;
 
     // 初始值, 后续根据GNSS定位实时更新
     // GNSS variables intializaiton
@@ -127,20 +142,20 @@ GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr dra
 
     // 创建相机实例并设置相机参数
     // Camera parameters
-    vector<double> intrinsic  = config["cam0"]["intrinsic"].as<std::vector<double>>();
-    vector<double> distortion = config["cam0"]["distortion"].as<std::vector<double>>();
-    vector<int> resolution    = config["cam0"]["resolution"].as<std::vector<int>>();
-    camera_                   = Camera::createCamera(intrinsic, distortion, resolution);
+    auto intrinsic  = config["cam0"]["intrinsic"].as<std::vector<double>>();
+    auto distortion = config["cam0"]["distortion"].as<std::vector<double>>();
+    auto resolution = config["cam0"]["resolution"].as<std::vector<int>>();
+    camera_         = Camera::createCamera(intrinsic, distortion, resolution);
 
     // IMU和Camera外参
     // Extrinsic parameters
-    vecdata           = config["cam0"]["q_b_c"].as<std::vector<double>>();
-    Quaterniond q_b_c = Eigen::Quaterniond(vecdata.data());
-    vecdata           = config["cam0"]["t_b_c"].as<std::vector<double>>();
-    Vector3d t_b_c    = Eigen::Vector3d(vecdata.data());
-    td_b_c_           = config["cam0"]["td_b_c"].as<double>();
-    pose_b_c_.R       = q_b_c.toRotationMatrix();
-    pose_b_c_.t       = t_b_c;
+    vecdata        = config["cam0"]["q_b_c"].as<std::vector<double>>();
+    auto q_b_c     = Eigen::Quaterniond(vecdata.data());
+    vecdata        = config["cam0"]["t_b_c"].as<std::vector<double>>();
+    Vector3d t_b_c = Eigen::Vector3d(vecdata.data());
+    td_b_c_        = config["cam0"]["td_b_c"].as<double>();
+    pose_b_c_.R    = q_b_c.toRotationMatrix();
+    pose_b_c_.t    = t_b_c;
 
     // 优化参数
     // Optimization parameters

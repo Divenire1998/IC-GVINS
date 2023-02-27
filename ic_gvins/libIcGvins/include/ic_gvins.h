@@ -226,6 +226,8 @@ private:
     size_t reserved_ins_num_;
 
     Vector3d antlever_;
+    Vector3d odolever_;
+    Vector3d bodyangle_;
 
     // 初始化信息
     // Initialization
