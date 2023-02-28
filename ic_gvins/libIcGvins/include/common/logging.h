@@ -64,7 +64,7 @@ public:
         //        google::InitGoogleLogging(argv[0]);
         google::InitGoogleLogging("GVINS");
 
-        FLAGS_minloglevel = google::GLOG_INFO; // 设置最小处理日志的级别
+        //        FLAGS_minloglevel = google::GLOG_INFO; // 设置最小处理日志的级别
 
         if (logtostderr & logtofile) {
             FLAGS_alsologtostderr = true;

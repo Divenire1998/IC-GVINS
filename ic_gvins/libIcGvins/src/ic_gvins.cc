@@ -85,10 +85,10 @@ GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr dra
     ofconfig << YAML::Dump(config);
     ofconfig.close();
 
-    // 初始化的时间
+    // 初始化的时间,用于GNSS/INS初始化
     initlength_ = config["initlength"].as<int>();
 
-    // IMU频率
+    // IMU频率及周期
     imudatarate_ = config["imudatarate"].as<double>();
     imudatadt_   = 1.0 / imudatarate_;
 
@@ -97,14 +97,12 @@ GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr dra
 
     // 安装参数
     // Installation parameters
-    // 天线的杆臂
-    vecdata   = config["antlever"].as<std::vector<double>>();
+    vecdata   = config["antlever"].as<std::vector<double>>(); // 天线的杆臂
     antlever_ = Vector3d(vecdata.data());
-
     // 轮速的安装角和杆臂
-    vecdata    = config["odolever"].as<std::vector<double>>();
+    vecdata    = config["odolever"].as<std::vector<double>>(); // 轮速编码器的杆臂
     odolever_  = Vector3d(vecdata.data());
-    vecdata    = config["bodyangle"].as<std::vector<double>>();
+    vecdata    = config["bodyangle"].as<std::vector<double>>(); // 轮速编码器的安装角
     bodyangle_ = Vector3d(vecdata.data());
     bodyangle_ *= D2R;
 
@@ -470,8 +468,6 @@ void GVINS::runOptimization() {
                 // GNSS/INS optimization
                 bool isinitialized = gvinsInitializationOptimization();
 
-                //                LOGE << "here we are";
-
                 if (preintegrationlist_.size() >= static_cast<size_t>(initlength_)) {
                     // 完成GINS初始化, 进入视觉初始化阶段
                     // Enter the initialization of the visual system
@@ -652,9 +648,6 @@ bool GVINS::gvinsInitialization() {
         return false;
     }
 
-    LOGI << "DEBUG"
-         << "two gnss";
-
     // 缓存数据用于零速检测
     // Buffer for zero-velocity detection
     vector<IMU> imu_buff;
@@ -669,9 +662,6 @@ bool GVINS::gvinsInitialization() {
              << "NO ENOUGH IMU";
         return false;
     }
-
-    LOGI << "DEBUG"
-         << "imu buffer enough";
 
     // 零速检测估计陀螺零偏和横滚俯仰角
     // Obtain the gyroscope biases and roll and pitch angles
@@ -720,7 +710,6 @@ bool GVINS::gvinsInitialization() {
             LOGI << "Initialized heading from GNSS as " << initatt[2] * R2D << " deg";
         }
     } else {
-        LOGI << "DEBUG FALSE";
         return false;
     }
 

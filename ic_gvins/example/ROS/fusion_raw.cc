@@ -51,7 +51,6 @@ void FusionRaw::run() {
     }
 
     // 判断是否使用轮速
-
     isuseodo_ = config["odometer"]["isuseodo"].as<bool>();
 
     // GNSS outage configurations
@@ -123,7 +122,7 @@ void FusionRaw::run() {
     fclose(fp);
 
     // 读取轮速的标定参数
-    if (1) {
+    if (isuseodo_) {
         std::string str;
         // Step 1 读取标定参数文件
         if (encoder_resolution_ == 0) {
@@ -275,8 +274,7 @@ void FusionRaw::inputIMU() {
     imu_.dvel[2]   = imumsg.linear_acceleration.z * imu_.dt;
 
     static int count = 0;
-    //    if (isuseodo_)
-    if (1) {
+    if (isuseodo_) {
         wheel_pre_ = wheel_;
         wheel_     = loadWheelData();
         if (abs(wheel_.time - imu_.time) > 0.02) {
@@ -293,9 +291,7 @@ void FusionRaw::inputIMU() {
         return;
     }
 
-    if (1)
-    //    if (isuseodo_)
-    {
+    if (isuseodo_) {
         // IMU和轮速进行插值
         double vel_left =
             (wheel_.left_count - wheel_pre_.left_count) * encoder_left_diameter_ * M_PI / encoder_resolution_;
@@ -310,7 +306,6 @@ void FusionRaw::inputIMU() {
 
     // 原始数据调试
     {
-
         // imu_odovel调试
         //        LOGE << std::fixed << wheel_.left_count << " " << wheel_pre_.left_count << " " <<
         //        encoder_left_diameter_ << " "
@@ -438,7 +433,8 @@ void FusionRaw::inputGnss() {
             gvins_->addNewGnss(gnss_);
         }
     } else {
-        LOGE << "abandon gnss data---- too big cov";
+        LOGE << "abandon gnss data---- too big cov:"
+             << sqrt(gnss_.std[0] * gnss_.std[0] + gnss_.std[1] * gnss_.std[1] + gnss_.std[2] * gnss_.std[2]);
     }
 }
 
