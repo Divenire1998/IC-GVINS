@@ -470,7 +470,7 @@ void GVINS::runOptimization() {
                 // GNSS/INS optimization
                 bool isinitialized = gvinsInitializationOptimization();
 
-                LOGE << "here we are";
+                //                LOGE << "here we are";
 
                 if (preintegrationlist_.size() >= static_cast<size_t>(initlength_)) {
                     // 完成GINS初始化, 进入视觉初始化阶段

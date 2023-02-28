@@ -59,6 +59,13 @@ public:
      * @param logtofile 是否输出日志文件
      */
     static void initialization(char **argv, bool logtostderr = true, bool logtofile = true) {
+        // glog初始化
+        // argv[0]
+        //        google::InitGoogleLogging(argv[0]);
+        google::InitGoogleLogging("GVINS");
+
+        FLAGS_minloglevel = google::GLOG_INFO; // 设置最小处理日志的级别
+
         if (logtostderr & logtofile) {
             FLAGS_alsologtostderr = true;
         } else if (logtostderr) {
@@ -71,13 +78,8 @@ public:
             FLAGS_colorlogtostderr = true;
         }
 
-        // glog初始化
-        // argv[0]
-        //        google::InitGoogleLogging(argv[0]);
-        google::InitGoogleLogging("GVINS");
-
         // 这儿不能用glog因为输出路径在后面才设置
-        std::cout << argv[0] << std::endl;
+        //        std::cout << argv[0] << std::endl;
     }
 
     template <typename T, int Rows, int Cols>

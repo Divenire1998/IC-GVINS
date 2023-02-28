@@ -408,7 +408,7 @@ bool Tracking::trackMappoint() {
     reduceVector(pts2d_map_undis, status);
 
     if (pts2d_matched.empty()) {
-        LOGF << "Track previous with mappoint failed";
+        LOGE << "Track previous with mappoint failed";
         // 清除上一帧的跟踪
         if (is_use_visualization_) {
             drawer_->updateTrackedMapPoints({}, {}, {});

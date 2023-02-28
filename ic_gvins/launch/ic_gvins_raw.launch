@@ -1,13 +1,11 @@
 <launch>
 
     <!--   参数配置文件的路径   -->
-    <arg name="configfile" default="/home/divenire/0_myWorkSpace/Divenire_ws/workingProgram/icgvins_ws/src/IC-GVINS/config/kaist//gvins.yaml"/>
+    <arg name="configfile" default="/home/divenire/0_myWorkSpace/Divenire_ws/workingProgram/icgvins_ws/src/IC-GVINS/config/kaist/gvins.yaml"/>
 
     <!--    原始文件    -->
     <node name="ic_gvins_node" pkg="ic_gvins" type="fusion_raw" output="screen">
-        <param name="imu_topic" value="/imu0"/>
-        <param name="gnss_topic" value="/gnss0"/>
-        <param name="image_topic" value="/cam0"/>
+
         <param name="configfile" value="$(arg configfile)"/>
     </node>
 

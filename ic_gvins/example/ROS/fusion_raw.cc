@@ -186,6 +186,9 @@ void FusionRaw::loadImuData(sensor_msgs::Imu &imumsg) {
 
     std::getline(imufile, lineStr_imu);
 
+    if (imu_pre_.time == 0)
+        std::getline(imufile, lineStr_imu);
+
     if (imufile.eof()) {
         LOGE << "IMU DATA IS END OF IMU FILE!! " << std::endl;
         return;
@@ -271,12 +274,17 @@ void FusionRaw::inputIMU() {
     imu_.dvel[1]   = imumsg.linear_acceleration.y * imu_.dt;
     imu_.dvel[2]   = imumsg.linear_acceleration.z * imu_.dt;
 
+    static int count = 0;
     //    if (isuseodo_)
     if (1) {
         wheel_pre_ = wheel_;
         wheel_     = loadWheelData();
-        if (abs(wheel_.time - imu_.time) > 0.02)
-            LOGF << "IMU 和 轮速 丢数据了";
+        if (abs(wheel_.time - imu_.time) > 0.02) {
+            ++count;
+            LOGE << "IMU 和 轮速 丢数据了" << count;
+            std::string lineStr_imu;
+            std::getline(imufile, lineStr_imu);
+        }
     }
 
     // 第一帧IMU，直接跳过。
@@ -293,14 +301,31 @@ void FusionRaw::inputIMU() {
             (wheel_.left_count - wheel_pre_.left_count) * encoder_left_diameter_ * M_PI / encoder_resolution_;
         double vel_right =
             (wheel_.right_count - wheel_pre_.right_count) * encoder_right_diameter_ * M_PI / encoder_resolution_;
-        imu_.odovel = (vel_left + vel_right) * 0.5 * 100;
-        //        LOGE << std::fixed << vel_left << " " << imu_.odovel;
+        imu_.odovel = (vel_left + vel_right) * 0.5;
+
+        // 编码器循环处理
+        if (imu_.odovel > 1)
+            imu_.odovel = imu_pre_.odovel;
+    }
+
+    // 原始数据调试
+    {
+
+        // imu_odovel调试
         //        LOGE << std::fixed << wheel_.left_count << " " << wheel_pre_.left_count << " " <<
         //        encoder_left_diameter_ << " "
         //             << imu_.odovel;
+
+        // 调试时间对其
+        //    LOG_EVERY_N(INFO, 1) << "Raw data time in image recv image,imu,gnss,wheel " <<
+        //    Logging::doubleData(frame_->stamp())
+        //                         << ", " << Logging::doubleData(imu_.time) << ", " << Logging::doubleData(gnss_.time)
+        //                         <<
+        //                         ", "
+        //                         << Logging::doubleData(wheel_.time);
     }
 
-    // 保存IMU数据到buffer中
+    // 保存IMU数据到buffer中 DEBUG
     imu_buffer_.push(imu_);
 
     //  通知gvins去处理IMU数据。
@@ -497,9 +522,11 @@ void FusionRaw::inputImage(size_t index) {
     }
 
     // 输出对应
-    LOG_EVERY_N(INFO, 20) << "Raw data time in image recv image,imu,gnss,wheel " << Logging::doubleData(frame_->stamp())
-                          << ", " << Logging::doubleData(imu_.time) << ", " << Logging::doubleData(gnss_.time) << ", "
-                          << Logging::doubleData(wheel_.time);
+    //    LOG_EVERY_N(INFO, 20) << "Raw data time in image recv image,imu,gnss,wheel " <<
+    //    Logging::doubleData(frame_->stamp())
+    //                          << ", " << Logging::doubleData(imu_.time) << ", " << Logging::doubleData(gnss_.time) <<
+    //                          ", "
+    //                          << Logging::doubleData(wheel_.time);
 }
 
 /**
