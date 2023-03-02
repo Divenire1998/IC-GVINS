@@ -48,8 +48,9 @@ class MapPoint {
 public:
     typedef std::shared_ptr<MapPoint> Ptr;
 
+    // TODO
     static constexpr double DEFAULT_DEPTH  = 10.0;
-    static constexpr double NEAREST_DEPTH  = 1;   // 最近可用路标点深度
+    static constexpr double NEAREST_DEPTH  = 0.8; // 最近可用路标点深度
     static constexpr double FARTHEST_DEPTH = 200; // 最远可用路标点深度
 
     MapPoint() = delete;

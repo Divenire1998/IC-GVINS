@@ -118,7 +118,7 @@ GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr dra
 
     // IMU 配置文件
     integration_config_.iswithearth = config["iswithearth"].as<bool>(); // 是否考虑地球自转
-    integration_config_.iswithscale = false;
+    integration_config_.iswithscale = false;                            // IMU 尺度标定，暂不考虑
     integration_config_.gravity     = {0, 0, integration_parameters_->gravity};
 
     // 轮速相关参数
@@ -569,6 +569,7 @@ void GVINS::runTracking() {
                     ins_mutex_.unlock();
                     frame_buffer_mutex_.unlock();
 
+                    // 休眠10ms ---100Hz
                     usleep(1000);
                     continue;
                 }

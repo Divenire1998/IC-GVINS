@@ -1,7 +1,7 @@
 <launch>
 
 <!--   参数配置文件的路径   -->
-    <arg name="configfile" default=""/>
+    <arg name="configfile" default="/home/divenire/0_myWorkSpace/Divenire_ws/workingProgram/icgvins_ws/src/IC-GVINS/config/kaist/gvins.yaml"/>
 
     <node name="ic_gvins_node" pkg="ic_gvins" type="ic_gvins_ros" output="screen">
         <param name="imu_topic" value="/imu0"/>

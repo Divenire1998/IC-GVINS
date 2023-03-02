@@ -143,7 +143,6 @@ bool Tracking::preprocessing(Frame::Ptr frame) {
 
 TrackState Tracking::track(Frame::Ptr frame) {
     // Tracking
-
     timecost_.restart();
 
     TrackState track_state = TRACK_PASSED;
@@ -573,6 +572,11 @@ bool Tracking::trackReferenceFrame() {
     return !pts2d_new_.empty();
 }
 
+/**
+ * 网格化提取特征点
+ * @param frame
+ * @param ismask
+ */
 void Tracking::featuresDetection(Frame::Ptr &frame, bool ismask) {
 
     // 特征点足够则无需提取

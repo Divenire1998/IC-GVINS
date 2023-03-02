@@ -63,7 +63,14 @@ size_t MISC::getInsWindowIndex(const std::deque<std::pair<IMU, IntegrationState>
 
     return index;
 }
-
+/**
+ * 根据时间戳以及外参，内插出图像的位姿
+ * @param window
+ * @param pose_b_c
+ * @param time
+ * @param pose
+ * @return
+ */
 bool MISC::getCameraPoseFromInsWindow(const std::deque<std::pair<IMU, IntegrationState>> &window, const Pose &pose_b_c,
                                       double time, Pose &pose) {
     // 位置内插
@@ -157,6 +164,8 @@ void MISC::insMechanization(const IntegrationConfiguration &config, const IMU &i
     imu_cur2.dvel   = imu_cur.dvel - imu_cur.dt * state.ba;
     imu_pre2.dtheta = imu_pre.dtheta - imu_pre.dt * state.bg;
     imu_pre2.dvel   = imu_pre.dvel - imu_pre.dt * state.ba;
+
+    // TODO 轮速不需要补偿吗？
 
     if (config.iswithscale) {
         for (int k = 0; k < 3; k++) {
@@ -363,6 +372,14 @@ bool MISC::getImuSeriesFromTo(const std::deque<std::pair<IMU, IntegrationState>>
     return true;
 }
 
+/**
+ * 零速检测
+ * @param imu_buffer
+ * @param imudatarate
+ * @param average
+ * @return
+ */
+// TODO 使用轮速数据辅助检测
 bool MISC::detectZeroVelocity(const vector<IMU> &imu_buffer, double imudatarate, vector<double> &average) {
 
     auto size          = static_cast<double>(imu_buffer.size());
