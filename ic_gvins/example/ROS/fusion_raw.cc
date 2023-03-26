@@ -149,6 +149,8 @@ void FusionRaw::run() {
         }
     }
 
+    LOGI<<"read seq path done";
+
     double imagePeriod = 1 / image_freq_;
     // 对图像进行遍历
     for (size_t i = 0; i < vTimestamps.size(); ++i) {
@@ -172,6 +174,7 @@ void FusionRaw::run() {
             inputGnss();
         }
 
+        // TODO need to modify ensure real time performace
         usleep(50000);
     }
 }
@@ -260,6 +263,8 @@ void FusionRaw::inputIMU() {
     double weeksec;
     int week;
     GpsTime::unix2gps(unixsecond, week, weeksec);
+
+    gvins_->week_time = week;
 
     imu_.time = weeksec;
     // delta time

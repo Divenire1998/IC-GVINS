@@ -11,7 +11,7 @@
 
 #workstation
 # 数据集路径
-sequencepath: "/home/divenire/0_myWorkSpace/Datasets/complex_urban/urban38/urban38-pankyo" 
+sequencepath: "/home/divenire/0_myWorkSpace/Datasets/complex_urban/urban37/urban37-seoul" 
 # 结果输出路径
 # Output directory
 outputpath: "/home/divenire/0_myWorkSpace/Divenire_ws/UESTC_papers/chapter3/ic-viwo_ws/src/IC-GVINS/results" 

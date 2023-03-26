@@ -205,6 +205,8 @@ GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr dra
  */
 bool GVINS::addNewImu(const IMU &imu) {
 
+    integration_config_.week_time = this->week_time;
+
     // 尝试获取imu数据锁
     if (imu_buffer_mutex_.try_lock()) {
 

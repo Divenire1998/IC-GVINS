@@ -8,7 +8,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-stat = np.loadtxt('/home/divenire/0_myWorkSpace/Divenire_ws/workingProgram/icgvins_ws/src/IC-GVINS/results/T20230226231647/statistics.txt')
+stat = np.loadtxt('/home/divenire/0_myWorkSpace/Divenire_ws/UESTC_papers/chapter3/ic-viwo_ws/src/IC-GVINS/results/T20230326214622/statistics.txt')
 
 stamp = stat[:, 0]
 
