@@ -83,16 +83,24 @@ Eigen::MatrixXd PreintegrationOdo::residualJacobianPose0(const IntegrationState 
     Eigen::Map<Eigen::Matrix<double, NUM_STATE, NUM_POSE, Eigen::RowMajor>> jaco(jacobian);
     jaco.setZero();
 
+    // 位置预积分对k-1时刻位置的雅克比
     jaco.block(0, 0, 3, 3) = -state0.q.inverse().toRotationMatrix();
+    // 位置预积分对k-1时刻姿态的雅克比
     jaco.block(0, 3, 3, 3) =
         Rotation::skewSymmetric(state0.q.inverse() * (state1.p - state0.p - state0.v * delta_time_ -
                                                       0.5 * gravity_ * delta_time_ * delta_time_));
+    // 速度预积分对k-1时刻姿态的雅克比
     jaco.block(3, 3, 3, 3) =
         Rotation::skewSymmetric(state0.q.inverse() * (state1.v - state0.v - gravity_ * delta_time_));
+
+    // 姿态预积分对k-1时刻姿态的雅克比
     jaco.block(6, 3, 3, 3) =
         -(Rotation::quaternionleft(state1.q.inverse() * state0.q) * Rotation::quaternionright(corrected_q_))
              .bottomRightCorner<3, 3>();
+
+    // 轮速预积分对k-1时刻位置的雅克比
     jaco.block(15, 0, 3, 3) = -state0.q.inverse().toRotationMatrix();
+    // 轮速预积分对k-1时刻姿态的雅克比
     jaco.block(15, 3, 3, 3) = Rotation::skewSymmetric(state0.q.inverse() * (state1.p - state0.p));
 
     jaco = sqrt_information_ * jaco;
@@ -107,6 +115,8 @@ Eigen::MatrixXd PreintegrationOdo::residualJacobianPose1(const IntegrationState 
     jaco.block(0, 0, 3, 3) = state0.q.inverse().toRotationMatrix();
     jaco.block(6, 3, 3, 3) =
         Rotation::quaternionleft(corrected_q_.inverse() * state0.q.inverse() * state1.q).bottomRightCorner<3, 3>();
+
+    // 轮速预积分对k时刻位置的雅克比
     jaco.block(15, 0, 3, 3) = state0.q.inverse().toRotationMatrix();
 
     jaco = sqrt_information_ * jaco;
@@ -126,19 +136,28 @@ Eigen::MatrixXd PreintegrationOdo::residualJacobianMix0(const IntegrationState &
     Vector3d ds_dsodo = jacobian_.block<3, 1>(15, 18);
     Matrix3d ds_dbg   = jacobian_.block<3, 3>(15, 9);
 
+    // 位置预积分为k-1时刻 速度、陀螺零偏、加速度计零偏的雅克比
     jaco.block(0, 0, 3, 3) = -state0.q.inverse().toRotationMatrix() * delta_time_;
     jaco.block(0, 3, 3, 3) = -dp_dbg;
     jaco.block(0, 6, 3, 3) = -dp_dba;
+
+    // 速度预积分对k-1时刻 速度、陀螺零偏、加速度计零偏的雅克比
     jaco.block(3, 0, 3, 3) = -state0.q.inverse().toRotationMatrix();
     jaco.block(3, 3, 3, 3) = -dv_dbg;
     jaco.block(3, 6, 3, 3) = -dv_dba;
+
+    // 姿态预积分对陀螺零偏的雅克比
     jaco.block(6, 3, 3, 3) =
         -Rotation::quaternionleft(state1.q.inverse() * state0.q * delta_state_.q).bottomRightCorner<3, 3>() * dq_dbg;
+    //
     jaco.block(9, 3, 3, 3)  = -Eigen::Matrix3d::Identity();
     jaco.block(12, 6, 3, 3) = -Eigen::Matrix3d::Identity();
+
+    // 轮速预积分对陀螺零偏的雅克比 和 对比例因子的雅克比
     jaco.block(15, 3, 3, 3) = -ds_dbg;
     jaco.block(15, 9, 3, 1) = -ds_dsodo;
-    jaco(18, 9)             = -1.0;
+    // 比例因子对比例因子的雅克比
+    jaco(18, 9) = -1.0;
 
     jaco = sqrt_information_ * jaco;
     return jaco;
