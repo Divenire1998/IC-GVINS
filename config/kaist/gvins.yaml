@@ -1,13 +1,25 @@
 # IC-GVINS多源融合定位算法配置文件
 
+
+# ------ laptop
+# # 数据集路径
+# sequencepath: "/run/timeshift/backup/Datasets/complex_urban/urban38/urban38-pankyo" #laptop
+# # 结果输出路径
+# # Output directory
+# outputpath: "/home/divenire/0_myWorkSpace/Divenire_ws/workingProgram/icgvins_ws/src/IC-GVINS/results" #laptop
+
+
+#workstation
 # 数据集路径
-sequencepath: "/run/timeshift/backup/Datasets/complex_urban/urban38/urban38-pankyo"
+sequencepath: "/home/divenire/0_myWorkSpace/Datasets/complex_urban/urban38/urban38-pankyo" 
 # 结果输出路径
 # Output directory
-outputpath: "/home/divenire/0_myWorkSpace/Divenire_ws/workingProgram/icgvins_ws/src/IC-GVINS/results"
+outputpath: "/home/divenire/0_myWorkSpace/Divenire_ws/UESTC_papers/chapter3/ic-viwo_ws/src/IC-GVINS/results" 
+
+
+
+
 is_make_outputdir: true
-
-
 # 时间信息, s
 # Time length for GNSS/INS intialization
 initlength: 1
@@ -49,7 +61,8 @@ imumodel:
 
 # GNSS中断配置
 # GNSS outage configurations, the GNSS will not be used after the gnssoutagetime 
-isusegnssoutage: false
+#true  not use gnss data
+isusegnssoutage: true  
 gnssoutagetime: 364461.5
 
 # 固定阈值GNSS抗差
