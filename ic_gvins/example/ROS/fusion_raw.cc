@@ -506,6 +506,9 @@ void FusionRaw::inputImage(size_t index) {
     // 创建图像帧
     frame_ = Frame::createFrame(weeksec, image);
 
+    frame_->week_time = week;
+
+
     // Add new Image to GVINS
     frame_buffer_.push(frame_);
     while (!frame_buffer_.empty()) {

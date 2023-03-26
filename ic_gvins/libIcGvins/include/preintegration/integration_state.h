@@ -103,6 +103,9 @@ typedef struct IntegrationConfiguration {
     Vector3d origin; // 站心原点
     Vector3d gravity;
     Vector3d iewn;
+
+    //TODO
+    double week_time;
 } IntegrationConfiguration;
 
 #endif // INTEGRATION_DEFINE_H

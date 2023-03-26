@@ -26,7 +26,7 @@
 #include "common/earth.h"
 #include "common/logging.h"
 #include "common/rotation.h"
-
+#include "common/gpstime.h"
 size_t MISC::getInsWindowIndex(const std::deque<std::pair<IMU, IntegrationState>> &window, double time) {
     // 返回时间大于输入的第一个索引
 
@@ -445,7 +445,10 @@ void MISC::writeNavResult(const IntegrationConfiguration &config, const Integrat
     // 保存结果
     vector<double> result;
 
-    double time  = state.time;
+    // TODO use unix time or gps time to save traj
+//    GpsTime::unix2gps(unixsecond, week, weeksec);
+    double time;
+    GpsTime::gps2unix(config.week_time,state.time,time);
     Pose global  = Earth::local2global(config.origin, Pose{state.q.toRotationMatrix(), state.p});
     Vector3d pos = global.t;
     pos.segment(0, 2) *= R2D;
