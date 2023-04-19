@@ -301,8 +301,8 @@ void PreintegrationEarthOdo::resetState(const IntegrationState &state) {
 }
 
 void PreintegrationEarthOdo::updateJacobianAndCovariance(const IMU &imu_pre, const IMU &imu_cur) {
-    // dp, dv, dq, dbg, dba
 
+    // dp, dv, dq, dbg, dba
     Eigen::MatrixXd phi = Eigen::MatrixXd::Zero(NUM_STATE, NUM_STATE);
 
     double dt = imu_cur.dt;
@@ -327,7 +327,7 @@ void PreintegrationEarthOdo::updateJacobianAndCovariance(const IMU &imu_pre, con
     Vector3d stheta = cvb_ * dsodo * (1 + delta_state_.sodo) - imu_cur.dtheta.cross(lodo_);
 
     phi.block<3, 3>(15, 6)  = cbb0 * Rotation::skewSymmetric(stheta);
-    phi.block<3, 3>(15, 9)  = -cbb0 * Rotation::skewSymmetric(lodo_) * dt;
+    phi.block<3, 3>(15, 9)  = cbb0 * Rotation::skewSymmetric(lodo_) * dt;
     phi.block<3, 3>(15, 15) = Matrix3d::Identity();
     phi.block<3, 1>(15, 18) = -cbb0 * cvb_ * dsodo;
     phi(18, 18)             = 1.0;
@@ -376,8 +376,8 @@ void PreintegrationEarthOdo::resetState(const IntegrationState &state, int num) 
 
 void PreintegrationEarthOdo::setNoiseMatrix() {
     noise_.setIdentity(NUM_NOISE, NUM_NOISE);
-    noise_.block<3, 3>(0, 0) *= parameters_->gyr_arw * parameters_->gyr_arw; // nw
-    noise_.block<3, 3>(3, 3) *= parameters_->acc_vrw * parameters_->acc_vrw; // na
+    noise_.block<3, 3>(0, 0) *= parameters_->gyr_arw * parameters_->gyr_arw;                // nw
+    noise_.block<3, 3>(3, 3) *= parameters_->acc_vrw * parameters_->acc_vrw;                // na
     noise_.block<3, 3>(6, 6) *=
         2 * parameters_->gyr_bias_std * parameters_->gyr_bias_std / parameters_->corr_time; // nbg
     noise_.block<3, 3>(9, 9) *=

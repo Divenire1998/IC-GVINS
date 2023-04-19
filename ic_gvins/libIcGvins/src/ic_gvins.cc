@@ -100,7 +100,7 @@ GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr dra
     vecdata   = config["antlever"].as<std::vector<double>>(); // 天线的杆臂
     antlever_ = Vector3d(vecdata.data());
     // 轮速的安装角和杆臂
-    vecdata    = config["odolever"].as<std::vector<double>>(); // 轮速编码器的杆臂
+    vecdata    = config["odolever"].as<std::vector<double>>();  // 轮速编码器的杆臂
     odolever_  = Vector3d(vecdata.data());
     vecdata    = config["bodyangle"].as<std::vector<double>>(); // 轮速编码器的安装角
     bodyangle_ = Vector3d(vecdata.data());
@@ -1057,6 +1057,10 @@ void GVINS::parametersStatistic() {
         }
         double avg_error = std::accumulate(errors.begin(), errors.end(), 0.0) / static_cast<double>(errors.size());
         reprojection_errors.emplace_back(avg_error);
+    }
+
+    if (reprojection_errors.empty()) {
+        reprojection_errors.push_back(0);
     }
 
     double min_error = *std::min_element(reprojection_errors.begin(), reprojection_errors.end());
