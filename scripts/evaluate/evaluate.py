@@ -24,7 +24,9 @@ MAX_TIME_SYNC_DIFF = 0.005
 # 相对误差统计间隔 (m)
 # Relative error delta in meter
 # RPE_DELTA = [10, 20, 50]
-RPE_DELTA = [50, 100, 150, 200, 250, 300]
+#RPE_DELTA = [50, 100, 150, 200, 250, 300]
+
+RPE_DELTA = [1000]
 
 # 使用所有匹配对进行相对位姿统计
 # use all pose pairs for RPE
@@ -273,13 +275,15 @@ def trajectory_align(ref, est):
     traj_est_aligned = copy.deepcopy(traj_est)
     traj_est_aligned.align(traj_ref, correct_scale=False, correct_only_scale=False)
 
+    
+
     return traj_ref, traj_est_aligned
 
 
 def evaluate(ref, est, outdir):
     # 设置evo日志输出
     # evo logging configuration
-    log.configure_logging(verbose=False, debug=False, silent=False)
+    log.configure_logging(verbose=True, debug=False, silent=False)
 
     # 轨迹时间和位置对齐
     # time and tranjectory alignment
