@@ -22,6 +22,7 @@
 
 #include "preintegration/preintegration_earth_odo.h"
 #include "common/earth.h"
+#include "iostream"
 
 PreintegrationEarthOdo::PreintegrationEarthOdo(std::shared_ptr<IntegrationParameters> parameters, const IMU &imu0,
                                                IntegrationState state)

@@ -18,7 +18,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: Fixed Points
+    SyncSource: Tracking
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -213,16 +213,16 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2025.5682373046875
+      Distance: 3654.961669921875
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 340.80120849609375
-        Y: -134.69773864746094
-        Z: -4.417516708374023
+        X: 731.1666870117188
+        Y: 1320.3563232421875
+        Z: 3.5224437713623047
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
@@ -249,5 +249,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1386
-  X: 829
-  Y: 253
+  X: 554
+  Y: 281

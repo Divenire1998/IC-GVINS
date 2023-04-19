@@ -1,0 +1,42 @@
+odometer:
+  srw: 1
+  std: [0.1, 0.1, 0.1]
+  isuseodo: true
+is_make_outputdir: true
+initlength: 60
+outputpath: !<!> /home/divenire/0_myWorkSpace/Divenire_ws/UESTC_papers/chapter3/ic-viwo_ws/src/IC-GVINS/results
+imudatarate: 100
+odolever: [-0.07, 0, -1.7]
+wheeldatarate: 100
+sequencepath: !<!> /home/divenire/0_myWorkSpace/Datasets/complex_urban/urban36/urban36-seoul
+imagedatarate: 10
+gnssdatarate: 1
+iswithearth: true
+antlever: [-0.37, 0.008, 0.353]
+gnssoutagetime: 373030
+bodyangle: [0, 0, 0]
+isusegnssoutage: true
+imumodel:
+  arw: 0.2
+  gbstd: 10.0
+  vrw: 0.5
+  abstd: 150.0
+  corrtime: 1.0
+gnssthreshold: 3
+is_use_visualization: true
+track_check_histogram: false
+track_min_parallax: 15
+track_max_interval: 0.5
+track_max_features: 250
+reprojection_error_std: 1.5
+optimize_windows_size: 15
+optimize_num_iterations: 20
+optimize_estimate_extrinsic: false
+optimize_estimate_td: true
+cam0:
+  distortion: [-5.6143027800000002e-02, 1.3952563200000001e-01, -1.2155906999999999e-03, -9.7281389999999998e-04, -8.0878168799999997e-02]
+  intrinsic: [8.1690378992770002e+02, 8.1156803828490001e+02, 6.0850726281690004e+02, 2.6347599764440002e+02, 5.0510166700000003e-01]
+  q_b_c: [0.49452151768306785, 0.4977818081111032, 0.5055845943507494, 0.5020417891144757]
+  t_b_c: [1.71239, -0.247401, 0.11589]
+  resolution: [1280, 560]
+  td_b_c: 0.0

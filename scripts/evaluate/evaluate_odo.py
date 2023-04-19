@@ -13,8 +13,8 @@ import evaluate
 from pathlib import Path
 
 if __name__ == '__main__':
-    truth_file = '/run/timeshift/backup/Datasets/WHU_IC_GVINS/kaist/urban38/truth_traj.csv'
-    odo_file = '/home/divenire/0_myWorkSpace/Divenire_ws/workingProgram/icgvins_ws/src/IC-GVINS/results/T20230223192711/trajectory.csv'
+    truth_file = '/home/divenire/0_myWorkSpace/Divenire_ws/UESTC_papers/results/rpg_trajectory_evaluation/c3_result/kaist/laptop/OpenVINS/laptop_OpenVINS_urban_39/stamped_traj_estimate.txt'
+    odo_file = '/home/divenire/0_myWorkSpace/Divenire_ws/UESTC_papers/results/rpg_trajectory_evaluation/c3_result/kaist/laptop/OpenVINS/laptop_OpenVINS_urban_39/stamped_traj_estimate.txt'
 
     truth_traj = np.loadtxt(truth_file)
 

@@ -821,7 +821,8 @@ bool Tracking::isGoodToTrack(const cv::Point2f &pp, const Pose &pose, const Vect
 
     // 深度检查
     if (!isGoodDepth(pc[2], depth_scale)) {
-        return false;
+//        TODO this may influnce acc
+//        return false;
     }
 
     // 重投影误差检查
