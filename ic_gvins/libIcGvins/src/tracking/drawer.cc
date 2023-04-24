@@ -22,6 +22,12 @@
 
 #include "tracking/drawer.h"
 
+/**
+ * @brief brife test
+ * this is a long test
+ * @param raw raw element
+ * @param drawed element
+ */
 void Drawer::drawTrackingImage(const Mat &raw, Mat &drawed) {
 
     int rectangle_width  = 21;

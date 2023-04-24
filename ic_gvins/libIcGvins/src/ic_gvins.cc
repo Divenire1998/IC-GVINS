@@ -44,12 +44,16 @@
 #include <ceres/ceres.h>
 #include <yaml-cpp/yaml.h>
 
+
 /**
- *
- * @param configfile
- * @param outputpath
- * @param drawer
+ * @brief Construct a new GVINS::GVINS object
+ * 
+ * @param configfile 
+ * @param outputpath 
+ * @param drawer 
  */
+
+
 GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr drawer) {
     gvinsstate_ = GVINS_ERROR;
 
@@ -203,6 +207,7 @@ GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr dra
  * @param imu
  * @return 是否成功获取到IMU数据锁，将数据存入buffer内
  */
+
 bool GVINS::addNewImu(const IMU &imu) {
 
     integration_config_.week_time = this->week_time;
@@ -280,7 +285,7 @@ bool GVINS::addNewFrame(const Frame::Ptr &frame) {
         if (frame_buffer_mutex_.try_lock()) {
             frame_buffer_.push(frame);
 
-            //TODO optimize the week time get way
+            // TODO optimize the week time get way
             integration_config_.week_time = frame->week_time;
             tracking_sem_.notify_one();
 
@@ -291,6 +296,7 @@ bool GVINS::addNewFrame(const Frame::Ptr &frame) {
     }
     return true;
 }
+
 
 void GVINS::runFusion() {
     IMU imu_pre, imu_cur;
