@@ -1,7 +1,7 @@
 <launch>
 
     <!--   参数配置文件的路径   -->
-    <arg name="configfile" default="$(find ic_gvins)/../config/kaist/kaist_18-37.yaml"/>
+    <arg name="configfile" default="$(find ic_gvins)/../config/kaist/kaist_38-39.yaml"/>
 
     <!--    原始文件    -->
     <node name="ic_gvins_node" pkg="ic_gvins" type="fusion_raw" output="screen">

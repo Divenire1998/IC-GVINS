@@ -44,16 +44,13 @@
 #include <ceres/ceres.h>
 #include <yaml-cpp/yaml.h>
 
-
 /**
  * @brief Construct a new GVINS::GVINS object
- * 
- * @param configfile 
- * @param outputpath 
- * @param drawer 
+ *
+ * @param configfile
+ * @param outputpath
+ * @param drawer
  */
-
-
 GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr drawer) {
     gvinsstate_ = GVINS_ERROR;
 
@@ -296,7 +293,6 @@ bool GVINS::addNewFrame(const Frame::Ptr &frame) {
     }
     return true;
 }
-
 
 void GVINS::runFusion() {
     IMU imu_pre, imu_cur;
