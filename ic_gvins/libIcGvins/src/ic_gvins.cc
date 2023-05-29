@@ -45,6 +45,7 @@
 #include <yaml-cpp/yaml.h>
 
 /**
+ * @brief Construct a new GVINS::GVINS object
  *
  * @param configfile
  * @param outputpath
@@ -73,6 +74,7 @@ GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr dra
     imuerrfilesaver_ = FileSaver::create(outputpath + "/IMU_ERR.bin", 7, FileSaver::BINARY);
     trajfilesaver_   = FileSaver::create(outputpath + "/trajectory.csv", 8);
 
+    //
     // 检查一下文件是否成功创建了。
     if (!navfilesaver_->isOpen() || !ptsfilesaver_->isOpen() || !statfilesaver_->isOpen() || !extfilesaver_->isOpen()) {
         LOGE << "Failed to open data file";
@@ -202,7 +204,10 @@ GVINS::GVINS(const string &configfile, const string &outputpath, Drawer::Ptr dra
  * @param imu
  * @return 是否成功获取到IMU数据锁，将数据存入buffer内
  */
+
 bool GVINS::addNewImu(const IMU &imu) {
+
+    integration_config_.week_time = this->week_time;
 
     // 尝试获取imu数据锁
     if (imu_buffer_mutex_.try_lock()) {
@@ -277,6 +282,8 @@ bool GVINS::addNewFrame(const Frame::Ptr &frame) {
         if (frame_buffer_mutex_.try_lock()) {
             frame_buffer_.push(frame);
 
+            // TODO optimize the week time get way
+            integration_config_.week_time = frame->week_time;
             tracking_sem_.notify_one();
 
             frame_buffer_mutex_.unlock();

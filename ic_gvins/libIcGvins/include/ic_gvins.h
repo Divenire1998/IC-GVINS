@@ -54,6 +54,10 @@ public:
         GVINS_TRACKING_LOST         = 5,
     };
 
+
+    // TODO record unix week time
+    int week_time;
+
     typedef std::shared_ptr<GVINS> Ptr;
     typedef std::unique_lock<std::mutex> Lock;
 

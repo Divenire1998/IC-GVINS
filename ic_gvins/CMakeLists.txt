@@ -14,6 +14,11 @@ endif ()
 # 编译选项
 add_compile_options(-fPIC)
 
+
+# abseil-cpp lib
+set(ABSL_PROPAGATE_CXX_STD true)
+add_subdirectory(thirdparty/abseil-cpp abseil-cpp)
+
 # ROS支持
 find_package(catkin REQUIRED COMPONENTS
         message_generation
@@ -29,9 +34,5 @@ include_directories(
 # Gvins lib
 add_subdirectory(libIcGvins)
 
-# ROS 接口调用
+# 接口调用Gvins lib
 add_subdirectory(example)
-
-# abseil-cpp lib
-set(ABSL_PROPAGATE_CXX_STD true)
-add_subdirectory(thirdparty/abseil-cpp abseil-cpp)

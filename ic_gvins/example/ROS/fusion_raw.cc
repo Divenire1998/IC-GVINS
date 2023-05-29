@@ -149,6 +149,8 @@ void FusionRaw::run() {
         }
     }
 
+    LOGI<<"read seq path done";
+
     double imagePeriod = 1 / image_freq_;
     // 对图像进行遍历
     for (size_t i = 0; i < vTimestamps.size(); ++i) {
@@ -172,7 +174,8 @@ void FusionRaw::run() {
             inputGnss();
         }
 
-        usleep(50000);
+        // TODO need to modify ensure real time performace
+        usleep(35000);
     }
 }
 
@@ -260,6 +263,8 @@ void FusionRaw::inputIMU() {
     double weeksec;
     int week;
     GpsTime::unix2gps(unixsecond, week, weeksec);
+
+    gvins_->week_time = week;
 
     imu_.time = weeksec;
     // delta time
@@ -409,6 +414,12 @@ void FusionRaw::inputGnss() {
     gnss_.std[1] = sqrt(gnssmsg.position_covariance[0]); // E
     gnss_.std[2] = sqrt(gnssmsg.position_covariance[8]); // D
 
+    if(firstgnsstime == 0)
+    {
+        firstgnsstime = gnss_.time;
+    }
+
+
     // 默认无有效航向
     gnss_.isyawvalid = false;
 
@@ -424,8 +435,10 @@ void FusionRaw::inputGnss() {
     if ((gnss_.std[0] < gnssthreshold_) && (gnss_.std[1] < gnssthreshold_) && (gnss_.std[2] < gnssthreshold_)) {
 
         // 仿真GNSS失锁
-        if (isusegnssoutage_ && (weeksec >= gnssoutagetime_)) {
+        // TODO give 10 seconds at least to init
+        if (isusegnssoutage_ &&(weeksec - firstgnsstime > 30.0)&& (weeksec >= gnssoutagetime_)) {
             isoutage = true;
+            LOG_FIRST_N(WARNING, 2) << "gnss is disabled!!!!!";
         }
 
         // add new GNSS to GVINS
@@ -505,6 +518,9 @@ void FusionRaw::inputImage(size_t index) {
 
     // 创建图像帧
     frame_ = Frame::createFrame(weeksec, image);
+
+    frame_->week_time = week;
+
 
     // Add new Image to GVINS
     frame_buffer_.push(frame_);

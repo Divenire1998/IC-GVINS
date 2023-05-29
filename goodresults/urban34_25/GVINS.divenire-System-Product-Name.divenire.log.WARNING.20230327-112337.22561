@@ -1,0 +1,157 @@
+Log file created at: 2023/03/27 11:23:37
+Running on machine: divenire-System-Product-Name
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W0327 11:23:37.835019 22595 misc.cc:232] Do INS mechanization with a long time 1.2023 s
+W0327 11:23:48.614125 22597 ic_gvins.cc:1759] Reintegration 31 preintegration
+W0327 11:23:48.706185 22597 ic_gvins.cc:1759] Reintegration 32 preintegration
+W0327 11:23:48.825495 22597 ic_gvins.cc:1759] Reintegration 34 preintegration
+W0327 11:23:48.945760 22597 ic_gvins.cc:1759] Reintegration 35 preintegration
+W0327 11:23:49.059973 22597 ic_gvins.cc:1759] Reintegration 37 preintegration
+W0327 11:23:49.343722 22597 ic_gvins.cc:1759] Reintegration 40 preintegration
+W0327 11:23:49.481364 22561 fusion_raw.cc:441] gnss is disabled!!!!!
+W0327 11:23:49.629498 22597 ic_gvins.cc:1759] Reintegration 43 preintegration
+W0327 11:23:49.854619 22561 fusion_raw.cc:441] gnss is disabled!!!!!
+E0327 11:24:34.450210 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:9.69459
+E0327 11:24:34.826457 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:9.6975
+E0327 11:24:35.203436 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:9.69938
+E0327 11:24:35.577993 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:9.70106
+E0327 11:24:35.957134 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:6.84306
+E0327 11:24:36.332576 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:6.76291
+E0327 11:24:36.711853 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:6.54489
+E0327 11:24:41.188597 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:6.67852
+E0327 11:24:41.602488 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.90908
+E0327 11:24:41.979408 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.94303
+E0327 11:24:42.351312 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.91826
+E0327 11:24:42.726070 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.91217
+E0327 11:24:43.100739 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.17953
+E0327 11:25:16.026309 22596 tracking.cc:410] Track previous with mappoint failed
+E0327 11:25:16.032985 22596 ic_gvins.cc:599] Tracking lost at 369276.011780
+E0327 11:25:16.365489 22596 tracking.cc:372] No feature with mappoint in previous frame
+E0327 11:25:16.374891 22596 ic_gvins.cc:599] Tracking lost at 369276.911467
+E0327 11:25:16.739919 22596 tracking.cc:410] Track previous with mappoint failed
+E0327 11:25:16.745961 22596 ic_gvins.cc:599] Tracking lost at 369277.911639
+E0327 11:25:17.194846 22596 tracking.cc:410] Track previous with mappoint failed
+E0327 11:25:17.201071 22596 ic_gvins.cc:599] Tracking lost at 369279.112231
+E0327 11:25:30.039434 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.91185
+E0327 11:25:30.417583 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.01471
+E0327 11:25:30.795557 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.96766
+E0327 11:25:31.170393 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.94233
+E0327 11:25:31.546197 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.26918
+E0327 11:25:31.926824 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.24412
+E0327 11:25:32.302657 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.34584
+E0327 11:25:32.680428 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.27731
+E0327 11:25:33.054694 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.24799
+E0327 11:25:33.430546 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:9.27192
+E0327 11:25:33.767784 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:9.25707
+E0327 11:25:34.142235 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:9.24317
+E0327 11:25:34.517500 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:9.97528
+E0327 11:25:34.894896 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:10.0156
+E0327 11:25:35.268669 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:6.61395
+E0327 11:25:35.645215 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:6.77455
+E0327 11:25:36.065333 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:6.86518
+E0327 11:25:36.402715 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.17861
+E0327 11:25:36.781477 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.15052
+E0327 11:25:37.156714 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.14749
+E0327 11:25:37.535022 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.13809
+E0327 11:25:37.918570 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.13594
+E0327 11:25:38.296849 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.1414
+E0327 11:25:38.675839 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.15653
+E0327 11:25:39.092284 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.17432
+E0327 11:25:39.468816 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.1855
+E0327 11:25:39.809247 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.19821
+E0327 11:25:40.187800 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.19821
+E0327 11:25:40.564487 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.20027
+E0327 11:25:40.939023 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.20241
+E0327 11:25:41.318286 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.206
+E0327 11:25:41.696796 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.21298
+E0327 11:25:42.076148 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.21843
+E0327 11:25:42.453246 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.23078
+E0327 11:25:42.832317 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.24768
+E0327 11:25:43.207248 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.25709
+E0327 11:25:43.586733 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.25709
+E0327 11:25:43.966142 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.25923
+E0327 11:25:44.346551 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.2637
+E0327 11:25:44.722697 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.26827
+E0327 11:25:45.099109 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.28392
+E0327 11:25:45.475593 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.2909
+E0327 11:25:45.854087 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.29421
+E0327 11:25:46.231428 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.29421
+E0327 11:25:46.607098 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.29538
+E0327 11:25:46.983590 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.27847
+E0327 11:25:47.362848 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:6.00585
+E0327 11:25:47.747269 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:6.00778
+E0327 11:25:48.126773 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.99948
+E0327 11:25:48.502499 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.99443
+E0327 11:25:48.883183 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.98779
+E0327 11:25:49.294483 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.9889
+E0327 11:25:49.633407 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.24109
+E0327 11:25:50.010071 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.2079
+E0327 11:25:50.383282 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.19217
+E0327 11:25:50.758255 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.18911
+E0327 11:25:51.142385 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.20997
+E0327 11:25:51.519055 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.23108
+E0327 11:25:51.891278 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.22411
+E0327 11:25:52.271155 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.21444
+E0327 11:25:52.651019 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.20417
+E0327 11:25:53.026990 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.67261
+E0327 11:25:53.400838 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.67261
+E0327 11:25:53.816392 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.67354
+E0327 11:25:54.157548 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.67448
+E0327 11:25:54.576180 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.67448
+E0327 11:25:54.953596 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.67564
+E0327 11:25:55.293093 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.841
+E0327 11:25:55.667658 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.8419
+E0327 11:25:56.047236 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.84279
+E0327 11:25:56.459736 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.84315
+E0327 11:25:56.795975 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.84405
+E0327 11:25:57.170651 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.8452
+E0327 11:25:57.546780 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.84556
+E0327 11:25:57.919062 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.84582
+E0327 11:25:58.297408 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.84672
+E0327 11:25:58.712347 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.84798
+E0327 11:25:59.086069 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.84823
+E0327 11:25:59.424397 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.84913
+E0327 11:25:59.799469 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.85002
+E0327 11:26:00.210407 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.85128
+E0327 11:26:00.587693 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:6.73379
+E0327 11:26:00.922478 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:6.73284
+E0327 11:26:01.295125 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:6.71778
+E0327 11:26:01.674019 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:7.07389
+E0327 11:26:02.047709 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:7.0916
+E0327 11:26:02.421329 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:7.09988
+E0327 11:26:02.797573 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.93613
+E0327 11:26:03.172008 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.90867
+E0327 11:26:03.546399 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.89781
+E0327 11:26:03.926558 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.89872
+E0327 11:26:04.300175 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.89781
+E0327 11:26:04.673154 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.90204
+E0327 11:26:05.047902 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.8999
+E0327 11:26:05.420645 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.90082
+E0327 11:26:25.431519 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.17099
+E0327 11:26:25.809454 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.09197
+E0327 11:26:26.190521 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.0485
+E0327 11:26:26.569778 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.55555
+E0327 11:26:27.318439 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:3.81684
+E0327 11:26:27.736956 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:3.83641
+E0327 11:26:28.494555 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.38651
+E0327 11:26:28.831965 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.3886
+E0327 11:26:29.208333 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.37865
+E0327 11:26:29.585438 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:4.39023
+E0327 11:26:44.010713 22596 tracking.cc:410] Track previous with mappoint failed
+E0327 11:26:47.812355 22596 tracking.cc:372] No feature with mappoint in previous frame
+E0327 11:26:47.820809 22596 ic_gvins.cc:599] Tracking lost at 369519.414879
+E0327 11:26:58.255157 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:11.749
+E0327 11:26:58.629143 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:11.749
+E0327 11:26:59.005081 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:13.0644
+E0327 11:26:59.382124 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:7.58686
+E0327 11:26:59.758765 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:7.91984
+E0327 11:27:00.135929 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:7.82737
+E0327 11:27:00.510901 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:7.79599
+E0327 11:27:00.887495 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:7.76747
+E0327 11:27:01.262158 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.55164
+E0327 11:27:01.636668 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.48918
+E0327 11:27:02.011571 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.45116
+E0327 11:27:02.385763 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.42728
+E0327 11:27:02.761937 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.41189
+E0327 11:27:03.134930 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.08411
+E0327 11:27:03.510756 22561 fusion_raw.cc:449] abandon gnss data---- too big cov:5.05786

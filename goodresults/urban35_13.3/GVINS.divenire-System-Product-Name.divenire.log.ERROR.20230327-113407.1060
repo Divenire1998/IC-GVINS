@@ -1,0 +1,4 @@
+Log file created at: 2023/03/27 11:34:07
+Running on machine: divenire-System-Product-Name
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0327 11:34:07.422451  1060 fusion_raw.cc:449] abandon gnss data---- too big cov:4.00623

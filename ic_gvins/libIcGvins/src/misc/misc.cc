@@ -24,6 +24,7 @@
 
 #include "common/angle.h"
 #include "common/earth.h"
+#include "common/gpstime.h"
 #include "common/logging.h"
 #include "common/rotation.h"
 
@@ -234,10 +235,10 @@ void MISC::redoInsMechanization(const IntegrationConfiguration &config, const In
 
     IMU imu0 = ins_windows[index - 1].first;
     IMU imu1 = ins_windows[index].first;
-    IMU imu;
 
     int isneed = isNeedInterpolation(imu0, imu1, state.time);
     if (isneed == -1) {
+        // 前一时刻状态为状态量
         insMechanization(config, imu0, imu1, state);
         ins_windows[index].second = state;
     } else if (isneed == 1) {
@@ -246,20 +247,19 @@ void MISC::redoInsMechanization(const IntegrationConfiguration &config, const In
         ins_windows[index].second = state;
 
     } else if (isneed == 2) {
-        imuInterpolation(imu1, imu, imu1, state.time);
-        insMechanization(config, imu0, imu, state);
-        insMechanization(config, imu, imu1, state);
+        imuInterpolation(imu1, imu0, imu1, state.time);
+        insMechanization(config, imu0, imu1, state);
         ins_windows[index].second = state;
     }
     imu0 = imu1;
 
     // 仅更新IMU时间点的状态
     for (size_t k = index + 1; k < ins_windows.size(); k++) {
+        imu0 = imu1;
+
         imu1 = ins_windows[k].first;
         insMechanization(config, imu0, imu1, state);
         ins_windows[k].second = state;
-
-        imu0 = imu1;
     }
 
     // 移除过期的IMU历元
@@ -445,7 +445,10 @@ void MISC::writeNavResult(const IntegrationConfiguration &config, const Integrat
     // 保存结果
     vector<double> result;
 
-    double time  = state.time;
+    // TODO use unix time or gps time to save traj
+    //    GpsTime::unix2gps(unixsecond, week, weeksec);
+    double time;
+    GpsTime::gps2unix(config.week_time, state.time, time);
     Pose global  = Earth::local2global(config.origin, Pose{state.q.toRotationMatrix(), state.p});
     Vector3d pos = global.t;
     pos.segment(0, 2) *= R2D;

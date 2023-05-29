@@ -42,6 +42,9 @@ private:
     double imageTimeGps_ = 0;
     GNSS gnss_;
 
+    // TODO modify to more efficient
+    double firstgnsstime = 0.0;
+
     bool isuseodo_                 = false;
     int encoder_resolution_        = 0;
     double encoder_left_diameter_  = 0.0;

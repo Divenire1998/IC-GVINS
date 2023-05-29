@@ -48,6 +48,9 @@ public:
     Frame() = delete;
     Frame(ulong id, double stamp, Mat image);
 
+    //TODO modify
+    int week_time;
+
     static Frame::Ptr createFrame(double stamp, const Mat &image);
 
     void setKeyFrame(int state);

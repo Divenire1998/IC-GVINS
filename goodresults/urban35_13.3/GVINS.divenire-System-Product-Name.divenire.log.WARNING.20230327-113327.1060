@@ -1,0 +1,13 @@
+Log file created at: 2023/03/27 11:33:27
+Running on machine: divenire-System-Product-Name
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W0327 11:33:27.397694  1094 misc.cc:232] Do INS mechanization with a long time 1.20813 s
+W0327 11:33:38.251231  1095 tracking.cc:184] Reset initialization
+W0327 11:33:38.356741  1096 ic_gvins.cc:1759] Reintegration 31 preintegration
+W0327 11:33:38.457254  1096 ic_gvins.cc:1759] Reintegration 33 preintegration
+W0327 11:33:38.581887  1096 ic_gvins.cc:1759] Reintegration 36 preintegration
+W0327 11:33:38.717615  1096 ic_gvins.cc:1759] Reintegration 38 preintegration
+W0327 11:33:38.888022  1096 ic_gvins.cc:1759] Reintegration 41 preintegration
+W0327 11:33:41.172241  1060 fusion_raw.cc:441] gnss is disabled!!!!!
+W0327 11:33:41.550906  1060 fusion_raw.cc:441] gnss is disabled!!!!!
+E0327 11:34:07.422451  1060 fusion_raw.cc:449] abandon gnss data---- too big cov:4.00623

@@ -1,0 +1,17 @@
+Log file created at: 2023/03/27 11:57:28
+Running on machine: divenire-System-Product-Name
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0327 11:57:28.316476 18088 fusion_raw.cc:449] abandon gnss data---- too big cov:8.09221
+E0327 11:57:39.647614 18088 fusion_raw.cc:449] abandon gnss data---- too big cov:44.099
+E0327 11:57:40.025178 18088 fusion_raw.cc:449] abandon gnss data---- too big cov:44.099
+E0327 11:57:40.400350 18088 fusion_raw.cc:449] abandon gnss data---- too big cov:44.099
+E0327 11:57:40.777447 18088 fusion_raw.cc:449] abandon gnss data---- too big cov:44.099
+E0327 11:58:05.661594 18088 fusion_raw.cc:449] abandon gnss data---- too big cov:9.72701
+E0327 11:58:15.482671 18088 fusion_raw.cc:429] abandon gnss data---- cov = 0
+E0327 11:58:15.857177 18088 fusion_raw.cc:429] abandon gnss data---- cov = 0
+E0327 11:58:36.618716 18088 fusion_raw.cc:449] abandon gnss data---- too big cov:10.1618
+E0327 11:58:36.999142 18088 fusion_raw.cc:449] abandon gnss data---- too big cov:10.1618
+E0327 11:58:37.376330 18088 fusion_raw.cc:449] abandon gnss data---- too big cov:10.1618
+E0327 11:58:37.754711 18088 fusion_raw.cc:449] abandon gnss data---- too big cov:10.1618
+E0327 11:58:38.130460 18088 fusion_raw.cc:449] abandon gnss data---- too big cov:21.8262
+E0327 11:58:38.517505 18088 fusion_raw.cc:449] abandon gnss data---- too big cov:6.60354

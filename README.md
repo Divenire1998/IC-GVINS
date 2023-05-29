@@ -57,8 +57,9 @@ and [ROS Noetic installation instructions for Ubuntu 20.04](http://wiki.ros.org/
 We use Ceres Solver to solve the non-linear least squares problem in IC-GVINS. The supported version is **Ceres Solver
 2.0.0 or 2.1.0**. Please follow [Ceres installation instructions](http://ceres-solver.org/installation.html).
 
-The dependencies **Eigen (>=3.3.7)**, **TBB**, **glog (>=0.4.0)** are also used in IC-GVINS. You can install them as
-follows:
+
+The dependencies **Eigen (>=3.3.7)**, **TBB**, **glog (>=0.4.0)** are also used in IC-GVINS. You can install them as follows:
+
 
 ```shell
 sudo apt install libeigen3-dev libgoogle-glog-dev libtbb-dev
